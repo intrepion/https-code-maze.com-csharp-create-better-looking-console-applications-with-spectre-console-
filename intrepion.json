@@ -1,0 +1,158 @@
+{
+  "entities": [
+    {
+      "compositeKeys": [
+        {
+          "keys": [
+            {
+              "key": "NormalizedName"
+            }
+          ]
+        }
+      ],
+      "names": {
+        "entity": "Hostel",
+        "human": "Hostel",
+        "plural": "Hostels",
+        "table": "Hostels",
+        "url": "hostel"
+      },
+      "properties": [
+        {
+          "names": {
+            "human": "Name",
+            "property": "Name"
+          },
+          "normalized": true,
+          "required": true,
+          "type": "string"
+        },
+        {
+          "foreign": {
+            "display": [
+              {
+                "ordering": 1,
+                "property": "FirstName"
+              },
+              {
+                "ordering": 2,
+                "string": " "
+              },
+              {
+                "ordering": 3,
+                "property": "LastName"
+              }
+            ],
+            "entity": "Student"
+          },
+          "names": {
+            "human": "Students",
+            "property": "Students"
+          },
+          "type": "oneToMany"
+        }
+      ]
+    },
+    {
+      "compositeKeys": [
+        {
+          "keys": [
+            {
+              "key": "NormalizedFirstName"
+            }
+          ]
+        },
+        {
+          "keys": [
+            {
+              "key": "NormalizedLastName"
+            }
+          ]
+        }
+      ],
+      "names": {
+        "entity": "Student",
+        "human": "Student",
+        "plural": "Students",
+        "table": "Students",
+        "url": "student"
+      },
+      "properties": [
+        {
+          "names": {
+            "human": "Age",
+            "property": "Age"
+          },
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "foreign": {
+            "display": [
+              {
+                "ordering": 1,
+                "property": "UserName"
+              },
+              {
+                "ordering": 2,
+                "string": " - "
+              },
+              {
+                "ordering": 3,
+                "property": "Email"
+              }
+            ],
+            "entity": "ApplicationUser",
+            "property": "Student"
+          },
+          "names": {
+            "human": "Application User",
+            "property": "ApplicationUser"
+          },
+          "owner": true,
+          "type": "oneToOne"
+        },
+        {
+          "names": {
+            "human": "First Name",
+            "property": "FirstName"
+          },
+          "normalized": true,
+          "required": true,
+          "type": "string"
+        },
+        {
+          "foreign": {
+            "display": [
+              {
+                "ordering": 1,
+                "property": "Name"
+              }
+            ],
+            "entity": "Hostel",
+            "property": "Students"
+          },
+          "names": {
+            "human": "Hostel",
+            "property": "Hostel"
+          },
+          "type": "manyToOne"
+        },
+        {
+          "names": {
+            "human": "Last Name",
+            "property": "LastName"
+          },
+          "normalized": true,
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "names": {
+    "human": "Hostel Students",
+    "namespace": "HostelStudents"
+  },
+  "version": "0.1.0"
+}
