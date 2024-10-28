@@ -1,4 +1,4 @@
-﻿namespace ApplicationNamePlaceholder.BusinessLogic.Entities.Dtos.Admin;
+﻿namespace HostelStudents.BusinessLogic.Entities.Dtos.Admin;
 
 public class StudentAdminDto
 {
