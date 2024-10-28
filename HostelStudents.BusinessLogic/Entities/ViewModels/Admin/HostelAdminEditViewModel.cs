@@ -6,6 +6,7 @@ public class HostelAdminEditViewModel
 {
     public Guid Id { get; set; }
 
+    public string Name { get; set; } = string.Empty;
     // JustModelPropertyPlaceholder
 
     public static HostelAdminEditViewModel FromHostelAdminDto(HostelAdminDto hostelAdminDto)
