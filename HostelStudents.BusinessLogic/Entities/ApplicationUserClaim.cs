@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace ApplicationNamePlaceholder.BusinessLogic.Entities;
+namespace HostelStudents.BusinessLogic.Entities;
 
 public class ApplicationUserClaim : IdentityUserClaim<Guid>
 {

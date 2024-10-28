@@ -1,4 +1,4 @@
-﻿namespace ApplicationNamePlaceholder.BusinessLogic.Entities;
+﻿namespace HostelStudents.BusinessLogic.Entities;
 
 public class Hostel
 {
