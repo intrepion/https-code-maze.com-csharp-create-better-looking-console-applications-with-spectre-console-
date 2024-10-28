@@ -27,7 +27,7 @@
     <h1>HumanNamePlaceholder Modification</h1>
   }
   <article>
-    <EditForm class="container" Model="EntityLowercaseNamePlaceholderAdminEditViewModel" OnSubmit="HandleSubmit">
+    <EditForm class="container" Model="hostelAdminEditViewModel" OnSubmit="HandleSubmit">
 
       @* EditRowCodePlaceholder *@
 
@@ -57,7 +57,7 @@
 @code {
   [Parameter]
   public Guid Id { get; set; }
-  EntityNamePlaceholderAdminEditViewModel EntityLowercaseNamePlaceholderAdminEditViewModel { get; set; } = new EntityNamePlaceholderAdminEditViewModel();
+  EntityNamePlaceholderAdminEditViewModel hostelAdminEditViewModel { get; set; } = new EntityNamePlaceholderAdminEditViewModel();
 
   @* ListDeclarationCodePlaceholder *@
 
@@ -95,11 +95,11 @@
 
     if (databaseEntityNamePlaceholderAdminDto == null)
     {
-      EntityLowercaseNamePlaceholderAdminEditViewModel = new EntityNamePlaceholderAdminEditViewModel();
+      hostelAdminEditViewModel = new EntityNamePlaceholderAdminEditViewModel();
     }
     else
     {
-      EntityLowercaseNamePlaceholderAdminEditViewModel = EntityNamePlaceholderAdminEditViewModel.FromEntityNamePlaceholderAdminDto(databaseEntityNamePlaceholderAdminDto);
+      hostelAdminEditViewModel = EntityNamePlaceholderAdminEditViewModel.FromEntityNamePlaceholderAdminDto(databaseEntityNamePlaceholderAdminDto);
     }
   }
 
@@ -115,12 +115,12 @@
 
     @* RequiredPropertyPlaceholder *@
 
-    var EntityLowercaseNamePlaceholderAdminDto = EntityNamePlaceholderAdminEditViewModel.ToEntityNamePlaceholderAdminDto(EntityLowercaseNamePlaceholderAdminEditViewModel);
-    EntityLowercaseNamePlaceholderAdminDto.ApplicationUserName = userName;
+    var hostelAdminDto = EntityNamePlaceholderAdminEditViewModel.ToEntityNamePlaceholderAdminDto(hostelAdminEditViewModel);
+    hostelAdminDto.ApplicationUserName = userName;
 
     if (Id.Equals(Guid.Empty))
     {
-      var newEntityNamePlaceholderAdminDto = await EntityNamePlaceholderAdminRepository.AddAsync(EntityLowercaseNamePlaceholderAdminDto);
+      var newEntityNamePlaceholderAdminDto = await EntityNamePlaceholderAdminRepository.AddAsync(hostelAdminDto);
 
       if (newEntityNamePlaceholderAdminDto == null)
       {
@@ -131,7 +131,7 @@
     }
     else
     {
-      await EntityNamePlaceholderAdminRepository.EditAsync(EntityLowercaseNamePlaceholderAdminDto);
+      await EntityNamePlaceholderAdminRepository.EditAsync(hostelAdminDto);
     }
   }
 
