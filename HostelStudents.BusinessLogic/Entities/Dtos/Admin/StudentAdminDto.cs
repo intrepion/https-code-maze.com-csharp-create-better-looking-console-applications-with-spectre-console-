@@ -7,27 +7,27 @@ public class EntityNamePlaceholderAdminDto
 
     // DtoPropertyPlaceholder
 
-    public static EntityNamePlaceholderAdminDto FromEntityNamePlaceholder(EntityNamePlaceholder? EntityLowercaseNamePlaceholder)
+    public static EntityNamePlaceholderAdminDto FromEntityNamePlaceholder(EntityNamePlaceholder? student)
     {
-        if (EntityLowercaseNamePlaceholder == null)
+        if (student == null)
         {
             return new EntityNamePlaceholderAdminDto();
         }
 
         return new EntityNamePlaceholderAdminDto
         {
-            Id = EntityLowercaseNamePlaceholder.Id,
+            Id = student.Id,
 
             // EntityToDtoPlaceholder
         };
     }
 
-    public static EntityNamePlaceholder ToEntityNamePlaceholder(ApplicationUser? applicationUser, EntityNamePlaceholderAdminDto? EntityLowercaseNamePlaceholderAdminDto)
+    public static EntityNamePlaceholder ToEntityNamePlaceholder(ApplicationUser? applicationUser, EntityNamePlaceholderAdminDto? studentAdminDto)
     {
         return new EntityNamePlaceholder
         {
             ApplicationUserUpdatedBy = applicationUser ?? new ApplicationUser(),
-            Id = EntityLowercaseNamePlaceholderAdminDto?.Id ?? new Guid(),
+            Id = studentAdminDto?.Id ?? new Guid(),
 
             // DtoToEntityPropertyPlaceholder
         };
