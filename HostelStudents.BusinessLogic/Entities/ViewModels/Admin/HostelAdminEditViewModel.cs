@@ -8,31 +8,31 @@ public class EntityNamePlaceholderAdminEditViewModel
 
     // JustModelPropertyPlaceholder
 
-    public static EntityNamePlaceholderAdminEditViewModel FromEntityNamePlaceholderAdminDto(EntityNamePlaceholderAdminDto EntityLowercaseNamePlaceholderAdminDto)
+    public static EntityNamePlaceholderAdminEditViewModel FromEntityNamePlaceholderAdminDto(EntityNamePlaceholderAdminDto hostelAdminDto)
     {
-        if (EntityLowercaseNamePlaceholderAdminDto == null)
+        if (hostelAdminDto == null)
         {
             return new EntityNamePlaceholderAdminEditViewModel();
         }
 
         return new EntityNamePlaceholderAdminEditViewModel
         {
-            Id = EntityLowercaseNamePlaceholderAdminDto.Id,
+            Id = hostelAdminDto.Id,
 
             // DtoToModelPlaceholder
         };
     }
 
-    public static EntityNamePlaceholderAdminDto ToEntityNamePlaceholderAdminDto(EntityNamePlaceholderAdminEditViewModel EntityLowercaseNamePlaceholderAdminEditViewModel)
+    public static EntityNamePlaceholderAdminDto ToEntityNamePlaceholderAdminDto(EntityNamePlaceholderAdminEditViewModel hostelAdminEditViewModel)
     {
-        if (EntityLowercaseNamePlaceholderAdminEditViewModel == null)
+        if (hostelAdminEditViewModel == null)
         {
             return new EntityNamePlaceholderAdminDto();
         }
 
         return new EntityNamePlaceholderAdminDto
         {
-            Id = EntityLowercaseNamePlaceholderAdminEditViewModel.Id,
+            Id = hostelAdminEditViewModel.Id,
 
             // ModelToDtoPlaceholder
         };
