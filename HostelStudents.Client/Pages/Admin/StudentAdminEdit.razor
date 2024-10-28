@@ -29,6 +29,14 @@
   <article>
     <EditForm class="container" Model="studentAdminEditViewModel" OnSubmit="HandleSubmit">
 
+      <div class="row">
+        <div class="col">
+          <label>
+            Age:
+            <InputNumber @bind-Value="studentAdminEditViewModel.Age" data-testid="studentAdminEditAge" />
+          </label>
+        </div>
+      </div>
       @* EditRowCodePlaceholder *@
 
       <div class="row">
