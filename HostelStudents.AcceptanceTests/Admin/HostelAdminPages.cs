@@ -17,6 +17,7 @@ public partial class HostelAdminPages : PageTest
         await Page.GetByRole(AriaRole.Link, new() { Name = "Create" }).ClickAsync();
         await Expect(Page).ToHaveTitleAsync("Hostel Creation");
 
+        await Page.GetByTestId("hostelAdminEditName").FillAsync("a hostel");
         // CreatePropertyCodePlaceholder
 
         await Page.GetByRole(AriaRole.Button, new() { Name = "Create" }).ClickAsync();
