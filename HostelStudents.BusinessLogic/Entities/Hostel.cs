@@ -7,5 +7,6 @@ public class Hostel
 
     public string Name { get; set; } = string.Empty;
     public string NormalizedName { get; set; } = string.Empty;
+    public ICollection<Student> Students { get; set; } = [];
     // ActualPropertyPlaceholder
 }
