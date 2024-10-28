@@ -22,6 +22,7 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
         new ApplicationUserRoleEntityTypeConfiguration().Configure(builder.Entity<ApplicationUserRole>());
         new ApplicationUserTokenEntityTypeConfiguration().Configure(builder.Entity<ApplicationUserToken>());
 
+        new HostelEntityTypeConfiguration().Configure(builder.Entity<Hostel>());
         // EntityTypeCfgCodePlaceholder
     }
 }
