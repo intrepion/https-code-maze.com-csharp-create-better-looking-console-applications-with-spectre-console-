@@ -22,6 +22,11 @@ public class HostelAdminRepository(ApplicationDbContext applicationDbContext) : 
             throw new Exception("Authentication required.");
         }
 
+        if (string.IsNullOrWhiteSpace(hostelAdminDto?.Name ?? string.Empty))
+        {
+            throw new Exception("Name required.");
+        }
+
         // AddRequiredPropertyCodePlaceholder
 
         var hostel = HostelAdminDto.ToHostel(user, hostelAdminDto);
