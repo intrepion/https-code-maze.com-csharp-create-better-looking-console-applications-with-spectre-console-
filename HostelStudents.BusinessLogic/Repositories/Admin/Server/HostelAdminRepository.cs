@@ -1,8 +1,8 @@
-﻿using ApplicationNamePlaceholder.BusinessLogic.Data;
-using ApplicationNamePlaceholder.BusinessLogic.Entities.Dtos.Admin;
+﻿using HostelStudents.BusinessLogic.Data;
+using HostelStudents.BusinessLogic.Entities.Dtos.Admin;
 using Microsoft.EntityFrameworkCore;
 
-namespace ApplicationNamePlaceholder.BusinessLogic.Repositories.Admin.Server;
+namespace HostelStudents.BusinessLogic.Repositories.Admin.Server;
 
 public class HostelAdminRepository(ApplicationDbContext applicationDbContext) : IHostelAdminRepository
 {
