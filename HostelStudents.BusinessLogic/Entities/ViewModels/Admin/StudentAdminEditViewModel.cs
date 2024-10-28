@@ -42,6 +42,7 @@ public class StudentAdminEditViewModel
 
             Age = studentAdminEditViewModel.Age,
             FirstName = studentAdminEditViewModel.FirstName,
+            Hostel = studentAdminEditViewModel.Hostel,
             // ModelToDtoPlaceholder
         };
     }
