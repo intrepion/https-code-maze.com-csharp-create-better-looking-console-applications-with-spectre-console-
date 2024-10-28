@@ -1,0 +1,72 @@
+@page "/admin/UrlNamePlaceholder-list"
+@rendermode InteractiveServer
+@inject AuthenticationStateProvider GetAuthenticationStateAsync
+@inject IEntityNamePlaceholderAdminRepository EntityNamePlaceholderAdminRepository
+@attribute [StreamRendering]
+@attribute [Authorize(Roles = "Admin")]
+
+<PageTitle>HumanNamePlaceholder List</PageTitle>
+
+<section>
+  <h1>HumanNamePlaceholder List</h1>
+  <article>
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+
+          @* ListHeaderCodePlaceholder *@
+
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @if (TableLowercaseNamePlaceholder == null)
+        {
+          <tr>
+            @* LoadingCountCodePlaceholder *@
+          </tr>
+        }
+        else if (TableLowercaseNamePlaceholder.Count == 0)
+        {
+          <tr>
+            @* ZeroCountCodePlaceholder *@
+          </tr>
+        }
+        else
+        {
+          @foreach (var EntityLowercaseNamePlaceholder in TableLowercaseNamePlaceholder)
+          {
+            <tr>
+              <td>@EntityLowercaseNamePlaceholder.Id</td>
+
+              @* ListItemCodePlaceholder *@
+
+              <td>
+                <a href="@("/admin/UrlNamePlaceholder-edit/" + EntityLowercaseNamePlaceholder?.Id)">Edit</a>
+              </td>
+            </tr>
+          }
+        }
+      </tbody>
+    </table>
+    <a href="/admin/UrlNamePlaceholder-edit">Create</a>
+  </article>
+</section>
+
+@code {
+  List<EntityNamePlaceholderAdminDto>? TableLowercaseNamePlaceholder = null;
+
+  protected override async Task OnInitializedAsync()
+  {
+    var authState = await GetAuthenticationStateAsync.GetAuthenticationStateAsync();
+    var userName = authState.User.Identity?.Name;
+
+    if (userName == null)
+    {
+      return;
+    }
+
+    TableLowercaseNamePlaceholder = await EntityNamePlaceholderAdminRepository.GetAllAsync(userName);
+  }
+}
