@@ -62,6 +62,7 @@ builder.Services.AddScoped<IApplicationRoleAdminRepository, ApplicationRoleAdmin
 builder.Services.AddScoped<IApplicationUserAdminRepository, ApplicationUserAdminRepository>();
 
 builder.Services.AddScoped<IHostelAdminRepository, HostelAdminRepository>();
+builder.Services.AddScoped<IStudentAdminRepository, StudentAdminRepository>();
 // RegisterServerServiceCodePlaceholder
 
 var app = builder.Build();
