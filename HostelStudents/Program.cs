@@ -1,10 +1,10 @@
-﻿using ApplicationNamePlaceholder.BusinessLogic.Data;
-using ApplicationNamePlaceholder.BusinessLogic.Entities;
-using ApplicationNamePlaceholder.BusinessLogic.Repositories.Admin;
-using ApplicationNamePlaceholder.BusinessLogic.Repositories.Admin.Server;
-using ApplicationNamePlaceholder.Client.Pages;
-using ApplicationNamePlaceholder.Components;
-using ApplicationNamePlaceholder.Components.Account;
+﻿using HostelStudents.BusinessLogic.Data;
+using HostelStudents.BusinessLogic.Entities;
+using HostelStudents.BusinessLogic.Repositories.Admin;
+using HostelStudents.BusinessLogic.Repositories.Admin.Server;
+using HostelStudents.Client.Pages;
+using HostelStudents.Components;
+using HostelStudents.Components.Account;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -98,7 +98,7 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
-    .AddAdditionalAssemblies(typeof(ApplicationNamePlaceholder.Client._Imports).Assembly);
+    .AddAdditionalAssemblies(typeof(HostelStudents.Client._Imports).Assembly);
 
 // Add additional endpoints required by the Identity /Account Razor components.
 app.MapAdditionalIdentityEndpoints();
