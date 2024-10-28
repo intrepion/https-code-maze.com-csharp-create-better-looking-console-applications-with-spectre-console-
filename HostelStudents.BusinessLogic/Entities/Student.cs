@@ -10,5 +10,6 @@ public class Student
     public string FirstName { get; set; } = string.Empty;
     public string NormalizedFirstName { get; set; } = string.Empty;
     public Hostel? Hostel { get; set; }
+    public string LastName { get; set; } = string.Empty;
     // ActualPropertyPlaceholder
 }
