@@ -28,7 +28,7 @@ public class HostelAdminRepository(ApplicationDbContext applicationDbContext) : 
 
         // AddDatabasePropertyCodePlaceholder
 
-        var result = await _applicationDbContext.TableNamePlaceholder.AddAsync(hostel);
+        var result = await _applicationDbContext.Hostels.AddAsync(hostel);
         var databaseHostelAdminDto = HostelAdminDto.FromHostel(result.Entity);
         await _applicationDbContext.SaveChangesAsync();
 
@@ -49,7 +49,7 @@ public class HostelAdminRepository(ApplicationDbContext applicationDbContext) : 
             throw new Exception("Authentication required.");
         }
 
-        var databaseHostel = await _applicationDbContext.TableNamePlaceholder.FindAsync(id);
+        var databaseHostel = await _applicationDbContext.Hostels.FindAsync(id);
 
         if (databaseHostel == null)
         {
@@ -80,7 +80,7 @@ public class HostelAdminRepository(ApplicationDbContext applicationDbContext) : 
             throw new Exception("Authentication required.");
         }
 
-        var databaseHostel = await _applicationDbContext.TableNamePlaceholder.FindAsync(hostelAdminDto.Id);
+        var databaseHostel = await _applicationDbContext.Hostels.FindAsync(hostelAdminDto.Id);
 
         if (databaseHostel == null)
         {
@@ -112,7 +112,7 @@ public class HostelAdminRepository(ApplicationDbContext applicationDbContext) : 
             throw new Exception("Authentication required.");
         }
 
-        return await _applicationDbContext.TableNamePlaceholder
+        return await _applicationDbContext.Hostels
 
             // IncludeTableCodePlaceholder
 
@@ -134,7 +134,7 @@ public class HostelAdminRepository(ApplicationDbContext applicationDbContext) : 
             throw new Exception("Authentication required.");
         }
 
-        var result = await _applicationDbContext.TableNamePlaceholder.FindAsync(id);
+        var result = await _applicationDbContext.Hostels.FindAsync(id);
 
         if (result == null)
         {
