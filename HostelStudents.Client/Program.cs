@@ -17,6 +17,7 @@ builder.Services.AddScoped(http => new HttpClient
 builder.Services.AddScoped<IApplicationRoleAdminRepository, ApplicationRoleClientAdminRepository>();
 builder.Services.AddScoped<IApplicationUserAdminRepository, ApplicationUserClientAdminRepository>();
 
+builder.Services.AddScoped<IHostelAdminRepository, HostelClientAdminRepository>();
 // RegisterClientServiceCodePlaceholder
 
 await builder.Build().RunAsync();
