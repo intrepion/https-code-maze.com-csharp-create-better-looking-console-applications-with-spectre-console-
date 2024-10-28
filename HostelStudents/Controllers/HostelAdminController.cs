@@ -6,12 +6,12 @@ namespace ApplicationNamePlaceholder.Controllers;
 
 [Route("api/admin/[controller]")]
 [ApiController]
-public class EntityNamePlaceholderController(IEntityNamePlaceholderAdminRepository EntityLowercaseNamePlaceholderAdminRepository) : ControllerBase
+public class EntityNamePlaceholderController(IEntityNamePlaceholderAdminRepository hostelAdminRepository) : ControllerBase
 {
-    private readonly IEntityNamePlaceholderAdminRepository _EntityLowercaseNamePlaceholderAdminRepository = EntityLowercaseNamePlaceholderAdminRepository;
+    private readonly IEntityNamePlaceholderAdminRepository _hostelAdminRepository = hostelAdminRepository;
 
     [HttpPost]
-    public async Task<ActionResult<EntityNamePlaceholderAdminDto?>> Add(EntityNamePlaceholderAdminDto EntityLowercaseNamePlaceholderAdminDto)
+    public async Task<ActionResult<EntityNamePlaceholderAdminDto?>> Add(EntityNamePlaceholderAdminDto hostelAdminDto)
     {
         var userIdentityName = User.Identity?.Name;
 
@@ -20,12 +20,12 @@ public class EntityNamePlaceholderController(IEntityNamePlaceholderAdminReposito
             return Ok(null);
         }
 
-        if (string.Equals(EntityLowercaseNamePlaceholderAdminDto.ApplicationUserName, userIdentityName, StringComparison.InvariantCultureIgnoreCase))
+        if (string.Equals(hostelAdminDto.ApplicationUserName, userIdentityName, StringComparison.InvariantCultureIgnoreCase))
         {
             return Ok(null);
         }
 
-        var databaseEntityNamePlaceholderAdminDto = await _EntityLowercaseNamePlaceholderAdminRepository.AddAsync(EntityLowercaseNamePlaceholderAdminDto);
+        var databaseEntityNamePlaceholderAdminDto = await _hostelAdminRepository.AddAsync(hostelAdminDto);
 
         return Ok(databaseEntityNamePlaceholderAdminDto);
     }
@@ -45,13 +45,13 @@ public class EntityNamePlaceholderController(IEntityNamePlaceholderAdminReposito
             return Ok(null);
         }
 
-        var result = await _EntityLowercaseNamePlaceholderAdminRepository.DeleteAsync(userIdentityName, id);
+        var result = await _hostelAdminRepository.DeleteAsync(userIdentityName, id);
 
         return Ok(result);
     }
 
     [HttpPut]
-    public async Task<ActionResult<EntityNamePlaceholderAdminDto?>> Edit(EntityNamePlaceholderAdminDto EntityLowercaseNamePlaceholderAdminDto)
+    public async Task<ActionResult<EntityNamePlaceholderAdminDto?>> Edit(EntityNamePlaceholderAdminDto hostelAdminDto)
     {
         var userIdentityName = User.Identity?.Name;
 
@@ -60,12 +60,12 @@ public class EntityNamePlaceholderController(IEntityNamePlaceholderAdminReposito
             return Ok(null);
         }
 
-        if (string.Equals(EntityLowercaseNamePlaceholderAdminDto.ApplicationUserName, userIdentityName, StringComparison.InvariantCultureIgnoreCase))
+        if (string.Equals(hostelAdminDto.ApplicationUserName, userIdentityName, StringComparison.InvariantCultureIgnoreCase))
         {
             return Ok(null);
         }
 
-        var databaseEntityNamePlaceholder = await _EntityLowercaseNamePlaceholderAdminRepository.EditAsync(EntityLowercaseNamePlaceholderAdminDto);
+        var databaseEntityNamePlaceholder = await _hostelAdminRepository.EditAsync(hostelAdminDto);
 
         return Ok(databaseEntityNamePlaceholder);
     }
@@ -85,9 +85,9 @@ public class EntityNamePlaceholderController(IEntityNamePlaceholderAdminReposito
             return Ok(null);
         }
 
-        var EntityLowercaseNamePlaceholderAdminDtos = await _EntityLowercaseNamePlaceholderAdminRepository.GetAllAsync(userIdentityName);
+        var hostelAdminDtos = await _hostelAdminRepository.GetAllAsync(userIdentityName);
 
-        return Ok(EntityLowercaseNamePlaceholderAdminDtos);
+        return Ok(hostelAdminDtos);
     }
 
     [HttpGet("{id}")]
@@ -105,8 +105,8 @@ public class EntityNamePlaceholderController(IEntityNamePlaceholderAdminReposito
             return Ok(null);
         }
 
-        var EntityLowercaseNamePlaceholderAdminDto = await _EntityLowercaseNamePlaceholderAdminRepository.GetByIdAsync(userIdentityName, id);
+        var hostelAdminDto = await _hostelAdminRepository.GetByIdAsync(userIdentityName, id);
 
-        return Ok(EntityLowercaseNamePlaceholderAdminDto);
+        return Ok(hostelAdminDto);
     }
 }
