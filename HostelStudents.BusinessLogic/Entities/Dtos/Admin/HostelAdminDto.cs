@@ -19,6 +19,7 @@ public class HostelAdminDto
         {
             Id = hostel.Id,
 
+            Name = hostel.Name,
             // EntityToDtoPlaceholder
         };
     }
