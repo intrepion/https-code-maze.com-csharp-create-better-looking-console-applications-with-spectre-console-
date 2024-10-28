@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostelStudents.BusinessLogi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostelStudents.BusinessLogic.UnitTests", "HostelStudents.BusinessLogic.UnitTests\HostelStudents.BusinessLogic.UnitTests.csproj", "{C632613B-9EFC-4B46-98AF-C868900016FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostelStudents.Client.ComponentTests", "HostelStudents.Client.ComponentTests\HostelStudents.Client.ComponentTests.csproj", "{CF95C27D-30C3-4551-9F51-D0F4DBB8A5A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -82,6 +84,18 @@ Global
 		{C632613B-9EFC-4B46-98AF-C868900016FE}.Release|x64.Build.0 = Release|Any CPU
 		{C632613B-9EFC-4B46-98AF-C868900016FE}.Release|x86.ActiveCfg = Release|Any CPU
 		{C632613B-9EFC-4B46-98AF-C868900016FE}.Release|x86.Build.0 = Release|Any CPU
+		{CF95C27D-30C3-4551-9F51-D0F4DBB8A5A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF95C27D-30C3-4551-9F51-D0F4DBB8A5A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF95C27D-30C3-4551-9F51-D0F4DBB8A5A1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CF95C27D-30C3-4551-9F51-D0F4DBB8A5A1}.Debug|x64.Build.0 = Debug|Any CPU
+		{CF95C27D-30C3-4551-9F51-D0F4DBB8A5A1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CF95C27D-30C3-4551-9F51-D0F4DBB8A5A1}.Debug|x86.Build.0 = Debug|Any CPU
+		{CF95C27D-30C3-4551-9F51-D0F4DBB8A5A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF95C27D-30C3-4551-9F51-D0F4DBB8A5A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF95C27D-30C3-4551-9F51-D0F4DBB8A5A1}.Release|x64.ActiveCfg = Release|Any CPU
+		{CF95C27D-30C3-4551-9F51-D0F4DBB8A5A1}.Release|x64.Build.0 = Release|Any CPU
+		{CF95C27D-30C3-4551-9F51-D0F4DBB8A5A1}.Release|x86.ActiveCfg = Release|Any CPU
+		{CF95C27D-30C3-4551-9F51-D0F4DBB8A5A1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
