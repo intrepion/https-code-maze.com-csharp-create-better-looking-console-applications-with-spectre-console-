@@ -201,5 +201,16 @@
     NavigationManager.NavigateTo($"/admin/student-list");
   }
 
-  @* OnChangeCodePlaceholder *@
+  void HostelOnChange(ChangeEventArgs args)
+    {
+        if (args.Value == null)
+        {
+            return;
+        }
+
+        var id = (string)args.Value;
+        studentAdminEditViewModel.Hostel = HostelAdminDto.ToHostel(null, hostelAdminDtos?.Where(x => x.Id.ToString().Equals(id)).FirstOrDefault());
+    }
+
+    @* OnChangeCodePlaceholder *@
 }
