@@ -31,6 +31,7 @@ public class StudentAdminDto
             ApplicationUserUpdatedBy = applicationUser ?? new ApplicationUser(),
             Id = studentAdminDto?.Id ?? new Guid(),
 
+            Age = studentAdminDto?.Age ?? -1,
             // DtoToEntityPropertyPlaceholder
         };
     }
