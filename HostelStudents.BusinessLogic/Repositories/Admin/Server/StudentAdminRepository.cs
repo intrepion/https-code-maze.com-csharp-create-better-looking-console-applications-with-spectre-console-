@@ -104,6 +104,7 @@ public class StudentAdminRepository(ApplicationDbContext applicationDbContext) :
 
         databaseStudent.FirstName = studentAdminDto?.FirstName ?? string.Empty;
         databaseStudent.NormalizedFirstName = studentAdminDto?.FirstName ?? string.Empty.ToUpperInvariant();
+        databaseStudent.Hostel = studentAdminDto?.Hostel;
         // EditDatabasePropertyCodePlaceholder
 
         await _applicationDbContext.SaveChangesAsync();
