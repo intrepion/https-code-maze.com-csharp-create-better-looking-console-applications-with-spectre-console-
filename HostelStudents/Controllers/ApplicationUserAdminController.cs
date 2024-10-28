@@ -1,8 +1,8 @@
-﻿using ApplicationNamePlaceholder.BusinessLogic.Entities.Dtos.Admin;
-using ApplicationNamePlaceholder.BusinessLogic.Repositories.Admin;
+﻿using HostelStudents.BusinessLogic.Entities.Dtos.Admin;
+using HostelStudents.BusinessLogic.Repositories.Admin;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ApplicationNamePlaceholder.Controllers;
+namespace HostelStudents.Controllers;
 
 [Route("api/admin/[controller]")]
 [ApiController]
