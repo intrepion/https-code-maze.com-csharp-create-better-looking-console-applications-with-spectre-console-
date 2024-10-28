@@ -93,6 +93,11 @@ public class StudentAdminRepository(ApplicationDbContext applicationDbContext) :
             throw new Exception("HumanNamePlaceholder not found.");
         }
 
+        if (string.IsNullOrWhiteSpace(studentAdminDto?.FirstName ?? string.Empty))
+        {
+            throw new Exception("First Name required.");
+        }
+
         // EditRequiredPropertyCodePlaceholder
 
         databaseStudent.ApplicationUserUpdatedBy = user;
