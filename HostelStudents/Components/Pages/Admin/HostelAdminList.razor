@@ -1,4 +1,4 @@
-@page "/admin/UrlNamePlaceholder-list"
+@page "/admin/hostel-list"
 @rendermode InteractiveServer
 @inject AuthenticationStateProvider GetAuthenticationStateAsync
 @inject IHostelAdminRepository HostelAdminRepository
@@ -43,14 +43,14 @@
               @* ListItemCodePlaceholder *@
 
               <td>
-                <a href="@("/admin/UrlNamePlaceholder-edit/" + hostel?.Id)">Edit</a>
+                <a href="@("/admin/hostel-edit/" + hostel?.Id)">Edit</a>
               </td>
             </tr>
           }
         }
       </tbody>
     </table>
-    <a href="/admin/UrlNamePlaceholder-edit">Create</a>
+    <a href="/admin/hostel-edit">Create</a>
   </article>
 </section>
 
