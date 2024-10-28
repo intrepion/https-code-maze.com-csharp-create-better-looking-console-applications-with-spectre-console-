@@ -36,6 +36,7 @@ public class HostelAdminEditViewModel
         {
             Id = hostelAdminEditViewModel.Id,
 
+            Name = hostelAdminEditViewModel.Name,
             // ModelToDtoPlaceholder
         };
     }
