@@ -1,20 +1,20 @@
 ﻿namespace ApplicationNamePlaceholder.BusinessLogic.Entities.Dtos.Admin;
 
-public class EntityNamePlaceholderAdminDto
+public class HostelAdminDto
 {
     public string ApplicationUserName { get; set; } = string.Empty;
     public Guid Id { get; set; }
 
     // DtoPropertyPlaceholder
 
-    public static EntityNamePlaceholderAdminDto FromEntityNamePlaceholder(EntityNamePlaceholder? hostel)
+    public static HostelAdminDto FromHostel(Hostel? hostel)
     {
         if (hostel == null)
         {
-            return new EntityNamePlaceholderAdminDto();
+            return new HostelAdminDto();
         }
 
-        return new EntityNamePlaceholderAdminDto
+        return new HostelAdminDto
         {
             Id = hostel.Id,
 
@@ -22,9 +22,9 @@ public class EntityNamePlaceholderAdminDto
         };
     }
 
-    public static EntityNamePlaceholder ToEntityNamePlaceholder(ApplicationUser? applicationUser, EntityNamePlaceholderAdminDto? hostelAdminDto)
+    public static Hostel ToHostel(ApplicationUser? applicationUser, HostelAdminDto? hostelAdminDto)
     {
-        return new EntityNamePlaceholder
+        return new Hostel
         {
             ApplicationUserUpdatedBy = applicationUser ?? new ApplicationUser(),
             Id = hostelAdminDto?.Id ?? new Guid(),
