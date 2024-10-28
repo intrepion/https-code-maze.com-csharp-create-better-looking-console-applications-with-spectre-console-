@@ -100,7 +100,8 @@
   public Guid Id { get; set; }
   StudentAdminEditViewModel studentAdminEditViewModel { get; set; } = new StudentAdminEditViewModel();
 
-  @* ListDeclarationCodePlaceholder *@
+  List<HostelAdminDto> hostelAdminDtos { get; set; } = [];
+    @* ListDeclarationCodePlaceholder *@
 
   protected override async Task OnInitializedAsync()
   {
