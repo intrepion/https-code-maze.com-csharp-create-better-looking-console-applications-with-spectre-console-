@@ -4,9 +4,9 @@ namespace ApplicationNamePlaceholder.BusinessLogic.Repositories.Admin;
 
 public interface IEntityNamePlaceholderAdminRepository
 {
-    Task<EntityNamePlaceholderAdminDto?> AddAsync(EntityNamePlaceholderAdminDto EntityLowercaseNamePlaceholder);
+    Task<EntityNamePlaceholderAdminDto?> AddAsync(EntityNamePlaceholderAdminDto student);
     Task<bool> DeleteAsync(string userName, Guid id);
-    Task<EntityNamePlaceholderAdminDto?> EditAsync(EntityNamePlaceholderAdminDto EntityLowercaseNamePlaceholder);
+    Task<EntityNamePlaceholderAdminDto?> EditAsync(EntityNamePlaceholderAdminDto student);
     Task<List<EntityNamePlaceholderAdminDto>?> GetAllAsync(string userName);
     Task<EntityNamePlaceholderAdminDto?> GetByIdAsync(string userName, Guid id);
 }
