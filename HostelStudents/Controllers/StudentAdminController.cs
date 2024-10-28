@@ -6,12 +6,12 @@ namespace ApplicationNamePlaceholder.Controllers;
 
 [Route("api/admin/[controller]")]
 [ApiController]
-public class EntityNamePlaceholderController(IEntityNamePlaceholderAdminRepository studentAdminRepository) : ControllerBase
+public class StudentController(IStudentAdminRepository studentAdminRepository) : ControllerBase
 {
-    private readonly IEntityNamePlaceholderAdminRepository _studentAdminRepository = studentAdminRepository;
+    private readonly IStudentAdminRepository _studentAdminRepository = studentAdminRepository;
 
     [HttpPost]
-    public async Task<ActionResult<EntityNamePlaceholderAdminDto?>> Add(EntityNamePlaceholderAdminDto studentAdminDto)
+    public async Task<ActionResult<StudentAdminDto?>> Add(StudentAdminDto studentAdminDto)
     {
         var userIdentityName = User.Identity?.Name;
 
@@ -25,9 +25,9 @@ public class EntityNamePlaceholderController(IEntityNamePlaceholderAdminReposito
             return Ok(null);
         }
 
-        var databaseEntityNamePlaceholderAdminDto = await _studentAdminRepository.AddAsync(studentAdminDto);
+        var databaseStudentAdminDto = await _studentAdminRepository.AddAsync(studentAdminDto);
 
-        return Ok(databaseEntityNamePlaceholderAdminDto);
+        return Ok(databaseStudentAdminDto);
     }
 
     [HttpDelete("{id}")]
@@ -51,7 +51,7 @@ public class EntityNamePlaceholderController(IEntityNamePlaceholderAdminReposito
     }
 
     [HttpPut]
-    public async Task<ActionResult<EntityNamePlaceholderAdminDto?>> Edit(EntityNamePlaceholderAdminDto studentAdminDto)
+    public async Task<ActionResult<StudentAdminDto?>> Edit(StudentAdminDto studentAdminDto)
     {
         var userIdentityName = User.Identity?.Name;
 
@@ -65,13 +65,13 @@ public class EntityNamePlaceholderController(IEntityNamePlaceholderAdminReposito
             return Ok(null);
         }
 
-        var databaseEntityNamePlaceholder = await _studentAdminRepository.EditAsync(studentAdminDto);
+        var databaseStudent = await _studentAdminRepository.EditAsync(studentAdminDto);
 
-        return Ok(databaseEntityNamePlaceholder);
+        return Ok(databaseStudent);
     }
 
     [HttpGet]
-    public async Task<ActionResult<EntityNamePlaceholderAdminDto>?> GetAll(string userName)
+    public async Task<ActionResult<StudentAdminDto>?> GetAll(string userName)
     {
         var userIdentityName = User.Identity?.Name;
 
@@ -91,7 +91,7 @@ public class EntityNamePlaceholderController(IEntityNamePlaceholderAdminReposito
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<EntityNamePlaceholderAdminDto?>> GetById(string userName, Guid id)
+    public async Task<ActionResult<StudentAdminDto?>> GetById(string userName, Guid id)
     {
         var userIdentityName = User.Identity?.Name;
 
