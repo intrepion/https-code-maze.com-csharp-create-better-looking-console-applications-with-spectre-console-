@@ -93,6 +93,7 @@ public class HostelAdminRepository(ApplicationDbContext applicationDbContext) : 
         databaseHostel.ApplicationUserUpdatedBy = user;
 
         databaseHostel.Name = hostelAdminDto?.Name ?? string.Empty;
+        databaseHostel.NormalizedName = hostelAdminDto?.Name ?? string.Empty.ToUpperInvariant();
         // EditDatabasePropertyCodePlaceholder
 
         await _applicationDbContext.SaveChangesAsync();
