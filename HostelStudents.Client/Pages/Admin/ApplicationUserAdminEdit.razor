@@ -1,0 +1,267 @@
+@page "/admin/application-user-edit/{id:guid?}"
+@rendermode InteractiveAuto
+@inject IApplicationRoleAdminRepository ApplicationRoleAdminRepository
+@inject IApplicationUserAdminRepository ApplicationUserAdminRepository
+@inject AuthenticationStateProvider GetAuthenticationStateAsync
+@inject NavigationManager NavigationManager
+@attribute [Authorize(Roles = "Admin")]
+
+@if (Id.Equals(Guid.Empty))
+{
+  <PageTitle>Application User Creation</PageTitle>
+}
+else
+{
+  <PageTitle>Application User Modification</PageTitle>
+}
+
+<section>
+  @if (Id.Equals(Guid.Empty))
+  {
+    <h1>Application User Creation</h1>
+  }
+  else
+  {
+    <h1>Application User Modification</h1>
+  }
+  <article>
+    <EditForm class="container" Model="applicationUserAdminEditViewModel" OnSubmit="HandleSubmit">
+      <div class="row">
+        <div class="col">
+          @if (applicationUserAdminEditViewModel.ApplicationRoles == null)
+          {
+            <span>Loading...</span>
+          }
+          else
+          {
+            if (applicationUserAdminEditViewModel.ApplicationRoles.Count == 0)
+            {
+              <span>User has no application roles.</span>
+            }
+
+            <ul>
+              @for (var i = 0; i < applicationUserAdminEditViewModel.ApplicationRoles.Count; i += 1)
+              {
+                var index = i;
+
+                <li class="row">
+                  <div class="col">
+                    Application Role:
+                    @if (applicationRoleList != null)
+                    {
+                      <select @onchange="@((ChangeEventArgs changeEventArgs) => ApplicationRoleChange(changeEventArgs, index))">
+                        <option></option>
+                        @foreach (var applicationRole in applicationRoleList)
+                          if (applicationRole.Name == @applicationUserAdminEditViewModel.ApplicationRoles[i]?.Name)
+                          {
+                            <option selected value="@applicationRole.Id">@applicationRole.Name</option>
+                          }
+                          else
+                          {
+                            <option value="@applicationRole.Id">@applicationRole.Name</option>
+                          }
+                        }
+                      </select>
+                    }
+                  </div>
+                </li>
+              }
+            </ul>
+
+            <button @onclick="ApplicationRoleAdd" class="btn btn-secondary" type="button">Add Application Role</button>
+          }
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label>
+            Email:
+            <InputText @bind-Value="applicationUserAdminEditViewModel.Email" data-testid="applicationUserAdminEditEmail" />
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label>
+            Phone Number:
+            <InputText @bind-Value="applicationUserAdminEditViewModel.PhoneNumber" data-testid="applicationUserAdminEditPhoneNumber" />
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label>
+            UserName:
+            <InputText @bind-Value="applicationUserAdminEditViewModel.UserName" data-testid="applicationUserAdminEditUserName" />
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          @if (!Id.Equals(Guid.Empty))
+          {
+            <button @onclick="Remove" type="button" class="btn btn-danger">Remove</button>
+          }
+        </div>
+        <div class="col">
+          <a href="/admin/application-user-list">Cancel</a>
+          @if (Id.Equals(Guid.Empty))
+          {
+            <button type="submit" class="btn btn-primary">Create</button>
+          }
+          else
+          {
+            <button type="submit" class="btn btn-primary">Modify</button>
+          }
+         </div>
+      </div>
+    </EditForm>
+  </article>
+</section>
+
+@code {
+  [Parameter]
+  public Guid Id { get; set; }
+  ApplicationUserAdminEditViewModel applicationUserAdminEditViewModel { get; set; } = new ApplicationUserAdminEditViewModel();
+  List<ApplicationRole> applicationRoleList { get; set; } = [];
+
+  protected override async Task OnInitializedAsync()
+  {
+    var authState = await GetAuthenticationStateAsync.GetAuthenticationStateAsync();
+    var userName = authState.User.Identity?.Name;
+
+    if (userName == null)
+    {
+      return;
+    }
+
+    await base.OnInitializedAsync();
+  }
+
+  protected override async Task OnParametersSetAsync()
+  {
+    var authState = await GetAuthenticationStateAsync.GetAuthenticationStateAsync();
+    var userName = authState.User.Identity?.Name;
+
+    if (userName == null)
+    {
+      return;
+    }
+
+    if (Id.Equals(Guid.Empty))
+    {
+      return;
+    }
+
+    var databaseApplicationUserAdminDto = await ApplicationUserAdminRepository.GetByIdAsync(userName, Id);
+
+    if (databaseApplicationUserAdminDto == null)
+    {
+      applicationUserAdminEditViewModel = new ApplicationUserAdminEditViewModel();
+    }
+    else
+    {
+      applicationUserAdminEditViewModel = ApplicationUserAdminEditViewModel.FromApplicationUserAdminDto(databaseApplicationUserAdminDto);
+    }
+  }
+
+  async Task HandleSubmit()
+  {
+    var authState = await GetAuthenticationStateAsync.GetAuthenticationStateAsync();
+    var userName = authState.User.Identity?.Name;
+
+    if (userName == null)
+    {
+      return;
+    }
+
+    if (string.IsNullOrWhiteSpace(applicationUserAdminEditViewModel.Email))
+    {
+      return;
+    }
+
+    if (string.IsNullOrWhiteSpace(applicationUserAdminEditViewModel.UserName))
+    {
+      return;
+    }
+
+    var applicationUserAdminDto = ApplicationUserAdminEditViewModel.ToApplicationUserAdminDto(applicationUserAdminEditViewModel);
+    applicationUserAdminDto.ApplicationUserName = userName;
+
+    if (Id.Equals(Guid.Empty))
+    {
+      var newApplicationUserAdminDto = await ApplicationUserAdminRepository.AddAsync(applicationUserAdminDto);
+
+      if (newApplicationUserAdminDto == null)
+      {
+        return;
+      }
+
+      NavigationManager.NavigateTo($"/admin/application-user-edit/{newApplicationUserAdminDto.Id}");
+    }
+    else
+    {
+      await ApplicationUserAdminRepository.EditAsync(applicationUserAdminDto);
+    }
+  }
+
+  async Task Remove()
+  {
+    var authState = await GetAuthenticationStateAsync.GetAuthenticationStateAsync();
+    var userName = authState.User.Identity?.Name!;
+
+    if (userName == null)
+    {
+      return;
+    }
+
+    if (Id.Equals(Guid.Empty))
+    {
+      return;
+    }
+
+    await ApplicationUserAdminRepository.DeleteAsync(userName, Id);
+    NavigationManager.NavigateTo($"/admin/application-user-list");
+  }
+
+  void ApplicationRoleAdd()
+  {
+    applicationUserAdminEditViewModel.ApplicationRoles.Add(new ApplicationRole());
+  }
+
+  void ApplicationRoleChange(ChangeEventArgs changeEventArgs, int i)
+  {
+    if (changeEventArgs == null)
+    {
+      applicationUserAdminEditViewModel.ApplicationRoles[i] = new ApplicationRole();
+      return;
+    }
+
+    if (changeEventArgs.Value == null)
+    {
+      applicationUserAdminEditViewModel.ApplicationRoles[i] = new ApplicationRole();
+      return;
+    }
+
+    var applicationRole = applicationRoleList?.Where(x => x.Id.ToString().Equals(changeEventArgs.Value)).FirstOrDefault();
+
+    if (applicationRole == null)
+    {
+      applicationUserAdminEditViewModel.ApplicationRoles[i] = new ApplicationRole();
+      return;
+    }
+
+    if (applicationRoleList != null)
+    {
+      foreach (var applicationRoleListItem in applicationRoleList)
+      {
+        if (applicationRoleListItem.Id.Equals(applicationRole.Id))
+        {
+          applicationUserAdminEditViewModel.ApplicationRoles[i] = applicationRole;
+          return;
+        }
+        applicationUserAdminEditViewModel.ApplicationRoles[i] = new ApplicationRole();
+      }
+    }
+  }
+}
