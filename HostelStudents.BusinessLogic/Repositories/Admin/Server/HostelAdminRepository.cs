@@ -127,6 +127,7 @@ public class HostelAdminRepository(ApplicationDbContext applicationDbContext) : 
 
         return await _applicationDbContext.Hostels
 
+            .Include(x => x.Students)
             // IncludeTableCodePlaceholder
 
             .Select(x => HostelAdminDto.FromHostel(x))
