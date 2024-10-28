@@ -13,21 +13,21 @@ public partial class HostelAdminPages : PageTest
     {
         await Expect(Page).ToHaveTitleAsync("Home");
         await Page.GetByTestId("hostelNavLink").ClickAsync();
-        await Expect(Page).ToHaveTitleAsync("HumanNamePlaceholder List");
+        await Expect(Page).ToHaveTitleAsync("Hostel List");
         await Page.GetByRole(AriaRole.Link, new() { Name = "Create" }).ClickAsync();
-        await Expect(Page).ToHaveTitleAsync("HumanNamePlaceholder Creation");
+        await Expect(Page).ToHaveTitleAsync("Hostel Creation");
 
         // CreatePropertyCodePlaceholder
 
         await Page.GetByRole(AriaRole.Button, new() { Name = "Create" }).ClickAsync();
-        await Expect(Page).ToHaveTitleAsync("HumanNamePlaceholder Modification");
+        await Expect(Page).ToHaveTitleAsync("Hostel Modification");
 
         // ModifyPropertyCodePlaceholder
 
         await Page.GetByRole(AriaRole.Button, new() { Name = "Modify" }).ClickAsync();
-        await Expect(Page).ToHaveTitleAsync("HumanNamePlaceholder Modification");
+        await Expect(Page).ToHaveTitleAsync("Hostel Modification");
         await Page.GetByRole(AriaRole.Button, new() { Name = "Remove" }).ClickAsync();
-        await Expect(Page).ToHaveTitleAsync("HumanNamePlaceholder List");
+        await Expect(Page).ToHaveTitleAsync("Hostel List");
     }
 
     [SetUp]
