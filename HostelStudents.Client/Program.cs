@@ -18,6 +18,7 @@ builder.Services.AddScoped<IApplicationRoleAdminRepository, ApplicationRoleClien
 builder.Services.AddScoped<IApplicationUserAdminRepository, ApplicationUserClientAdminRepository>();
 
 builder.Services.AddScoped<IHostelAdminRepository, HostelClientAdminRepository>();
+builder.Services.AddScoped<IStudentAdminRepository, StudentClientAdminRepository>();
 // RegisterClientServiceCodePlaceholder
 
 await builder.Build().RunAsync();
