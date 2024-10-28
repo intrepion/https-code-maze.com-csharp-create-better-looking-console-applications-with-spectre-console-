@@ -9,6 +9,9 @@ public class StudentEntityTypeConfiguration : IEntityTypeConfiguration<Student>
     {
         builder.ToTable("Students", x => x.IsTemporal());
 
+        builder.HasOne(x => x.ApplicationUser)
+            .WithOne(x => x.null)
+            .OnDelete(DeleteBehavior.Restrict);
         // EntityConfigurationCodePlaceholder
 
         builder.HasOne(x => x.ApplicationUserUpdatedBy)
