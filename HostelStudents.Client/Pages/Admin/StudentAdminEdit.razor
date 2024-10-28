@@ -46,6 +46,30 @@
           </label>
         </div>
       </div>
+      <div class="row">
+        <div class="col">
+          <label>
+            Hostel:
+            <select @onchange="HostelOnChange">
+              <option>Select hostel...</option>
+                @if (hostelAdminDtos != null)
+                {
+                  @foreach (var hostel in hostelAdminDtos)
+                  {
+                    if (studentAdminEditViewModel.Hostel != null && studentAdminEditViewModel.Hostel.Id.Equals(hostel.Id))
+                    {
+                      <option value="@hostel.Id" selected>@hostel?.Name</option>
+                    }
+                    else
+                    {
+                      <option value="@hostel.Id">@hostel?.Name</option>
+                    }
+                  }
+                }
+              </select>
+          </label>
+        </div>
+      </div>
       @* EditRowCodePlaceholder *@
 
       <div class="row">
