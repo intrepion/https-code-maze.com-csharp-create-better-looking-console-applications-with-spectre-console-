@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="MailKit" Version="4.8.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.10" />
     <ProjectReference Include="..\HostelStudents.Client\HostelStudents.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.10" />
