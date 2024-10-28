@@ -104,6 +104,11 @@ public class StudentAdminRepository(ApplicationDbContext applicationDbContext) :
             throw new Exception("First Name required.");
         }
 
+        if (string.IsNullOrWhiteSpace(studentAdminDto?.LastName ?? string.Empty))
+        {
+            throw new Exception("Last Name required.");
+        }
+
         // EditRequiredPropertyCodePlaceholder
 
         databaseStudent.ApplicationUserUpdatedBy = user;
