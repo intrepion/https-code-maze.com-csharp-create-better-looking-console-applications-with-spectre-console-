@@ -1,4 +1,4 @@
-using HostelStudents.Client;
+﻿using HostelStudents.Client;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
