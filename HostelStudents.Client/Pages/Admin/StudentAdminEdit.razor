@@ -115,7 +115,12 @@
 
     await base.OnInitializedAsync();
 
-    @* OnInitializedCodePlaceholder *@
+    var hostelAdminDtosResult = await HostelAdminRepository.GetAllAsync(userName);
+        if (hostelAdminDtosResult != null)
+        {
+            hostelAdminDtos = hostelAdminDtosResult;
+        }
+        @* OnInitializedCodePlaceholder *@
   }
 
   protected override async Task OnParametersSetAsync()
