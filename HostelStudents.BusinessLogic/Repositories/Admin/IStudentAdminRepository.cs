@@ -1,6 +1,6 @@
-﻿using ApplicationNamePlaceholder.BusinessLogic.Entities.Dtos.Admin;
+﻿using HostelStudents.BusinessLogic.Entities.Dtos.Admin;
 
-namespace ApplicationNamePlaceholder.BusinessLogic.Repositories.Admin;
+namespace HostelStudents.BusinessLogic.Repositories.Admin;
 
 public interface IStudentAdminRepository
 {
