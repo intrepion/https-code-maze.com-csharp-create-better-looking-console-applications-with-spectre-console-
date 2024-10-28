@@ -1,4 +1,4 @@
-@page "/admin/UrlNamePlaceholder-edit/{id:guid?}"
+@page "/admin/student-edit/{id:guid?}"
 @rendermode InteractiveAuto
 @inject AuthenticationStateProvider GetAuthenticationStateAsync
 @inject NavigationManager NavigationManager
@@ -39,7 +39,7 @@
           }
         </div>
         <div class="col">
-          <a href="/admin/UrlNamePlaceholder-list">Cancel</a>
+          <a href="/admin/student-list">Cancel</a>
           @if (Id.Equals(Guid.Empty))
           {
             <button type="submit" class="btn btn-primary">Create</button>
@@ -127,7 +127,7 @@
         return;
       }
 
-      NavigationManager.NavigateTo($"/admin/UrlNamePlaceholder-edit/{newStudentAdminDto.Id}");
+      NavigationManager.NavigateTo($"/admin/student-edit/{newStudentAdminDto.Id}");
     }
     else
     {
@@ -151,7 +151,7 @@
     }
 
     await StudentAdminRepository.DeleteAsync(userName, Id);
-    NavigationManager.NavigateTo($"/admin/UrlNamePlaceholder-list");
+    NavigationManager.NavigateTo($"/admin/student-list");
   }
 
   @* OnChangeCodePlaceholder *@
