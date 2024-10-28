@@ -24,6 +24,7 @@ public class StudentAdminEditViewModel
 
             Age = studentAdminDto?.Age ?? -1,
             FirstName = studentAdminDto?.FirstName ?? string.Empty,
+            Hostel = studentAdminDto?.Hostel,
             // DtoToModelPlaceholder
         };
     }
