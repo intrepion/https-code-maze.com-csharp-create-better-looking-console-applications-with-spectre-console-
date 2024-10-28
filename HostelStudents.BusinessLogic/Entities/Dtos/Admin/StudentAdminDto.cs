@@ -34,6 +34,7 @@ public class StudentAdminDto
             Id = studentAdminDto?.Id ?? new Guid(),
 
             Age = studentAdminDto?.Age ?? -1,
+            FirstName = studentAdminDto?.FirstName ?? string.Empty,
             // DtoToEntityPropertyPlaceholder
         };
     }
