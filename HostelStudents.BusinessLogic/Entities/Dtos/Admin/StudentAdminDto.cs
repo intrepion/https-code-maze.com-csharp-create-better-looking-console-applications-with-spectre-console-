@@ -19,6 +19,7 @@ public class StudentAdminDto
         {
             Id = student.Id,
 
+            Age = student.Age,
             // EntityToDtoPlaceholder
         };
     }
