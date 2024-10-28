@@ -37,6 +37,7 @@ public class StudentAdminDto
 
             Age = studentAdminDto?.Age ?? -1,
             FirstName = studentAdminDto?.FirstName ?? string.Empty,
+            Hostel = studentAdminDto?.Hostel,
             // DtoToEntityPropertyPlaceholder
         };
     }
