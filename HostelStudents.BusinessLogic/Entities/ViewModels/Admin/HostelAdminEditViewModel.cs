@@ -20,6 +20,7 @@ public class HostelAdminEditViewModel
         {
             Id = hostelAdminDto.Id,
 
+            Name = hostelAdminDto?.Name ?? string.Empty,
             // DtoToModelPlaceholder
         };
     }
