@@ -1,0 +1,98 @@
+@page "/admin/application-user-list"
+@rendermode InteractiveServer
+@inject IApplicationUserAdminRepository ApplicationUserAdminRepository
+@inject AuthenticationStateProvider GetAuthenticationStateAsync
+@attribute [Authorize(Roles = "Admin")]
+@attribute [StreamRendering]
+
+<PageTitle>Application User List</PageTitle>
+
+<section>
+  <h1>Application User List</h1>
+  <article>
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th scope="col">ApplicationRoles</th>
+          <th scope="col">Email</th>
+          <th scope="col">Id</th>
+          <th scope="col">PhoneNumber</th>
+          <th scope="col">UserName</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @if (applicationUsers == null)
+        {
+          <tr>
+            <td colspan="6">Loading...</td>
+          </tr>
+        }
+        else if (applicationUsers.Count == 0)
+        {
+          <tr>
+            <td colspan="6">No application users found.</td>
+          </tr>
+        }
+        else
+        {
+          @foreach (var applicationUser in applicationUsers)
+          {
+            <tr>
+              @if (applicationUser == null)
+              {
+                <td colspan="6">Application user is null.</td>
+              }
+              else
+              {
+                <td>
+                  @if (applicationUser.ApplicationRoles != null)
+                  {
+                    var first = true;
+                    foreach (var applicationUserRole in applicationUser.ApplicationRoles)
+                    {
+                      if (first)
+                      {
+                        first = false;
+                      }
+                      else
+                      {
+                        <span>, </span>
+                      }
+                      <span>@applicationUserRole?.Name</span>
+                    }
+                  }
+                </td>
+                <td>@applicationUser.Email</td>
+                <td>@applicationUser.Id</td>
+                <td>@applicationUser.PhoneNumber</td>
+                <td>@applicationUser.UserName</td>
+                <td>
+                  <a href="@("/admin/application-user-edit/" + applicationUser?.Id)">Edit</a>
+                </td>
+              }
+            </tr>
+          }
+        }
+      </tbody>
+    </table>
+    <a href="/admin/application-user-edit">Create</a>
+  </article>
+</section>
+
+@code {
+  List<ApplicationUserAdminDto>? applicationUsers;
+
+  protected override async Task OnInitializedAsync()
+  {
+    var authState = await GetAuthenticationStateAsync.GetAuthenticationStateAsync();
+    var userName = authState.User.Identity?.Name;
+
+    if (userName == null)
+    {
+      return;
+    }
+
+    applicationUsers = await ApplicationUserAdminRepository.GetAllAsync(userName);
+  }
+}

@@ -1,0 +1,75 @@
+@page "/admin/application-role-list"
+@rendermode InteractiveServer
+@inject IApplicationRoleAdminRepository ApplicationRoleAdminRepository
+@inject AuthenticationStateProvider GetAuthenticationStateAsync
+@attribute [Authorize(Roles = "Admin")]
+@attribute [StreamRendering]
+
+<PageTitle>Application Role List</PageTitle>
+
+<section>
+  <h1>Application Role List</h1>
+  <article>
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @if (applicationRoles == null)
+        {
+          <tr>
+            <td colspan="3">Loading...</td>
+          </tr>
+        }
+        else if (applicationRoles.Count == 0)
+        {
+          <tr>
+            <td colspan="3">No application roles found.</td>
+          </tr>
+        }
+        else
+        {
+          @foreach (var applicationRole in applicationRoles)
+          {
+            <tr>
+              @if (applicationRole == null)
+              {
+                <td colspan="3">Application role is null.</td>
+              }
+              else
+              {
+                <td>@applicationRole.Id</td>
+                <td>@applicationRole.Name</td>
+                <td>
+                  <a href="@("/admin/application-role-edit/" + applicationRole?.Id)">Edit</a>
+                </td>
+              }
+            </tr>
+          }
+        }
+      </tbody>
+    </table>
+    <a href="/admin/application-role-edit">Create</a>
+  </article>
+</section>
+
+@code {
+  List<ApplicationRoleAdminDto>? applicationRoles;
+
+  protected override async Task OnInitializedAsync()
+  {
+    var authState = await GetAuthenticationStateAsync.GetAuthenticationStateAsync();
+    var userName = authState.User.Identity?.Name;
+
+    if (userName == null)
+    {
+      return;
+    }
+
+    applicationRoles = await ApplicationRoleAdminRepository.GetAllAsync(userName);
+  }
+}
