@@ -2,20 +2,20 @@
 
 namespace ApplicationNamePlaceholder.BusinessLogic.Entities.ViewModels.Admin;
 
-public class EntityNamePlaceholderAdminEditViewModel
+public class StudentAdminEditViewModel
 {
     public Guid Id { get; set; }
 
     // JustModelPropertyPlaceholder
 
-    public static EntityNamePlaceholderAdminEditViewModel FromEntityNamePlaceholderAdminDto(EntityNamePlaceholderAdminDto studentAdminDto)
+    public static StudentAdminEditViewModel FromStudentAdminDto(StudentAdminDto studentAdminDto)
     {
         if (studentAdminDto == null)
         {
-            return new EntityNamePlaceholderAdminEditViewModel();
+            return new StudentAdminEditViewModel();
         }
 
-        return new EntityNamePlaceholderAdminEditViewModel
+        return new StudentAdminEditViewModel
         {
             Id = studentAdminDto.Id,
 
@@ -23,14 +23,14 @@ public class EntityNamePlaceholderAdminEditViewModel
         };
     }
 
-    public static EntityNamePlaceholderAdminDto ToEntityNamePlaceholderAdminDto(EntityNamePlaceholderAdminEditViewModel studentAdminEditViewModel)
+    public static StudentAdminDto ToStudentAdminDto(StudentAdminEditViewModel studentAdminEditViewModel)
     {
         if (studentAdminEditViewModel == null)
         {
-            return new EntityNamePlaceholderAdminDto();
+            return new StudentAdminDto();
         }
 
-        return new EntityNamePlaceholderAdminDto
+        return new StudentAdminDto
         {
             Id = studentAdminEditViewModel.Id,
 
