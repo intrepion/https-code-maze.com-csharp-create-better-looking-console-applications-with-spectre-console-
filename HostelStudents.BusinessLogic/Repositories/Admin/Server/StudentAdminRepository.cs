@@ -91,6 +91,7 @@ public class StudentAdminRepository(ApplicationDbContext applicationDbContext) :
 
         databaseStudent.ApplicationUserUpdatedBy = user;
 
+        databaseStudent.FirstName = studentAdminDto?.FirstName ?? string.Empty;
         // EditDatabasePropertyCodePlaceholder
 
         await _applicationDbContext.SaveChangesAsync();
