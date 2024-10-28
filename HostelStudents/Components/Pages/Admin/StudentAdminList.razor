@@ -35,15 +35,15 @@
         }
         else
         {
-          @foreach (var EntityLowercaseNamePlaceholder in TableLowercaseNamePlaceholder)
+          @foreach (var student in TableLowercaseNamePlaceholder)
           {
             <tr>
-              <td>@EntityLowercaseNamePlaceholder.Id</td>
+              <td>@student.Id</td>
 
               @* ListItemCodePlaceholder *@
 
               <td>
-                <a href="@("/admin/UrlNamePlaceholder-edit/" + EntityLowercaseNamePlaceholder?.Id)">Edit</a>
+                <a href="@("/admin/UrlNamePlaceholder-edit/" + student?.Id)">Edit</a>
               </td>
             </tr>
           }
