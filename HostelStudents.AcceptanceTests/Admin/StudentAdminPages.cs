@@ -25,6 +25,7 @@ public partial class StudentAdminPages : PageTest
         await Expect(Page).ToHaveTitleAsync("Student Modification");
 
         await Page.GetByTestId("studentAdminEditAge").FillAsync("2");
+        await Page.GetByTestId("studentAdminEditFirstName").FillAsync("some student");
         // ModifyPropertyCodePlaceholder
 
         await Page.GetByRole(AriaRole.Button, new() { Name = "Modify" }).ClickAsync();
