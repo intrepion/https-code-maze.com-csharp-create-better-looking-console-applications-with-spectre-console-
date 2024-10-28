@@ -12,7 +12,7 @@ public partial class EntityNamePlaceholderAdminPages : PageTest
     public async Task MainNavigation()
     {
         await Expect(Page).ToHaveTitleAsync("Home");
-        await Page.GetByTestId("EntityLowercaseNamePlaceholderNavLink").ClickAsync();
+        await Page.GetByTestId("hostelNavLink").ClickAsync();
         await Expect(Page).ToHaveTitleAsync("HumanNamePlaceholder List");
         await Page.GetByRole(AriaRole.Link, new() { Name = "Create" }).ClickAsync();
         await Expect(Page).ToHaveTitleAsync("HumanNamePlaceholder Creation");
