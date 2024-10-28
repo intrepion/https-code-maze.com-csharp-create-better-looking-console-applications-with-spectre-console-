@@ -5,6 +5,7 @@ public class HostelAdminDto
     public string ApplicationUserName { get; set; } = string.Empty;
     public Guid Id { get; set; }
 
+    public string Name { get; set; } = string.Empty;
     // DtoPropertyPlaceholder
 
     public static HostelAdminDto FromHostel(Hostel? hostel)
