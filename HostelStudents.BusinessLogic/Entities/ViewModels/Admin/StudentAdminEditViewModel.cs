@@ -36,6 +36,7 @@ public class StudentAdminEditViewModel
         {
             Id = studentAdminEditViewModel.Id,
 
+            Age = studentAdminEditViewModel.Age,
             // ModelToDtoPlaceholder
         };
     }
