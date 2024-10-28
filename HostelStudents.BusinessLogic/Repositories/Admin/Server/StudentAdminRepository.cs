@@ -32,6 +32,7 @@ public class StudentAdminRepository(ApplicationDbContext applicationDbContext) :
         var student = StudentAdminDto.ToStudent(user, studentAdminDto);
 
         student.NormalizedFirstName = studentAdminDto?.FirstName ?? string.Empty.ToUpperInvariant();
+        student.NormalizedLastName = studentAdminDto?.LastName ?? string.Empty.ToUpperInvariant();
         // AddDatabasePropertyCodePlaceholder
 
         var result = await _applicationDbContext.Students.AddAsync(student);
