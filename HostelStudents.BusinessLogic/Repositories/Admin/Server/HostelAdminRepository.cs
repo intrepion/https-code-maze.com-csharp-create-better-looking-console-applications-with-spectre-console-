@@ -26,6 +26,7 @@ public class HostelAdminRepository(ApplicationDbContext applicationDbContext) : 
 
         var hostel = HostelAdminDto.ToHostel(user, hostelAdminDto);
 
+        hostel.NormalizedName = hostelAdminDto?.Name ?? string.Empty.ToUpperInvariant();
         // AddDatabasePropertyCodePlaceholder
 
         var result = await _applicationDbContext.Hostels.AddAsync(hostel);
