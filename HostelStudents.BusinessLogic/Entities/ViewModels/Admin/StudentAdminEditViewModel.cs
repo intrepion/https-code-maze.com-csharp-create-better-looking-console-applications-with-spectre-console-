@@ -6,6 +6,7 @@ public class StudentAdminEditViewModel
 {
     public Guid Id { get; set; }
 
+    public int Age { get; set; }
     // JustModelPropertyPlaceholder
 
     public static StudentAdminEditViewModel FromStudentAdminDto(StudentAdminDto studentAdminDto)
