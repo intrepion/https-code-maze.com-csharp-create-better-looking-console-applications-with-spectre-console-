@@ -3,15 +3,15 @@ using ApplicationNamePlaceholder.BusinessLogic.Entities.Dtos.Admin;
 
 namespace ApplicationNamePlaceholder.BusinessLogic.Repositories.Admin.Client;
 
-public class EntityNamePlaceholderClientAdminRepository(HttpClient httpClient) : IEntityNamePlaceholderAdminRepository
+public class HostelClientAdminRepository(HttpClient httpClient) : IHostelAdminRepository
 {
     private readonly HttpClient _httpClient = httpClient;
 
-    public async Task<EntityNamePlaceholderAdminDto?> AddAsync(EntityNamePlaceholderAdminDto hostelAdminDto)
+    public async Task<HostelAdminDto?> AddAsync(HostelAdminDto hostelAdminDto)
     {
         var result = await _httpClient.PostAsJsonAsync("/api/admin/hostelAdmin", hostelAdminDto);
 
-        return await result.Content.ReadFromJsonAsync<EntityNamePlaceholderAdminDto>();
+        return await result.Content.ReadFromJsonAsync<HostelAdminDto>();
     }
 
     public async Task<bool> DeleteAsync(string userName, Guid id)
@@ -21,23 +21,23 @@ public class EntityNamePlaceholderClientAdminRepository(HttpClient httpClient) :
         return await result.Content.ReadFromJsonAsync<bool>();
     }
 
-    public async Task<EntityNamePlaceholderAdminDto?> EditAsync(EntityNamePlaceholderAdminDto hostelAdminDto)
+    public async Task<HostelAdminDto?> EditAsync(HostelAdminDto hostelAdminDto)
     {
         var result = await _httpClient.PutAsJsonAsync($"/api/admin/hostelAdmin/{hostelAdminDto.Id}", hostelAdminDto);
 
-        return await result.Content.ReadFromJsonAsync<EntityNamePlaceholderAdminDto>();
+        return await result.Content.ReadFromJsonAsync<HostelAdminDto>();
     }
 
-    public async Task<List<EntityNamePlaceholderAdminDto>?> GetAllAsync(string userName)
+    public async Task<List<HostelAdminDto>?> GetAllAsync(string userName)
     {
-        var result = await _httpClient.GetFromJsonAsync<List<EntityNamePlaceholderAdminDto>>($"/api/admin/hostelAdmin?userName={userName}");
+        var result = await _httpClient.GetFromJsonAsync<List<HostelAdminDto>>($"/api/admin/hostelAdmin?userName={userName}");
 
         return result;
     }
 
-    public async Task<EntityNamePlaceholderAdminDto?> GetByIdAsync(string userName, Guid id)
+    public async Task<HostelAdminDto?> GetByIdAsync(string userName, Guid id)
     {
-        var result = await _httpClient.GetFromJsonAsync<EntityNamePlaceholderAdminDto>($"/api/admin/hostelAdmin/{id}?userName={userName}");
+        var result = await _httpClient.GetFromJsonAsync<HostelAdminDto>($"/api/admin/hostelAdmin/{id}?userName={userName}");
 
         return result;
     }
