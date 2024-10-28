@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ApplicationNamePlaceholder.BusinessLogic.Repositories.Admin.Server;
 
-public class EntityNamePlaceholderAdminRepository(ApplicationDbContext applicationDbContext) : IEntityNamePlaceholderAdminRepository
+public class HostelAdminRepository(ApplicationDbContext applicationDbContext) : IHostelAdminRepository
 {
     private readonly ApplicationDbContext _applicationDbContext = applicationDbContext;
 
-    public async Task<EntityNamePlaceholderAdminDto?> AddAsync(EntityNamePlaceholderAdminDto hostelAdminDto)
+    public async Task<HostelAdminDto?> AddAsync(HostelAdminDto hostelAdminDto)
     {
         if (string.IsNullOrWhiteSpace(hostelAdminDto.ApplicationUserName))
         {
@@ -24,15 +24,15 @@ public class EntityNamePlaceholderAdminRepository(ApplicationDbContext applicati
 
         // AddRequiredPropertyCodePlaceholder
 
-        var hostel = EntityNamePlaceholderAdminDto.ToEntityNamePlaceholder(user, hostelAdminDto);
+        var hostel = HostelAdminDto.ToHostel(user, hostelAdminDto);
 
         // AddDatabasePropertyCodePlaceholder
 
         var result = await _applicationDbContext.TableNamePlaceholder.AddAsync(hostel);
-        var databaseEntityNamePlaceholderAdminDto = EntityNamePlaceholderAdminDto.FromEntityNamePlaceholder(result.Entity);
+        var databaseHostelAdminDto = HostelAdminDto.FromHostel(result.Entity);
         await _applicationDbContext.SaveChangesAsync();
 
-        return databaseEntityNamePlaceholderAdminDto;
+        return databaseHostelAdminDto;
     }
 
     public async Task<bool> DeleteAsync(string userName, Guid id)
@@ -49,24 +49,24 @@ public class EntityNamePlaceholderAdminRepository(ApplicationDbContext applicati
             throw new Exception("Authentication required.");
         }
 
-        var databaseEntityNamePlaceholder = await _applicationDbContext.TableNamePlaceholder.FindAsync(id);
+        var databaseHostel = await _applicationDbContext.TableNamePlaceholder.FindAsync(id);
 
-        if (databaseEntityNamePlaceholder == null)
+        if (databaseHostel == null)
         {
             return false;
         }
 
-        databaseEntityNamePlaceholder.ApplicationUserUpdatedBy = user;
+        databaseHostel.ApplicationUserUpdatedBy = user;
         await _applicationDbContext.SaveChangesAsync();
 
-        _applicationDbContext.Remove(databaseEntityNamePlaceholder);
+        _applicationDbContext.Remove(databaseHostel);
 
         await _applicationDbContext.SaveChangesAsync();
 
         return true;
     }
 
-    public async Task<EntityNamePlaceholderAdminDto?> EditAsync(EntityNamePlaceholderAdminDto hostelAdminDto)
+    public async Task<HostelAdminDto?> EditAsync(HostelAdminDto hostelAdminDto)
     {
         if (string.IsNullOrWhiteSpace(hostelAdminDto.ApplicationUserName))
         {
@@ -80,16 +80,16 @@ public class EntityNamePlaceholderAdminRepository(ApplicationDbContext applicati
             throw new Exception("Authentication required.");
         }
 
-        var databaseEntityNamePlaceholder = await _applicationDbContext.TableNamePlaceholder.FindAsync(hostelAdminDto.Id);
+        var databaseHostel = await _applicationDbContext.TableNamePlaceholder.FindAsync(hostelAdminDto.Id);
 
-        if (databaseEntityNamePlaceholder == null)
+        if (databaseHostel == null)
         {
             throw new Exception("HumanNamePlaceholder not found.");
         }
 
         // EditRequiredPropertyCodePlaceholder
 
-        databaseEntityNamePlaceholder.ApplicationUserUpdatedBy = user;
+        databaseHostel.ApplicationUserUpdatedBy = user;
 
         // EditDatabasePropertyCodePlaceholder
 
@@ -98,7 +98,7 @@ public class EntityNamePlaceholderAdminRepository(ApplicationDbContext applicati
         return hostelAdminDto;
     }
 
-    public async Task<List<EntityNamePlaceholderAdminDto>?> GetAllAsync(string userName)
+    public async Task<List<HostelAdminDto>?> GetAllAsync(string userName)
     {
         if (string.IsNullOrWhiteSpace(userName))
         {
@@ -116,11 +116,11 @@ public class EntityNamePlaceholderAdminRepository(ApplicationDbContext applicati
 
             // IncludeTableCodePlaceholder
 
-            .Select(x => EntityNamePlaceholderAdminDto.FromEntityNamePlaceholder(x))
+            .Select(x => HostelAdminDto.FromHostel(x))
             .ToListAsync();
     }
 
-    public async Task<EntityNamePlaceholderAdminDto?> GetByIdAsync(string userName, Guid id)
+    public async Task<HostelAdminDto?> GetByIdAsync(string userName, Guid id)
     {
         if (string.IsNullOrWhiteSpace(userName))
         {
@@ -141,6 +141,6 @@ public class EntityNamePlaceholderAdminRepository(ApplicationDbContext applicati
             return null;
         }
 
-        return EntityNamePlaceholderAdminDto.FromEntityNamePlaceholder(result);
+        return HostelAdminDto.FromHostel(result);
     }
 }
