@@ -23,6 +23,7 @@ public partial class HostelAdminPages : PageTest
         await Page.GetByRole(AriaRole.Button, new() { Name = "Create" }).ClickAsync();
         await Expect(Page).ToHaveTitleAsync("Hostel Modification");
 
+        await Page.GetByTestId("hostelAdminEditName").FillAsync("some hostel");
         // ModifyPropertyCodePlaceholder
 
         await Page.GetByRole(AriaRole.Button, new() { Name = "Modify" }).ClickAsync();
