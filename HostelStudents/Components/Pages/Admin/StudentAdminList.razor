@@ -21,13 +21,13 @@
         </tr>
       </thead>
       <tbody>
-        @if (TableLowercaseNamePlaceholder == null)
+        @if (students == null)
         {
           <tr>
             @* LoadingCountCodePlaceholder *@
           </tr>
         }
-        else if (TableLowercaseNamePlaceholder.Count == 0)
+        else if (students.Count == 0)
         {
           <tr>
             @* ZeroCountCodePlaceholder *@
@@ -35,7 +35,7 @@
         }
         else
         {
-          @foreach (var student in TableLowercaseNamePlaceholder)
+          @foreach (var student in students)
           {
             <tr>
               <td>@student.Id</td>
@@ -55,7 +55,7 @@
 </section>
 
 @code {
-  List<StudentAdminDto>? TableLowercaseNamePlaceholder = null;
+  List<StudentAdminDto>? students = null;
 
   protected override async Task OnInitializedAsync()
   {
@@ -67,6 +67,6 @@
       return;
     }
 
-    TableLowercaseNamePlaceholder = await StudentAdminRepository.GetAllAsync(userName);
+    students = await StudentAdminRepository.GetAllAsync(userName);
   }
 }
