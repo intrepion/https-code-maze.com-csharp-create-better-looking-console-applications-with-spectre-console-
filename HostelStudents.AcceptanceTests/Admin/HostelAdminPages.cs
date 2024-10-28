@@ -36,7 +36,7 @@ public partial class EntityNamePlaceholderAdminPages : PageTest
         var baseUrl = Environment.GetEnvironmentVariable("BASE_URL");
         if (string.IsNullOrEmpty(baseUrl))
         {
-            baseUrl = "ClientUriPlaceholder";
+            baseUrl = "http://localhost:5206";
         }
         await Page.GotoAsync(baseUrl);
 
