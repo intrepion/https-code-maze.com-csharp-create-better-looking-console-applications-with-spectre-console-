@@ -2,11 +2,11 @@
 
 namespace ApplicationNamePlaceholder.BusinessLogic.Repositories.Admin;
 
-public interface IEntityNamePlaceholderAdminRepository
+public interface IHostelAdminRepository
 {
-    Task<EntityNamePlaceholderAdminDto?> AddAsync(EntityNamePlaceholderAdminDto hostel);
+    Task<HostelAdminDto?> AddAsync(HostelAdminDto hostel);
     Task<bool> DeleteAsync(string userName, Guid id);
-    Task<EntityNamePlaceholderAdminDto?> EditAsync(EntityNamePlaceholderAdminDto hostel);
-    Task<List<EntityNamePlaceholderAdminDto>?> GetAllAsync(string userName);
-    Task<EntityNamePlaceholderAdminDto?> GetByIdAsync(string userName, Guid id);
+    Task<HostelAdminDto?> EditAsync(HostelAdminDto hostel);
+    Task<List<HostelAdminDto>?> GetAllAsync(string userName);
+    Task<HostelAdminDto?> GetByIdAsync(string userName, Guid id);
 }
