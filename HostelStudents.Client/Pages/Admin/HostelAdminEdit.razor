@@ -29,6 +29,14 @@
   <article>
     <EditForm class="container" Model="hostelAdminEditViewModel" OnSubmit="HandleSubmit">
 
+      <div class="row">
+        <div class="col">
+          <label>
+            Name:
+            <InputText @bind-Value="hostelAdminEditViewModel.Name" data-testid="hostelAdminEditName" />
+          </label>
+        </div>
+      </div>
       @* EditRowCodePlaceholder *@
 
       <div class="row">
