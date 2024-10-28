@@ -28,7 +28,7 @@ public class StudentAdminRepository(ApplicationDbContext applicationDbContext) :
 
         // AddDatabasePropertyCodePlaceholder
 
-        var result = await _applicationDbContext.TableNamePlaceholder.AddAsync(student);
+        var result = await _applicationDbContext.Students.AddAsync(student);
         var databaseStudentAdminDto = StudentAdminDto.FromStudent(result.Entity);
         await _applicationDbContext.SaveChangesAsync();
 
@@ -49,7 +49,7 @@ public class StudentAdminRepository(ApplicationDbContext applicationDbContext) :
             throw new Exception("Authentication required.");
         }
 
-        var databaseStudent = await _applicationDbContext.TableNamePlaceholder.FindAsync(id);
+        var databaseStudent = await _applicationDbContext.Students.FindAsync(id);
 
         if (databaseStudent == null)
         {
@@ -80,7 +80,7 @@ public class StudentAdminRepository(ApplicationDbContext applicationDbContext) :
             throw new Exception("Authentication required.");
         }
 
-        var databaseStudent = await _applicationDbContext.TableNamePlaceholder.FindAsync(studentAdminDto.Id);
+        var databaseStudent = await _applicationDbContext.Students.FindAsync(studentAdminDto.Id);
 
         if (databaseStudent == null)
         {
@@ -112,7 +112,7 @@ public class StudentAdminRepository(ApplicationDbContext applicationDbContext) :
             throw new Exception("Authentication required.");
         }
 
-        return await _applicationDbContext.TableNamePlaceholder
+        return await _applicationDbContext.Students
 
             // IncludeTableCodePlaceholder
 
@@ -134,7 +134,7 @@ public class StudentAdminRepository(ApplicationDbContext applicationDbContext) :
             throw new Exception("Authentication required.");
         }
 
-        var result = await _applicationDbContext.TableNamePlaceholder.FindAsync(id);
+        var result = await _applicationDbContext.Students.FindAsync(id);
 
         if (result == null)
         {
