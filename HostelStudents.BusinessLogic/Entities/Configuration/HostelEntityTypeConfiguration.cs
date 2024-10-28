@@ -7,12 +7,12 @@ public class HostelEntityTypeConfiguration : IEntityTypeConfiguration<Hostel>
 {
     public void Configure(EntityTypeBuilder<Hostel> builder)
     {
-        builder.ToTable("TableNamePlaceholder", x => x.IsTemporal());
+        builder.ToTable("Hostels", x => x.IsTemporal());
 
         // EntityConfigurationCodePlaceholder
 
         builder.HasOne(x => x.ApplicationUserUpdatedBy)
-            .WithMany(x => x.UpdatedTableNamePlaceholder)
+            .WithMany(x => x.UpdatedHostels)
             .OnDelete(DeleteBehavior.Restrict);
     }
 }
