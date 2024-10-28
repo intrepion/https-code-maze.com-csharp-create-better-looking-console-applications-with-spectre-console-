@@ -6,6 +6,7 @@ public class StudentAdminDto
     public Guid Id { get; set; }
 
     public int Age { get; set; }
+    public string FirstName { get; set; } = string.Empty;
     // DtoPropertyPlaceholder
 
     public static StudentAdminDto FromStudent(Student? student)
