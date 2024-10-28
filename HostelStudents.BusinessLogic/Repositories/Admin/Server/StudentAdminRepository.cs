@@ -22,6 +22,11 @@ public class StudentAdminRepository(ApplicationDbContext applicationDbContext) :
             throw new Exception("Authentication required.");
         }
 
+        if (string.IsNullOrWhiteSpace(studentAdminDto?.FirstName ?? string.Empty))
+        {
+            throw new Exception("First Name required.");
+        }
+
         // AddRequiredPropertyCodePlaceholder
 
         var student = StudentAdminDto.ToStudent(user, studentAdminDto);
