@@ -61,6 +61,7 @@ builder.Services.AddScoped(http => new HttpClient
 builder.Services.AddScoped<IApplicationRoleAdminRepository, ApplicationRoleAdminRepository>();
 builder.Services.AddScoped<IApplicationUserAdminRepository, ApplicationUserAdminRepository>();
 
+builder.Services.AddScoped<IHostelAdminRepository, HostelAdminRepository>();
 // RegisterServerServiceCodePlaceholder
 
 var app = builder.Build();
