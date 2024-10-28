@@ -91,6 +91,7 @@ public class HostelAdminRepository(ApplicationDbContext applicationDbContext) : 
 
         databaseHostel.ApplicationUserUpdatedBy = user;
 
+        databaseHostel.Name = hostelAdminDto?.Name ?? string.Empty;
         // EditDatabasePropertyCodePlaceholder
 
         await _applicationDbContext.SaveChangesAsync();
