@@ -2,7 +2,7 @@
 @rendermode InteractiveAuto
 @inject AuthenticationStateProvider GetAuthenticationStateAsync
 @inject NavigationManager NavigationManager
-@inject IEntityNamePlaceholderAdminRepository EntityNamePlaceholderAdminRepository
+@inject IStudentAdminRepository StudentAdminRepository
 @attribute [Authorize(Roles = "Admin")]
 
 @* InjectionCodePlaceholder *@
@@ -57,7 +57,7 @@
 @code {
   [Parameter]
   public Guid Id { get; set; }
-  EntityNamePlaceholderAdminEditViewModel studentAdminEditViewModel { get; set; } = new EntityNamePlaceholderAdminEditViewModel();
+  StudentAdminEditViewModel studentAdminEditViewModel { get; set; } = new StudentAdminEditViewModel();
 
   @* ListDeclarationCodePlaceholder *@
 
@@ -91,15 +91,15 @@
       return;
     }
 
-    var databaseEntityNamePlaceholderAdminDto = await EntityNamePlaceholderAdminRepository.GetByIdAsync(userName, Id);
+    var databaseStudentAdminDto = await StudentAdminRepository.GetByIdAsync(userName, Id);
 
-    if (databaseEntityNamePlaceholderAdminDto == null)
+    if (databaseStudentAdminDto == null)
     {
-      studentAdminEditViewModel = new EntityNamePlaceholderAdminEditViewModel();
+      studentAdminEditViewModel = new StudentAdminEditViewModel();
     }
     else
     {
-      studentAdminEditViewModel = EntityNamePlaceholderAdminEditViewModel.FromEntityNamePlaceholderAdminDto(databaseEntityNamePlaceholderAdminDto);
+      studentAdminEditViewModel = StudentAdminEditViewModel.FromStudentAdminDto(databaseStudentAdminDto);
     }
   }
 
@@ -115,23 +115,23 @@
 
     @* RequiredPropertyPlaceholder *@
 
-    var studentAdminDto = EntityNamePlaceholderAdminEditViewModel.ToEntityNamePlaceholderAdminDto(studentAdminEditViewModel);
+    var studentAdminDto = StudentAdminEditViewModel.ToStudentAdminDto(studentAdminEditViewModel);
     studentAdminDto.ApplicationUserName = userName;
 
     if (Id.Equals(Guid.Empty))
     {
-      var newEntityNamePlaceholderAdminDto = await EntityNamePlaceholderAdminRepository.AddAsync(studentAdminDto);
+      var newStudentAdminDto = await StudentAdminRepository.AddAsync(studentAdminDto);
 
-      if (newEntityNamePlaceholderAdminDto == null)
+      if (newStudentAdminDto == null)
       {
         return;
       }
 
-      NavigationManager.NavigateTo($"/admin/UrlNamePlaceholder-edit/{newEntityNamePlaceholderAdminDto.Id}");
+      NavigationManager.NavigateTo($"/admin/UrlNamePlaceholder-edit/{newStudentAdminDto.Id}");
     }
     else
     {
-      await EntityNamePlaceholderAdminRepository.EditAsync(studentAdminDto);
+      await StudentAdminRepository.EditAsync(studentAdminDto);
     }
   }
 
@@ -150,7 +150,7 @@
       return;
     }
 
-    await EntityNamePlaceholderAdminRepository.DeleteAsync(userName, Id);
+    await StudentAdminRepository.DeleteAsync(userName, Id);
     NavigationManager.NavigateTo($"/admin/UrlNamePlaceholder-list");
   }
 
