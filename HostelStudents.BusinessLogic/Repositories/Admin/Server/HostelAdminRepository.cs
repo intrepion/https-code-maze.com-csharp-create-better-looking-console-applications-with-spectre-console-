@@ -93,6 +93,11 @@ public class HostelAdminRepository(ApplicationDbContext applicationDbContext) : 
             throw new Exception("HumanNamePlaceholder not found.");
         }
 
+        if (string.IsNullOrWhiteSpace(hostelAdminDto?.Name ?? string.Empty))
+        {
+            throw new Exception("Name required.");
+        }
+
         // EditRequiredPropertyCodePlaceholder
 
         databaseHostel.ApplicationUserUpdatedBy = user;
