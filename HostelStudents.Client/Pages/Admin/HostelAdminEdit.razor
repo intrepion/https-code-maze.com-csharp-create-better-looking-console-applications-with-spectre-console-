@@ -2,7 +2,7 @@
 @rendermode InteractiveAuto
 @inject AuthenticationStateProvider GetAuthenticationStateAsync
 @inject NavigationManager NavigationManager
-@inject IEntityNamePlaceholderAdminRepository EntityNamePlaceholderAdminRepository
+@inject IHostelAdminRepository HostelAdminRepository
 @attribute [Authorize(Roles = "Admin")]
 
 @* InjectionCodePlaceholder *@
@@ -57,7 +57,7 @@
 @code {
   [Parameter]
   public Guid Id { get; set; }
-  EntityNamePlaceholderAdminEditViewModel hostelAdminEditViewModel { get; set; } = new EntityNamePlaceholderAdminEditViewModel();
+  HostelAdminEditViewModel hostelAdminEditViewModel { get; set; } = new HostelAdminEditViewModel();
 
   @* ListDeclarationCodePlaceholder *@
 
@@ -91,15 +91,15 @@
       return;
     }
 
-    var databaseEntityNamePlaceholderAdminDto = await EntityNamePlaceholderAdminRepository.GetByIdAsync(userName, Id);
+    var databaseHostelAdminDto = await HostelAdminRepository.GetByIdAsync(userName, Id);
 
-    if (databaseEntityNamePlaceholderAdminDto == null)
+    if (databaseHostelAdminDto == null)
     {
-      hostelAdminEditViewModel = new EntityNamePlaceholderAdminEditViewModel();
+      hostelAdminEditViewModel = new HostelAdminEditViewModel();
     }
     else
     {
-      hostelAdminEditViewModel = EntityNamePlaceholderAdminEditViewModel.FromEntityNamePlaceholderAdminDto(databaseEntityNamePlaceholderAdminDto);
+      hostelAdminEditViewModel = HostelAdminEditViewModel.FromHostelAdminDto(databaseHostelAdminDto);
     }
   }
 
@@ -115,23 +115,23 @@
 
     @* RequiredPropertyPlaceholder *@
 
-    var hostelAdminDto = EntityNamePlaceholderAdminEditViewModel.ToEntityNamePlaceholderAdminDto(hostelAdminEditViewModel);
+    var hostelAdminDto = HostelAdminEditViewModel.ToHostelAdminDto(hostelAdminEditViewModel);
     hostelAdminDto.ApplicationUserName = userName;
 
     if (Id.Equals(Guid.Empty))
     {
-      var newEntityNamePlaceholderAdminDto = await EntityNamePlaceholderAdminRepository.AddAsync(hostelAdminDto);
+      var newHostelAdminDto = await HostelAdminRepository.AddAsync(hostelAdminDto);
 
-      if (newEntityNamePlaceholderAdminDto == null)
+      if (newHostelAdminDto == null)
       {
         return;
       }
 
-      NavigationManager.NavigateTo($"/admin/UrlNamePlaceholder-edit/{newEntityNamePlaceholderAdminDto.Id}");
+      NavigationManager.NavigateTo($"/admin/UrlNamePlaceholder-edit/{newHostelAdminDto.Id}");
     }
     else
     {
-      await EntityNamePlaceholderAdminRepository.EditAsync(hostelAdminDto);
+      await HostelAdminRepository.EditAsync(hostelAdminDto);
     }
   }
 
@@ -150,7 +150,7 @@
       return;
     }
 
-    await EntityNamePlaceholderAdminRepository.DeleteAsync(userName, Id);
+    await HostelAdminRepository.DeleteAsync(userName, Id);
     NavigationManager.NavigateTo($"/admin/UrlNamePlaceholder-list");
   }
 
