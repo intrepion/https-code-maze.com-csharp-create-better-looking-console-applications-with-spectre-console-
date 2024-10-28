@@ -18,6 +18,7 @@ public partial class StudentAdminPages : PageTest
         await Expect(Page).ToHaveTitleAsync("Student Creation");
 
         await Page.GetByTestId("studentAdminEditAge").FillAsync("1");
+        await Page.GetByTestId("studentAdminEditFirstName").FillAsync("a student");
         // CreatePropertyCodePlaceholder
 
         await Page.GetByRole(AriaRole.Button, new() { Name = "Create" }).ClickAsync();
