@@ -31,6 +31,7 @@ public class HostelAdminDto
             ApplicationUserUpdatedBy = applicationUser ?? new ApplicationUser(),
             Id = hostelAdminDto?.Id ?? new Guid(),
 
+            Name = hostelAdminDto?.Name ?? string.Empty,
             // DtoToEntityPropertyPlaceholder
         };
     }
