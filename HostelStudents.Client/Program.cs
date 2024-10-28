@@ -1,6 +1,6 @@
-﻿using ApplicationNamePlaceholder.BusinessLogic.Repositories.Admin;
-using ApplicationNamePlaceholder.BusinessLogic.Repositories.Admin.Client;
-using ApplicationNamePlaceholder.Client;
+﻿using HostelStudents.BusinessLogic.Repositories.Admin;
+using HostelStudents.BusinessLogic.Repositories.Admin.Client;
+using HostelStudents.Client;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
