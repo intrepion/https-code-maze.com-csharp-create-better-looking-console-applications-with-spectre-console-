@@ -1,4 +1,4 @@
-namespace HostelStudents.AcceptanceTests;
+﻿namespace HostelStudents.AcceptanceTests;
 
 public class Tests
 {
