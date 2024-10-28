@@ -2,11 +2,11 @@
 
 namespace ApplicationNamePlaceholder.BusinessLogic.Repositories.Admin;
 
-public interface IEntityNamePlaceholderAdminRepository
+public interface IStudentAdminRepository
 {
-    Task<EntityNamePlaceholderAdminDto?> AddAsync(EntityNamePlaceholderAdminDto student);
+    Task<StudentAdminDto?> AddAsync(StudentAdminDto student);
     Task<bool> DeleteAsync(string userName, Guid id);
-    Task<EntityNamePlaceholderAdminDto?> EditAsync(EntityNamePlaceholderAdminDto student);
-    Task<List<EntityNamePlaceholderAdminDto>?> GetAllAsync(string userName);
-    Task<EntityNamePlaceholderAdminDto?> GetByIdAsync(string userName, Guid id);
+    Task<StudentAdminDto?> EditAsync(StudentAdminDto student);
+    Task<List<StudentAdminDto>?> GetAllAsync(string userName);
+    Task<StudentAdminDto?> GetByIdAsync(string userName, Guid id);
 }
