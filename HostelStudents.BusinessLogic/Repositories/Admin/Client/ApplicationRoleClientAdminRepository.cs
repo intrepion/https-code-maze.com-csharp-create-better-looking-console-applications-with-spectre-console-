@@ -1,7 +1,7 @@
 ﻿using System.Net.Http.Json;
-using ApplicationNamePlaceholder.BusinessLogic.Entities.Dtos.Admin;
+using HostelStudents.BusinessLogic.Entities.Dtos.Admin;
 
-namespace ApplicationNamePlaceholder.BusinessLogic.Repositories.Admin.Client;
+namespace HostelStudents.BusinessLogic.Repositories.Admin.Client;
 
 public class ApplicationRoleClientAdminRepository(HttpClient httpClient) : IApplicationRoleAdminRepository
 {
