@@ -12,6 +12,9 @@ public class StudentEntityTypeConfiguration : IEntityTypeConfiguration<Student>
         builder.HasOne(x => x.ApplicationUser)
             .WithOne(x => x.null)
             .OnDelete(DeleteBehavior.Restrict);
+        builder.HasOne(x => x.Hostel)
+            .WithMany(x => x.Students)
+            .OnDelete(DeleteBehavior.Restrict);
         // EntityConfigurationCodePlaceholder
 
         builder.HasOne(x => x.ApplicationUserUpdatedBy)
