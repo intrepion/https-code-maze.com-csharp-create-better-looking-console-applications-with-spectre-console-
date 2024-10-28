@@ -1,6 +1,6 @@
-﻿using ApplicationNamePlaceholder.BusinessLogic.Entities.Dtos.Admin;
+﻿using HostelStudents.BusinessLogic.Entities.Dtos.Admin;
 
-namespace ApplicationNamePlaceholder.BusinessLogic.Entities.ViewModels.Admin;
+namespace HostelStudents.BusinessLogic.Entities.ViewModels.Admin;
 
 public class HostelAdminEditViewModel
 {
