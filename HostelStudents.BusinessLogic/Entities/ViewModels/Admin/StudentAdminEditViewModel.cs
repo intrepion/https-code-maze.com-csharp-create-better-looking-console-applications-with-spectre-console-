@@ -9,6 +9,7 @@ public class StudentAdminEditViewModel
     public int Age { get; set; }
     public string FirstName { get; set; } = string.Empty;
     public Hostel? Hostel { get; set; }
+    public string LastName { get; set; } = string.Empty;
     // JustModelPropertyPlaceholder
 
     public static StudentAdminEditViewModel FromStudentAdminDto(StudentAdminDto studentAdminDto)
