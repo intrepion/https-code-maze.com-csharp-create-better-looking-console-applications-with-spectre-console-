@@ -23,6 +23,7 @@ public class StudentAdminDto
 
             Age = student.Age,
             FirstName = student.FirstName,
+            Hostel = student.Hostel,
             // EntityToDtoPlaceholder
         };
     }
