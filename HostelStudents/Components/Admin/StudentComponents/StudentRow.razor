@@ -1,10 +1,10 @@
-@inject IEntityNamePlaceholderFilters Filters
+@inject IStudentFilters Filters
 
-@if (CurrentEntityNamePlaceholder is not null)
+@if (CurrentStudent is not null)
 {
     <div class="row contact-detail">
         <div class="col-2 text-right">
-            <a title="Edit" href="admin/UrlNamePlaceholder/edit/@CurrentEntityNamePlaceholder.Id" style="text-decoration:none">
+            <a title="Edit" href="admin/UrlNamePlaceholder/edit/@CurrentStudent.Id" style="text-decoration:none">
                 &nbsp;📝&nbsp;
             </a>
             @if (CanDelete)
@@ -22,13 +22,13 @@
         <div class="col-3">
             <a href="@ViewLink" alt="View Details"
                title="View Details">
-                @CurrentEntityNamePlaceholder.Id
+                @CurrentStudent.Id
             </a>
         </div>
 
         @if (!DeleteConfirmation)
         {
-            <div class="col-3" data-testid="EntityNamePlaceholderId">@CurrentEntityNamePlaceholder.Id</div>
+            <div class="col-3" data-testid="StudentId">@CurrentStudent.Id</div>
 
             @* RowColumnCodePlaceholder *@
             @* <div class="col-3">@CurrentApplicationUser.PhoneNumber</div> *@
@@ -43,18 +43,18 @@
 }
 
 @code {
-    private EntityNamePlaceholder _currentEntityNamePlaceholder = new EntityNamePlaceholder();
+    private Student _currentStudent = new Student();
 
-    // EntityNamePlaceholder being rendered.
+    // Student being rendered.
     [Parameter]
-    public EntityNamePlaceholder CurrentEntityNamePlaceholder
+    public Student CurrentStudent
     {
-        get => _currentEntityNamePlaceholder;
+        get => _currentStudent;
         set
         {
-            if (value is not null && !value.Equals(_currentEntityNamePlaceholder))
+            if (value is not null && !value.Equals(_currentStudent))
             {
-                _currentEntityNamePlaceholder = value;
+                _currentStudent = value;
                 DeleteConfirmation = false;
             }
         }
@@ -62,7 +62,7 @@
 
     // Event to raise when a contact delete is requested.
     [Parameter]
-    public EventCallback DeleteEntityNamePlaceholder { get; set; }
+    public EventCallback DeleteStudent { get; set; }
 
     // Overall wrapper of functionality.
     [CascadingParameter]
@@ -70,10 +70,10 @@
 
     // Returns True if conditions for delete are met.
     private bool CanDelete =>
-        !DeleteConfirmation && (Wrapper?.DeleteRequestId.Equals(Guid.Empty) == true || Wrapper?.DeleteRequestId.Equals(CurrentEntityNamePlaceholder?.Id) == true);
+        !DeleteConfirmation && (Wrapper?.DeleteRequestId.Equals(Guid.Empty) == true || Wrapper?.DeleteRequestId.Equals(CurrentStudent?.Id) == true);
 
     // Navigate to view.
-    private string ViewLink => $"admin/UrlNamePlaceholder/view/{CurrentEntityNamePlaceholder?.Id}";
+    private string ViewLink => $"admin/UrlNamePlaceholder/view/{CurrentStudent?.Id}";
 
     // Confirm the delete.
     private bool DeleteConfirmation { get; set; }
@@ -103,10 +103,10 @@
         if (Wrapper?.DeleteRequestId.Equals(Guid.Empty) == true)
         {
             DeleteConfirmation = true;
-            await Wrapper.DeleteRequested.InvokeAsync(CurrentEntityNamePlaceholder.Id);
+            await Wrapper.DeleteRequested.InvokeAsync(CurrentStudent.Id);
         }
     }
 
-    // Deletes the EntityNamePlaceholder.
-    private Task DeleteAsync() => DeleteEntityNamePlaceholder.InvokeAsync(this);
+    // Deletes the Student.
+    private Task DeleteAsync() => DeleteStudent.InvokeAsync(this);
 }
