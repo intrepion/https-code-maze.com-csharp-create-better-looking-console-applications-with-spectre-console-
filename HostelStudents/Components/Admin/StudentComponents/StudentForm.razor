@@ -107,6 +107,23 @@
 
     private void HandleLastNameChange(ChangeEventArgs changeEventArgs)
     {
+        if (Student == null)
+        {
+            return;
+        }
+
+        if (changeEventArgs == null)
+        {
+            return;
+        }
+
+        if (changeEventArgs.Value == null)
+        {
+            return;
+        }
+
+        Student.NormalizedLastName = ((string)changeEventArgs.Value).ToUpperInvariant();
+
         // NormalizedCodeLastNamePlaceholder
     }
 
