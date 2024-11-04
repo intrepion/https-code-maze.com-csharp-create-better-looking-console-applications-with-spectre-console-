@@ -10,7 +10,7 @@ public class EntityNamePlaceholderGridControls(IPageHelper pageHelper) : IEntity
     public bool Loading { get; set; }
 
     // Column to sort by.
-    public EntityNamePlaceholderFilterColumns SortColumn { get; set; } = EntityNamePlaceholderFilterColumns.DefaultSortNamePlaceholder;
+    public EntityNamePlaceholderFilterColumns SortColumn { get; set; } = EntityNamePlaceholderFilterColumns.Name;
 
     // True when sorting ascending, otherwise sort descending.
     public bool SortAscending { get; set; } = true;
