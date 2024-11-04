@@ -49,7 +49,7 @@ public partial class HostelAdminPages : PageTest
         await Page.GotoAsync(baseUrl);
 
 
-       await Page.GetByRole(AriaRole.Link, new() { Name = "Login" }).ClickAsync();
+        await Page.GetByRole(AriaRole.Link, new() { Name = "Login" }).ClickAsync();
         await Expect(Page).ToHaveTitleAsync("Log in");
         await Page.GetByTestId("loginEmail").FillAsync("Admin1@HostelStudents.com");
         await Page.GetByTestId("loginPassword").FillAsync("Admin1@HostelStudents.com");
