@@ -16,7 +16,7 @@ public class EntityNamePlaceholderGridControls(IPageHelper pageHelper) : IEntity
     public bool SortAscending { get; set; } = true;
 
     // Column filtered text is against.
-    public EntityNamePlaceholderFilterColumns FilterColumn { get; set; } = EntityNamePlaceholderFilterColumns.DefaultFilterNamePlaceholder;
+    public EntityNamePlaceholderFilterColumns FilterColumn { get; set; } = EntityNamePlaceholderFilterColumns.Name;
 
     // Text to filter on.
     public string? FilterText { get; set; }
