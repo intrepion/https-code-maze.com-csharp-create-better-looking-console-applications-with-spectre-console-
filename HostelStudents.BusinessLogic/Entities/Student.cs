@@ -13,5 +13,6 @@ public class Student
     [Required]
     public string FirstName { get; set; } = string.Empty;
     [Required]
+    public string NormalizedFirstName { get; set; } = string.Empty;
     // ActualPropertyPlaceholder
 }
