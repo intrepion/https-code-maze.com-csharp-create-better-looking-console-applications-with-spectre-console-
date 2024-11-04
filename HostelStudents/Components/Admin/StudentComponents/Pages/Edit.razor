@@ -1,4 +1,4 @@
-@page "/admin/UrlNamePlaceholder/edit/{StudentId:guid}"
+@page "/admin/student/edit/{StudentId:guid}"
 @rendermode InteractiveServer
 @implements IDisposable
 @inject IDbContextFactory<ApplicationDbContext> DbFactory
@@ -143,7 +143,7 @@ else
 
             EditSuccessState.Success = true;
             // go to view to see the record
-            Navigation.NavigateTo($"/admin/UrlNamePlaceholder/view/{Student.Id}");
+            Navigation.NavigateTo($"/admin/student/view/{Student.Id}");
         }
         catch (DbUpdateConcurrencyException dbex)
         {
@@ -158,7 +158,7 @@ else
             if (dbValues is null)
             {
                 // deleted - show contact not found
-                Navigation.NavigateTo($"/admin/UrlNamePlaceholder/view/{Student.Id}");
+                Navigation.NavigateTo($"/admin/student/view/{Student.Id}");
                 return;
             }
 
@@ -186,7 +186,7 @@ else
     private void Cancel()
     {
         Busy = true;
-        Navigation.NavigateTo($"/admin/UrlNamePlaceholder/{PageHelper.Page}");
+        Navigation.NavigateTo($"/admin/student/{PageHelper.Page}");
     }
 
     /// <summary>
