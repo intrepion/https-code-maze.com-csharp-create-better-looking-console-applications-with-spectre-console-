@@ -162,14 +162,14 @@
         using var context = DbFactory.CreateDbContext();
         Filters.Loading = true;
 
-        if (Wrapper is not null && context.TableNamePlaceholder is not null)
+        if (Wrapper is not null && context.Students is not null)
         {
-            var contact = await context.TableNamePlaceholder
+            var contact = await context.Students
                 .FirstAsync(c => c.Id == Wrapper.DeleteRequestId);
 
             if (contact is not null)
             {
-                context.TableNamePlaceholder?.Remove(contact);
+                context.Students?.Remove(contact);
                 await context.SaveChangesAsync();
             }
         }
@@ -198,7 +198,7 @@
         Students = new List<Student>();
 
         using var context = DbFactory.CreateDbContext();
-        var query = context.TableNamePlaceholder?.AsQueryable();
+        var query = context.Students?.AsQueryable();
 
         if (query is not null)
         {
