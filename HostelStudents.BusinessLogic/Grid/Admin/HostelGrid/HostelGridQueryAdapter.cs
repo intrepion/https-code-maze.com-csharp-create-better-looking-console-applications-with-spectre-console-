@@ -17,6 +17,7 @@ public class HostelGridQueryAdapter
         {
             { HostelFilterColumns.Id, x => !x.Id.Equals(Guid.Empty) ? x.Id.ToString() : string.Empty },
 
+            { HostelFilterColumns.Name, x => x != null && x.Name != null ? x.Name : string.Empty },
             // SortExpressionCodePlaceholder
             // { HostelFilterColumns.Name, x => x != null && x.Name != null ? x.Name : string.Empty },
         };
