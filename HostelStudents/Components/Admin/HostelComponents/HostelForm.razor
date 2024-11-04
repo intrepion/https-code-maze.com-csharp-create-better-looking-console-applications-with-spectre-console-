@@ -7,6 +7,14 @@
         <DataAnnotationsValidator />
         <ValidationSummary />
 
+        <h2>Name</h2>
+        <p>
+            <label>
+                Name:
+                <InputText @bind-Value="Hostel.Name" @oninput="HandleNameChange"/>
+                <ConcurrencyField Model="Hostel" DbModel="DbHostel" Property="obj => obj?.Name" />
+            </label>
+        </p>
         @* PropertyFormCodePlaceholder *@
 
         <br />
