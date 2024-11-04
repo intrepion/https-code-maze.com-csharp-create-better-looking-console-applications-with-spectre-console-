@@ -4,7 +4,7 @@
 {
     <div class="row contact-detail">
         <div class="col-2 text-right">
-            <a title="Edit" href="admin/UrlNamePlaceholder/edit/@CurrentStudent.Id" style="text-decoration:none">
+            <a title="Edit" href="admin/student/edit/@CurrentStudent.Id" style="text-decoration:none">
                 &nbsp;📝&nbsp;
             </a>
             @if (CanDelete)
@@ -73,7 +73,7 @@
         !DeleteConfirmation && (Wrapper?.DeleteRequestId.Equals(Guid.Empty) == true || Wrapper?.DeleteRequestId.Equals(CurrentStudent?.Id) == true);
 
     // Navigate to view.
-    private string ViewLink => $"admin/UrlNamePlaceholder/view/{CurrentStudent?.Id}";
+    private string ViewLink => $"admin/student/view/{CurrentStudent?.Id}";
 
     // Confirm the delete.
     private bool DeleteConfirmation { get; set; }
