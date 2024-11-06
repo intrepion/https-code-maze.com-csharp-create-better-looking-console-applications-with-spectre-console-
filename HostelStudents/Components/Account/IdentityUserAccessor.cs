@@ -1,5 +1,5 @@
+﻿using HostelStudents.Data;
 using Microsoft.AspNetCore.Identity;
-using HostelStudents.Data;
 
 namespace HostelStudents.Components.Account;
 
