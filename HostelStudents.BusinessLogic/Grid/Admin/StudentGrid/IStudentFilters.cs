@@ -1,10 +1,10 @@
-﻿namespace HostelStudents.BusinessLogic.Grid.Admin.EntityNamePlaceholderGrid;
+﻿namespace HostelStudents.BusinessLogic.Grid.Admin.StudentGrid;
 
 // Interface for filtering.
-public interface IEntityNamePlaceholderFilters
+public interface IStudentFilters
 {
-    // The EntityNamePlaceholderFilterColumns being filtered on.
-    EntityNamePlaceholderFilterColumns FilterColumn { get; set; }
+    // The StudentFilterColumns being filtered on.
+    StudentFilterColumns FilterColumn { get; set; }
 
     // Loading indicator.
     bool Loading { get; set; }
@@ -18,6 +18,6 @@ public interface IEntityNamePlaceholderFilters
     // Gets or sets a value indicating if the sort is ascending or descending.
     bool SortAscending { get; set; }
 
-    // The EntityNamePlaceholderFilterColumns being sorted.
-    EntityNamePlaceholderFilterColumns SortColumn { get; set; }
+    // The StudentFilterColumns being sorted.
+    StudentFilterColumns SortColumn { get; set; }
 }
