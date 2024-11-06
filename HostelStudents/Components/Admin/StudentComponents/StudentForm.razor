@@ -7,6 +7,14 @@
         <DataAnnotationsValidator />
         <ValidationSummary />
 
+        <h2>Age</h2>
+        <p>
+            <label>
+                Age:
+                <InputNumber @bind-Value="Student.Age" @oninput="HandleAgeChange"/>
+                <ConcurrencyField Model="Student" DbModel="DbStudent" Property="obj => obj?.Age" />
+            </label>
+        </p>
         @* PropertyFormCodePlaceholder *@
 
         <br />
