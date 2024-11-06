@@ -161,14 +161,14 @@
         using var context = DbFactory.CreateDbContext();
         Filters.Loading = true;
 
-        if (Wrapper is not null && context.TableNamePlaceholder is not null)
+        if (Wrapper is not null && context.Hostels is not null)
         {
-            var contact = await context.TableNamePlaceholder
+            var contact = await context.Hostels
                 .FirstAsync(c => c.Id == Wrapper.DeleteRequestId);
 
             if (contact is not null)
             {
-                context.TableNamePlaceholder?.Remove(contact);
+                context.Hostels?.Remove(contact);
                 await context.SaveChangesAsync();
             }
         }
@@ -197,7 +197,7 @@
         Hostels = new List<Hostel>();
 
         using var context = DbFactory.CreateDbContext();
-        var query = context.TableNamePlaceholder?.AsQueryable();
+        var query = context.Hostels?.AsQueryable();
 
         if (query is not null)
         {
