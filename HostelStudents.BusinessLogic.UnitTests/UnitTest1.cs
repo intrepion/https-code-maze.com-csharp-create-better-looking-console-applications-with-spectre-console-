@@ -1,4 +1,4 @@
-namespace HostelStudents.BusinessLogic.UnitTests;
+﻿namespace HostelStudents.BusinessLogic.UnitTests;
 
 public class Tests
 {
