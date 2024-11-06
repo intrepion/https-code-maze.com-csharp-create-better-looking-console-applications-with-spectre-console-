@@ -47,3 +47,9 @@ var panel = new Panel(json)
         .Collapse()
         .BorderColor(Color.LightSkyBlue1);
 AnsiConsole.Write(panel);
+
+var calendar = new Calendar(2023, 11)
+    .AddCalendarEvent(2023, 11, 19)
+    .HighlightStyle(Style.Parse("magenta bold"))
+    .HeaderStyle(Style.Parse("purple"));
+AnsiConsole.Write(calendar);
