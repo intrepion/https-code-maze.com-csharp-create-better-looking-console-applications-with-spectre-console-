@@ -4,5 +4,6 @@ public enum HostelFilterColumns
 {
     Id,
 
+    Name,
     // FilterColumnCodePlaceholder
 }
