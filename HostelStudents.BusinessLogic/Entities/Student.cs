@@ -16,5 +16,6 @@ public class Student
     public string NormalizedFirstName { get; set; } = string.Empty;
     public Hostel? Hostel { get; set; }
     [Required]
+    public string LastName { get; set; } = string.Empty;
     // ActualPropertyPlaceholder
 }
