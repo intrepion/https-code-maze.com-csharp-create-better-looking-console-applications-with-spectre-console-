@@ -53,3 +53,17 @@ var calendar = new Calendar(2023, 11)
     .HighlightStyle(Style.Parse("magenta bold"))
     .HeaderStyle(Style.Parse("purple"));
 AnsiConsole.Write(calendar);
+
+var table = new Table
+{
+    Title = new TableTitle("STUDENTS", "bold green")
+};
+
+table.AddColumns("[yellow]Id[/]", $"[{Color.Olive}]FirstName[/]", "[Fuchsia]Age[/]");
+
+foreach (var student in _students)
+{
+    table.AddRow(student.Id.ToString(), $"[red]{student.FirstName}[/]", $"[cyan]{student.Age}[/]");
+}
+
+AnsiConsole.Write(table);
