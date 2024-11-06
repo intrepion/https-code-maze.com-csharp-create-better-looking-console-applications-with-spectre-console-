@@ -6,7 +6,7 @@ using Spectre.Console.Json;
 
 Console.WriteLine("Hello, World!");
 
-Hostel[] _hostels = [
+List<Hostel> _hostels = [
     new Hostel { Name = "Lincoln" },
     new Hostel { Name = "Louisa" },
     new Hostel { Name = "Laurent" },
@@ -14,13 +14,46 @@ Hostel[] _hostels = [
     new Hostel { Name = "Kennedy" },
 ];
 
-Student[] _students = [
+List<Student> _students = [
     new Student { Id = Guid.NewGuid(), FirstName = "Julie", LastName = "Matthew", Age = 19, Hostel = _hostels[0] },
-    new Student { Id = Guid.NewGuid(), FirstName = "Michael", LastName = "Taylor", Age = 23, Hostel = _hostels[0] },
-    new Student { Id = Guid.NewGuid(), FirstName = "Joe", LastName = "Hardy", Age = 27, Hostel = _hostels[0] },
-    new Student { Id = Guid.NewGuid(), FirstName = "Sabrina", LastName = "Azulon", Age = 18, Hostel = _hostels[0] },
-    new Student { Id = Guid.NewGuid(), FirstName = "Hunter", LastName = "Cyril", Age = 19, Hostel = _hostels[0] },
+    new Student { Id = Guid.NewGuid(), FirstName = "Michael", LastName = "Taylor", Age = 23, Hostel = _hostels[3] },
+    new Student { Id = Guid.NewGuid(), FirstName = "Joe", LastName = "Hardy", Age = 27, Hostel = _hostels[2] },
+    new Student { Id = Guid.NewGuid(), FirstName = "Sabrina", LastName = "Azulon", Age = 18, Hostel = _hostels[3] },
+    new Student { Id = Guid.NewGuid(), FirstName = "Hunter", LastName = "Cyril", Age = 19, Hostel = _hostels[4] },
 ];
+
+var agePrompt = new TextPrompt<int>("[green]How old are you[/]?")
+    .PromptStyle("green")
+    .ValidationErrorMessage("[red]That's not a valid age[/]")
+    .Validate(age =>
+    {
+        return age switch
+        {
+            <= 10 => ValidationResult.Error("[red]You must be above 10 years[/]"),
+            >= 123 => ValidationResult.Error("[red]You must be younger than that[/]"),
+            _ => ValidationResult.Success(),
+        };
+    });
+
+var selectionPrompt = new SelectionPrompt<string>()
+    .Title("Choose a hostel").AddChoices(_hostels.Select(x => x.Name));
+
+var selectedFirstName = AnsiConsole.Ask<string>("[green]What's your First Name[/]?");
+var selectedLastName = AnsiConsole.Ask<string>("[green]What's your Last Name[/]?");
+var selectedAge = AnsiConsole.Prompt(agePrompt);
+var selectedHostel = AnsiConsole.Prompt(selectionPrompt);
+
+var selectedStudent = new Student
+{
+    FirstName = selectedFirstName,
+    LastName = selectedLastName,
+    Age = selectedAge,
+    Hostel = _hostels.Single(x => x.Name.Equals(selectedHostel, StringComparison.InvariantCultureIgnoreCase)),
+};
+
+AnsiConsole.MarkupLine($"Alright [yellow]{selectedStudent.Age}-year-old {selectedStudent.FirstName} {selectedStudent.LastName}[/], welcome to {selectedStudent.Hostel.Name}!");
+
+_students.Add(selectedStudent);
 
 AnsiConsole.Markup($"[bold blue]Hello[/] [italic green]{_students[1].FirstName}[/]!");
 AnsiConsole.Write(new Markup($"[underline #800080]{_students[2].FirstName}[/]"));
@@ -79,32 +112,19 @@ catch (FileNotFoundException ex)
     ExceptionFormats.ShortenMethods);
 }
 
-var agePrompt = new TextPrompt<int>("[green]How old are you[/]?")
-    .PromptStyle("green")
-    .ValidationErrorMessage("[red]That's not a valid age[/]")
-    .Validate(age =>
-    {
-        return age switch
-        {
-            <= 10 => ValidationResult.Error("[red]You must be above 10 years[/]"),
-            >= 123 => ValidationResult.Error("[red]You must be younger than that[/]"),
-            _ => ValidationResult.Success(),
-        };
-    });
+var barChart = new BarChart()
+    .Width(60)
+    .Label("[orange1 bold underline]Number of Students per Hostel[/]")
+    .CenterLabel();
 
-var selectionPrompt = new SelectionPrompt<string>()
-    .Title("Choose a hostel").AddChoices(_hostels.Select(x => x.Name));
+var colors = new List<Color> { Color.Red, Color.Fuchsia, Color.Blue, Color.Yellow, Color.Magenta1 };
 
-var selectedFirstName = AnsiConsole.Ask<string>("[green]What's your First Name[/]?");
-var selectedLastName = AnsiConsole.Ask<string>("[green]What's your Last Name[/]?");
-var selectedAge = AnsiConsole.Prompt(agePrompt);
-var selectedHostel = AnsiConsole.Prompt(selectionPrompt);
-
-var selectedStudent = new Student
+for (int i = 0; i < _hostels.Count; i++)
 {
-    FirstName = selectedFirstName,
-    LastName = selectedLastName,
-    Age = selectedAge,
-    Hostel = _hostels.Single(x => x.Name.Equals(selectedHostel, StringComparison.InvariantCultureIgnoreCase)),
-};
-AnsiConsole.MarkupLine($"Alright [yellow]{selectedStudent.Age}-year-old {selectedStudent.FirstName} {selectedStudent.LastName}[/], welcome to {selectedStudent.Hostel.Name}!");
+    var hostel = _hostels[i];
+    var color = colors[i];
+    var count = _students.Count(s => s.Hostel == hostel);
+    barChart.AddItem(hostel.Name, count, color);
+}
+
+AnsiConsole.Write(barChart);
