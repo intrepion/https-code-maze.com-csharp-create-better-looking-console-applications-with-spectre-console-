@@ -44,6 +44,10 @@
                 <SortIndicator Column="@(StudentFilterColumns.Id)" />&nbsp;Id
             </div>
 
+            <div class="col-3" @onclick="@(async ()=>await ToggleAsync(StudentFilterColumns.Age))">
+                <SortIndicator Column="@(StudentFilterColumns.Age)" />&nbsp;Age
+            </div>
+
             @* SortIndicatorCodePlaceholder *@
 
         </div>
