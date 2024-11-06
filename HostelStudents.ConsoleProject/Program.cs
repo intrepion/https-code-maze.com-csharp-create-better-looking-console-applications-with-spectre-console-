@@ -1,6 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Text.Json;
 using HostelStudents.BusinessLogic.Entities;
 using Spectre.Console;
+using Spectre.Console.Json;
 
 Console.WriteLine("Hello, World!");
 
@@ -29,3 +31,19 @@ AnsiConsole.MarkupLine($"[red on yellow] Hello, {_students[4].LastName}![/]");
 AnsiConsole.Markup($"[[{_students[3].FirstName}]]");
 AnsiConsole.MarkupLine($"[blue][[{_students[3].Hostel}]][/]");
 AnsiConsole.MarkupLine($"[{_students[3].Age}]".EscapeMarkup());
+
+JsonSerializerOptions _writeOptions = new()
+{
+    WriteIndented = true
+};
+
+var students = JsonSerializer.Serialize(_students, _writeOptions);
+
+var json = new JsonText(students);
+var panel = new Panel(json)
+        .Header("Students")
+        .HeaderAlignment(Justify.Center)
+        .SquareBorder()
+        .Collapse()
+        .BorderColor(Color.LightSkyBlue1);
+AnsiConsole.Write(panel);
