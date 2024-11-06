@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostelStudents.ConsoleProje
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostelStudents.Server.ComponentTests", "HostelStudents.Server.ComponentTests\HostelStudents.Server.ComponentTests.csproj", "{236A54F2-F2BC-4CDC-9A53-65947A9C6D43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostelStudents.Server.ControllerTests", "HostelStudents.Server.ControllerTests\HostelStudents.Server.ControllerTests.csproj", "{EEEFD4A5-1614-4CD1-9773-F4ACA05BC942}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -124,6 +126,18 @@ Global
 		{236A54F2-F2BC-4CDC-9A53-65947A9C6D43}.Release|x64.Build.0 = Release|Any CPU
 		{236A54F2-F2BC-4CDC-9A53-65947A9C6D43}.Release|x86.ActiveCfg = Release|Any CPU
 		{236A54F2-F2BC-4CDC-9A53-65947A9C6D43}.Release|x86.Build.0 = Release|Any CPU
+		{EEEFD4A5-1614-4CD1-9773-F4ACA05BC942}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEEFD4A5-1614-4CD1-9773-F4ACA05BC942}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEEFD4A5-1614-4CD1-9773-F4ACA05BC942}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EEEFD4A5-1614-4CD1-9773-F4ACA05BC942}.Debug|x64.Build.0 = Debug|Any CPU
+		{EEEFD4A5-1614-4CD1-9773-F4ACA05BC942}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EEEFD4A5-1614-4CD1-9773-F4ACA05BC942}.Debug|x86.Build.0 = Debug|Any CPU
+		{EEEFD4A5-1614-4CD1-9773-F4ACA05BC942}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEEFD4A5-1614-4CD1-9773-F4ACA05BC942}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEEFD4A5-1614-4CD1-9773-F4ACA05BC942}.Release|x64.ActiveCfg = Release|Any CPU
+		{EEEFD4A5-1614-4CD1-9773-F4ACA05BC942}.Release|x64.Build.0 = Release|Any CPU
+		{EEEFD4A5-1614-4CD1-9773-F4ACA05BC942}.Release|x86.ActiveCfg = Release|Any CPU
+		{EEEFD4A5-1614-4CD1-9773-F4ACA05BC942}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
