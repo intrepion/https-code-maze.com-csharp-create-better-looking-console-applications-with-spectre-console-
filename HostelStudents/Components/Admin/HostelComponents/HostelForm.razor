@@ -64,6 +64,23 @@
 
     private void HandleNameChange(ChangeEventArgs changeEventArgs)
     {
+        if (Hostel == null)
+        {
+            return;
+        }
+
+        if (changeEventArgs == null)
+        {
+            return;
+        }
+
+        if (changeEventArgs.Value == null)
+        {
+            return;
+        }
+
+        Hostel.NormalizedName = ((string)changeEventArgs.Value).ToUpperInvariant();
+
         // NormalizedCodeNamePlaceholder
     }
 
