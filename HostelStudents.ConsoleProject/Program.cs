@@ -67,3 +67,14 @@ foreach (var student in _students)
 }
 
 AnsiConsole.Write(table);
+
+try
+{
+    File.OpenRead("nofile.txt");
+}
+catch (FileNotFoundException ex)
+{
+    AnsiConsole.WriteException(ex,
+    ExceptionFormats.ShortenPaths |
+    ExceptionFormats.ShortenMethods);
+}
