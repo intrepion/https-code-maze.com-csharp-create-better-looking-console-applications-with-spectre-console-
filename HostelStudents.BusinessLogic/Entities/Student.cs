@@ -8,5 +8,6 @@ public class Student
     public Guid Id { get; set; }
 
     [Required]
+    public int Age { get; set; }
     // ActualPropertyPlaceholder
 }
