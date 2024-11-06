@@ -78,3 +78,33 @@ catch (FileNotFoundException ex)
     ExceptionFormats.ShortenPaths |
     ExceptionFormats.ShortenMethods);
 }
+
+var agePrompt = new TextPrompt<int>("[green]How old are you[/]?")
+    .PromptStyle("green")
+    .ValidationErrorMessage("[red]That's not a valid age[/]")
+    .Validate(age =>
+    {
+        return age switch
+        {
+            <= 10 => ValidationResult.Error("[red]You must be above 10 years[/]"),
+            >= 123 => ValidationResult.Error("[red]You must be younger than that[/]"),
+            _ => ValidationResult.Success(),
+        };
+    });
+
+var selectionPrompt = new SelectionPrompt<string>()
+    .Title("Choose a hostel").AddChoices(_hostels.Select(x => x.Name));
+
+var selectedFirstName = AnsiConsole.Ask<string>("[green]What's your First Name[/]?");
+var selectedLastName = AnsiConsole.Ask<string>("[green]What's your Last Name[/]?");
+var selectedAge = AnsiConsole.Prompt(agePrompt);
+var selectedHostel = AnsiConsole.Prompt(selectionPrompt);
+
+var selectedStudent = new Student
+{
+    FirstName = selectedFirstName,
+    LastName = selectedLastName,
+    Age = selectedAge,
+    Hostel = _hostels.Single(x => x.Name.Equals(selectedHostel, StringComparison.InvariantCultureIgnoreCase)),
+};
+AnsiConsole.MarkupLine($"Alright [yellow]{selectedStudent.Age}-year-old {selectedStudent.FirstName} {selectedStudent.LastName}[/], welcome to {selectedStudent.Hostel.Name}!");
