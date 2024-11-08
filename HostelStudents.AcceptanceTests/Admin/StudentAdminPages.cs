@@ -31,6 +31,7 @@ public partial class StudentAdminPages : PageTest
 
         await Page.GetByLabel("Age:").FillAsync("2");
         await Page.GetByLabel("First Name:").FillAsync("someFirstName" + someRandomString);
+        await Page.GetByLabel("Last Name:").FillAsync("someLastName" + someRandomString);
         // ModifyPropertyCodePlaceholder
 
         await Page.GetByRole(AriaRole.Button, new() { Name = "Submit" }).ClickAsync();
