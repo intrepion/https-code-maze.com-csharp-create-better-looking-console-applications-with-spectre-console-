@@ -23,6 +23,14 @@
                 <ConcurrencyField Model="Student" DbModel="DbStudent" Property="obj => obj?.FirstName" />
             </label>
         </p>
+        <h2>Last Name</h2>
+        <p>
+            <label>
+                Last Name:
+                <InputText @bind-Value="Student.LastName" @oninput="HandleLastNameChange"/>
+                <ConcurrencyField Model="Student" DbModel="DbStudent" Property="obj => obj?.LastName" />
+            </label>
+        </p>
         @* PropertyFormCodePlaceholder *@
 
         <br />
