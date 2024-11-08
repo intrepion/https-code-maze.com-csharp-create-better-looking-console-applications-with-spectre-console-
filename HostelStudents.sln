@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostelStudents.AcceptanceTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostelStudents.BusinessLogic", "HostelStudents.BusinessLogic\HostelStudents.BusinessLogic.csproj", "{636CDA50-DEF4-4AEC-B8DA-1C285D7FAF02}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostelStudents.BusinessLogic.UnitTests", "HostelStudents.BusinessLogic.UnitTests\HostelStudents.BusinessLogic.UnitTests.csproj", "{94DC449D-6AF9-402A-9B23-17185E65A342}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,18 @@ Global
 		{636CDA50-DEF4-4AEC-B8DA-1C285D7FAF02}.Release|x64.Build.0 = Release|Any CPU
 		{636CDA50-DEF4-4AEC-B8DA-1C285D7FAF02}.Release|x86.ActiveCfg = Release|Any CPU
 		{636CDA50-DEF4-4AEC-B8DA-1C285D7FAF02}.Release|x86.Build.0 = Release|Any CPU
+		{94DC449D-6AF9-402A-9B23-17185E65A342}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94DC449D-6AF9-402A-9B23-17185E65A342}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94DC449D-6AF9-402A-9B23-17185E65A342}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{94DC449D-6AF9-402A-9B23-17185E65A342}.Debug|x64.Build.0 = Debug|Any CPU
+		{94DC449D-6AF9-402A-9B23-17185E65A342}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{94DC449D-6AF9-402A-9B23-17185E65A342}.Debug|x86.Build.0 = Debug|Any CPU
+		{94DC449D-6AF9-402A-9B23-17185E65A342}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94DC449D-6AF9-402A-9B23-17185E65A342}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94DC449D-6AF9-402A-9B23-17185E65A342}.Release|x64.ActiveCfg = Release|Any CPU
+		{94DC449D-6AF9-402A-9B23-17185E65A342}.Release|x64.Build.0 = Release|Any CPU
+		{94DC449D-6AF9-402A-9B23-17185E65A342}.Release|x86.ActiveCfg = Release|Any CPU
+		{94DC449D-6AF9-402A-9B23-17185E65A342}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
