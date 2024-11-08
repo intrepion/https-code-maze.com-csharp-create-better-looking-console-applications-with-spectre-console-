@@ -1,7 +1,7 @@
-namespace HostelStudents.BusinessLogic.Grid.Admin.EntityNamePlaceholderGrid;
+namespace HostelStudents.BusinessLogic.Grid.Admin.StudentGrid;
 
 // State of grid filters.
-public class EntityNamePlaceholderGridControls(IPageHelper pageHelper) : IEntityNamePlaceholderFilters
+public class StudentGridControls(IPageHelper pageHelper) : IStudentFilters
 {
     // Keep state of paging.
     public IPageHelper PageHelper { get; set; } = pageHelper;
@@ -10,13 +10,13 @@ public class EntityNamePlaceholderGridControls(IPageHelper pageHelper) : IEntity
     public bool Loading { get; set; }
 
     // Column to sort by.
-    public EntityNamePlaceholderFilterColumns SortColumn { get; set; } = EntityNamePlaceholderFilterColumns.Id;
+    public StudentFilterColumns SortColumn { get; set; } = StudentFilterColumns.Id;
 
     // True when sorting ascending, otherwise sort descending.
     public bool SortAscending { get; set; } = true;
 
     // Column filtered text is against.
-    public EntityNamePlaceholderFilterColumns FilterColumn { get; set; } = EntityNamePlaceholderFilterColumns.Id;
+    public StudentFilterColumns FilterColumn { get; set; } = StudentFilterColumns.Id;
 
     // Text to filter on.
     public string? FilterText { get; set; }
