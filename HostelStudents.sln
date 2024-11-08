@@ -8,6 +8,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HostelStudents.Client", "Ho
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostelStudents.AcceptanceTests", "HostelStudents.AcceptanceTests\HostelStudents.AcceptanceTests.csproj", "{ED54180B-2ED5-43FD-A1F0-495D51C0D89D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostelStudents.BusinessLogic", "HostelStudents.BusinessLogic\HostelStudents.BusinessLogic.csproj", "{636CDA50-DEF4-4AEC-B8DA-1C285D7FAF02}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +56,18 @@ Global
 		{ED54180B-2ED5-43FD-A1F0-495D51C0D89D}.Release|x64.Build.0 = Release|Any CPU
 		{ED54180B-2ED5-43FD-A1F0-495D51C0D89D}.Release|x86.ActiveCfg = Release|Any CPU
 		{ED54180B-2ED5-43FD-A1F0-495D51C0D89D}.Release|x86.Build.0 = Release|Any CPU
+		{636CDA50-DEF4-4AEC-B8DA-1C285D7FAF02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{636CDA50-DEF4-4AEC-B8DA-1C285D7FAF02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{636CDA50-DEF4-4AEC-B8DA-1C285D7FAF02}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{636CDA50-DEF4-4AEC-B8DA-1C285D7FAF02}.Debug|x64.Build.0 = Debug|Any CPU
+		{636CDA50-DEF4-4AEC-B8DA-1C285D7FAF02}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{636CDA50-DEF4-4AEC-B8DA-1C285D7FAF02}.Debug|x86.Build.0 = Debug|Any CPU
+		{636CDA50-DEF4-4AEC-B8DA-1C285D7FAF02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{636CDA50-DEF4-4AEC-B8DA-1C285D7FAF02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{636CDA50-DEF4-4AEC-B8DA-1C285D7FAF02}.Release|x64.ActiveCfg = Release|Any CPU
+		{636CDA50-DEF4-4AEC-B8DA-1C285D7FAF02}.Release|x64.Build.0 = Release|Any CPU
+		{636CDA50-DEF4-4AEC-B8DA-1C285D7FAF02}.Release|x86.ActiveCfg = Release|Any CPU
+		{636CDA50-DEF4-4AEC-B8DA-1C285D7FAF02}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
