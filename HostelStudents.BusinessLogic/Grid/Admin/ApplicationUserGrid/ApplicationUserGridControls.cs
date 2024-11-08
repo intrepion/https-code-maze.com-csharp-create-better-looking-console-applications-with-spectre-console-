@@ -1,4 +1,4 @@
-namespace HostelStudents.BusinessLogic.Grid.Admin.ApplicationUserGrid;
+﻿namespace HostelStudents.BusinessLogic.Grid.Admin.ApplicationUserGrid;
 
 // State of grid filters.
 public class ApplicationUserGridControls(IPageHelper pageHelper) : IApplicationUserFilters
