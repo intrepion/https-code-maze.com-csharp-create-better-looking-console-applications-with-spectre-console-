@@ -40,7 +40,7 @@ public partial class ApplicationRoleAdminPages : PageTest
         var baseUrl = Environment.GetEnvironmentVariable("BASE_URL");
         if (string.IsNullOrEmpty(baseUrl))
         {
-            baseUrl = "ClientUriPlaceholder";
+            baseUrl = "http://localhost:5123";
         }
         await Page.GotoAsync(baseUrl);
         await Page.GetByRole(AriaRole.Link, new() { Name = "Login" }).ClickAsync();
