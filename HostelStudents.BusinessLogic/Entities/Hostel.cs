@@ -9,5 +9,6 @@ public class Hostel
 
     [Required]
     public string Name { get; set; } = string.Empty;
+    [Required]
     // ActualPropertyPlaceholder
 }
