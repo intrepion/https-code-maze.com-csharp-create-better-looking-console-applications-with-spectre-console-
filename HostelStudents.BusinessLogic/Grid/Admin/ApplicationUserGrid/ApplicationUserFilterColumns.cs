@@ -1,4 +1,4 @@
-﻿namespace ApplicationNamePlaceholder.BusinessLogic.Grid.Admin.ApplicationUserGrid;
+﻿namespace HostelStudents.BusinessLogic.Grid.Admin.ApplicationUserGrid;
 
 // Sort options.
 public enum ApplicationUserFilterColumns
