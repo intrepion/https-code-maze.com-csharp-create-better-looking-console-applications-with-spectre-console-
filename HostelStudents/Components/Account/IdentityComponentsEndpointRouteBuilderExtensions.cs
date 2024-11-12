@@ -1,8 +1,8 @@
 ﻿using System.Security.Claims;
 using System.Text.Json;
-using HostelStudents.Components.Account.Pages;
-using HostelStudents.Components.Account.Pages.Manage;
-using HostelStudents.Data;
+using ApplicationNamePlaceholder.BusinessLogic.Entities;
+using ApplicationNamePlaceholder.Components.Account.Pages;
+using ApplicationNamePlaceholder.Components.Account.Pages.Manage;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Http.Extensions;
