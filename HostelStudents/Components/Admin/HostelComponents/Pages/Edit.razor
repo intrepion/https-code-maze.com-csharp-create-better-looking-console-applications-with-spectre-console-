@@ -96,9 +96,9 @@ else
         {
             Context = DbFactory.CreateDbContext();
 
-            if (Context is not null && Context.TableNamePlaceholder is not null)
+            if (Context is not null && Context.Hostels is not null)
             {
-                var hostel = await Context.TableNamePlaceholder.SingleOrDefaultAsync(x => x.Id == HostelId);
+                var hostel = await Context.Hostels.SingleOrDefaultAsync(x => x.Id == HostelId);
 
                 if (hostel is not null)
                 {
