@@ -24,6 +24,7 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
         new ApplicationUserTokenEtc().Configure(builder.Entity<ApplicationUserToken>());
 
         new HostelEtc().Configure(builder.Entity<Hostel>());
+        new StudentEtc().Configure(builder.Entity<Student>());
         // EntityTypeCfgCodePlaceholder
     }
 }
