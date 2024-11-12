@@ -127,6 +127,7 @@ ApplicationUserRole }o--|| ApplicationUser
 ApplicationUserToken }o--|| ApplicationUser
 
 Hostel }o--|| ApplicationUser
+Student }o--|| ApplicationUser
 ' RelationshipCodePlaceholder
 
 @enduml
