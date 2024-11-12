@@ -103,6 +103,15 @@ entity Hostel {
     ' HostelPropertyCodePlaceholder
 }
 
+entity Student {
+    Id : Guid
+    --
+    ApplicationUserUpdatedBy : ApplicationUser
+    ' StudentKeyCodePlaceholder
+    --
+    ' StudentPropertyCodePlaceholder
+}
+
 ' EntityCodePlaceholder
 
 ApplicationRole ||--o{ ApplicationUserRole
