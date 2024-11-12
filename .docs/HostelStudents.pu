@@ -91,6 +91,15 @@ entity ApplicationUserToken {
     Value : string
 }
 
+entity Hostel {
+    Id : Guid
+    --
+    ApplicationUserUpdatedBy : ApplicationUser
+    ' HostelKeyCodePlaceholder
+    --
+    ' HostelPropertyCodePlaceholder
+}
+
 ' EntityCodePlaceholder
 
 ApplicationRole ||--o{ ApplicationUserRole
