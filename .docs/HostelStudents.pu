@@ -110,6 +110,7 @@ entity Student {
     --
     ApplicationUserUpdatedBy : ApplicationUser
     ApplicationUser : ApplicationUser
+    Hostel : Hostel
     ' StudentKeyCodePlaceholder
     --
     Age : int
