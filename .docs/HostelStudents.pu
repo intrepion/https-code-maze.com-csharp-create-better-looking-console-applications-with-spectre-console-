@@ -96,6 +96,7 @@ entity Hostel {
     Id : Guid
     --
     ApplicationUserUpdatedBy : ApplicationUser
+    Students : ICollection<Student>
     ' HostelKeyCodePlaceholder
     --
     Name : string
