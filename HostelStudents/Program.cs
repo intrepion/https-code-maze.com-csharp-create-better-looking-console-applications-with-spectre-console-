@@ -70,6 +70,9 @@ builder.Services.AddScoped<ApplicationRoleGridQueryAdapter>();
 builder.Services.AddScoped<IApplicationUserFilters, ApplicationUserGridControls>();
 builder.Services.AddScoped<ApplicationUserGridQueryAdapter>();
 
+builder.Services.AddScoped<IHostelFilters, HostelGridControls>();
+builder.Services.AddScoped<HostelGridQueryAdapter>();
+
 // RegisterServerServiceCodePlaceholder
 
 var app = builder.Build();
