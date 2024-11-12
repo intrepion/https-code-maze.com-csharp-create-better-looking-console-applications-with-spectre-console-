@@ -108,6 +108,7 @@ entity Student {
     Id : Guid
     --
     ApplicationUserUpdatedBy : ApplicationUser
+    ApplicationUser : ApplicationUser
     ' StudentKeyCodePlaceholder
     --
     Age : int
