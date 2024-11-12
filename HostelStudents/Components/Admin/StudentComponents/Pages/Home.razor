@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="row">&nbsp;</div>
-        <div class="row LowercaseNamePlaceholder-header">
+        <div class="row student-header">
             <div class="col-2">&nbsp;</div>
             <div class="col-3"
                 @onclick="@(async ()=>await ToggleAsync(StudentFilterColumns.Id))">
@@ -65,9 +65,9 @@
         }
         @if (Students is not null)
         {
-            @foreach (var LowercaseNamePlaceholder in Students)
+            @foreach (var student in Students)
             {
-                <StudentRow @key=LowercaseNamePlaceholder CurrentStudent="LowercaseNamePlaceholder"
+                <StudentRow @key=student CurrentStudent="student"
                             DeleteStudent="DeleteStudentAsync" />
             }
         }
@@ -163,12 +163,12 @@
 
         if (Wrapper is not null && context.TableNamePlaceholder is not null)
         {
-            var LowercaseNamePlaceholder = await context.TableNamePlaceholder
+            var student = await context.TableNamePlaceholder
                 .FirstAsync(x => x.Id == Wrapper.DeleteRequestId);
 
-            if (LowercaseNamePlaceholder is not null)
+            if (student is not null)
             {
-                context.TableNamePlaceholder?.Remove(LowercaseNamePlaceholder);
+                context.TableNamePlaceholder?.Remove(student);
                 await context.SaveChangesAsync();
             }
         }
