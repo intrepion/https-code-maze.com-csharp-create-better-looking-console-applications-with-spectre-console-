@@ -14,7 +14,7 @@ public partial class HostelAdminPages : PageTest
         var faker = new Faker();
         var aRandomString = faker.Random.String2(10);
         var someRandomString = faker.Random.String2(10);
-        await Page.GetByTestId("LowercaseNamePlaceholderNavLink").ClickAsync();
+        await Page.GetByTestId("hostelNavLink").ClickAsync();
         await Expect(Page).ToHaveTitleAsync("Hostel Home");
         await Page.GetByRole(AriaRole.Link, new() { Name = "Create New" }).ClickAsync();
         await Expect(Page).ToHaveTitleAsync("Hostel Add");
