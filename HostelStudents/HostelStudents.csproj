@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HostelStudents.BusinessLogic\HostelStudents.BusinessLogic.csproj" />
+    <ProjectReference Include="..\HostelStudents.Shared\HostelStudents.Shared.csproj" />
   </ItemGroup>
 
 </Project>
