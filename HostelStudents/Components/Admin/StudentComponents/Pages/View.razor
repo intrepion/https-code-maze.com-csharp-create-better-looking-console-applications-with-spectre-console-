@@ -159,12 +159,12 @@ else
 
         if (context?.Roles is not null)
         {
-            var LowercaseNamePlaceholder = await context.TableNamePlaceholder
+            var student = await context.TableNamePlaceholder
                 .SingleOrDefaultAsync(x => x.Id == StudentId);
 
-            if (LowercaseNamePlaceholder is not null)
+            if (student is not null)
             {
-                context.TableNamePlaceholder?.Remove(LowercaseNamePlaceholder);
+                context.TableNamePlaceholder?.Remove(student);
                 await context.SaveChangesAsync();
                 Loading = false;
                 Deleted = true;
