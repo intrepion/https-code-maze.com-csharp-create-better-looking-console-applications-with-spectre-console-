@@ -134,6 +134,7 @@ ApplicationUserToken }o--|| ApplicationUser
 Hostel }o--|| ApplicationUser
 Student }o--|| ApplicationUser
 Student ||--|| ApplicationUser
+Student }o--|| Hostel
 ' RelationshipCodePlaceholder
 
 @enduml
