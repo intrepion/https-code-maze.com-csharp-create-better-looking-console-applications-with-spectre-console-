@@ -115,6 +115,7 @@ entity Student {
     --
     Age : int
     FirstName : string
+    LastName : string
     ' StudentPropertyCodePlaceholder
 }
 
