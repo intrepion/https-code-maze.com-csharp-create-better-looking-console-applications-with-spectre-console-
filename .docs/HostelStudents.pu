@@ -35,6 +35,7 @@ entity ApplicationUser {
     UpdatedApplicationUserTokens : ICollection<ApplicationUserToken>
     UpdatedHostels : ICollection<Hostel>
     UpdatedStudents : ICollection<Student>
+    Student : Student
     ' ApplicationUserKeyCodePlaceholder
     --
     AccessFailedCount : int
