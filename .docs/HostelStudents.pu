@@ -110,6 +110,7 @@ entity Student {
     ApplicationUserUpdatedBy : ApplicationUser
     ' StudentKeyCodePlaceholder
     --
+    Age : int
     ' StudentPropertyCodePlaceholder
 }
 
