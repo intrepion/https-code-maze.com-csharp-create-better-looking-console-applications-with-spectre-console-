@@ -1,6 +1,6 @@
-﻿namespace HostelStudents.BusinessLogic.Grid.Admin.EntityNamePlaceholderGrid;
+﻿namespace HostelStudents.BusinessLogic.Grid.Admin.StudentGrid;
 
-public enum EntityNamePlaceholderFilterColumns
+public enum StudentFilterColumns
 {
     Id,
 
