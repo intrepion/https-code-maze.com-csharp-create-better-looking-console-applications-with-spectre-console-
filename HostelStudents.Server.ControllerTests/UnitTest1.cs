@@ -1,4 +1,4 @@
-namespace HostelStudents.Server.ControllerTests;
+﻿namespace HostelStudents.Server.ControllerTests;
 
 public class Tests
 {
