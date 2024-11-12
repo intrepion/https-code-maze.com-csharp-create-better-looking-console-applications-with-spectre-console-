@@ -114,6 +114,7 @@ ApplicationUserLogin }o--|| ApplicationUser
 ApplicationUserRole }o--|| ApplicationUser
 ApplicationUserToken }o--|| ApplicationUser
 
+Hostel }o--|| ApplicationUser
 ' RelationshipCodePlaceholder
 
 @enduml
