@@ -1,6 +1,6 @@
 ﻿namespace ApplicationNamePlaceholder.BusinessLogic.Entities.Records;
 
-public class EntityNamePlaceholderRecord
+public class HostelRecord
 {
     // RecordPropertyCodePlaceholder
 }
