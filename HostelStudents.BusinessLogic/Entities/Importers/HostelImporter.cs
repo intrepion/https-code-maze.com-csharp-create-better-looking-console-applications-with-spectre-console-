@@ -58,6 +58,7 @@ public static class HostelImporter
                 {
                     ApplicationUserUpdatedBy = applicationUserUpdatedBy,
 
+                    Name = record.Name,
                     // NewEntityCodePlaceholder
                 };
 
