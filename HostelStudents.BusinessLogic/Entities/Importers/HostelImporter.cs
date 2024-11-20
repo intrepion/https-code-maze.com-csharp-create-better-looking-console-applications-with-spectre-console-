@@ -63,6 +63,7 @@ public static class HostelImporter
 
                 var dbHostel = await context.Hostels.SingleOrDefaultAsync(
                     x => true
+                    && x.NormalizedName == hostel.NormalizedName
                     // CompositeKeyCodePlaceholder
                 );
 
