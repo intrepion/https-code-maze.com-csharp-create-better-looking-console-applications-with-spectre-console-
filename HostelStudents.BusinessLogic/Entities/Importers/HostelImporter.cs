@@ -54,7 +54,7 @@ public static class HostelImporter
                 // NullCheckCodePlaceholder
             )
             {
-                var LowercaseNamePlaceholder = new Hostel
+                var hostel = new Hostel
                 {
                     ApplicationUserUpdatedBy = applicationUserUpdatedBy,
 
@@ -68,7 +68,7 @@ public static class HostelImporter
 
                 if (dbHostel is null)
                 {
-                    await context.TableNamePlaceholder.AddAsync(LowercaseNamePlaceholder);
+                    await context.TableNamePlaceholder.AddAsync(hostel);
                 }
                 else
                 {
