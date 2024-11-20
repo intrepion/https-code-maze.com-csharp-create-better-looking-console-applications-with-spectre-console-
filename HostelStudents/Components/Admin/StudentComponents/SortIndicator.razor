@@ -1,4 +1,4 @@
-﻿@inject IEntityNamePlaceholderFilters Filters
+﻿@inject IStudentFilters Filters
 
 @if (Column == Filters.SortColumn)
 {
@@ -11,7 +11,7 @@ else
 
 @code {
     [Parameter]
-    public EntityNamePlaceholderFilterColumns Column { get; set; }
+    public StudentFilterColumns Column { get; set; }
 
     private string SortSymbol => Filters.SortAscending ? "🔼" : "🔽";
 }
