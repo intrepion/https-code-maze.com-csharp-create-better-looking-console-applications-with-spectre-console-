@@ -59,6 +59,7 @@ public static class HostelImporter
                     ApplicationUserUpdatedBy = applicationUserUpdatedBy,
 
                     Name = record.Name,
+                    NormalizedName = record.Name.ToUpper(CultureInfo.InvariantCulture),
                     // NewEntityCodePlaceholder
                 };
 
