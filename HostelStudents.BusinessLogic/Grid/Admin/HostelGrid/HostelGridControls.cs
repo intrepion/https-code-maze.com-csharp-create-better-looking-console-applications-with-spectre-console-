@@ -1,4 +1,4 @@
-namespace HostelStudents.BusinessLogic.Grid.Admin.HostelGrid;
+﻿namespace HostelStudents.BusinessLogic.Grid.Admin.HostelGrid;
 
 public class HostelGridControls(IPageHelper pageHelper) : IHostelFilters
 {
