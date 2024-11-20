@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostelStudents.BusinessLogi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostelStudents.Client.ComponentTests", "HostelStudents.Client.ComponentTests\HostelStudents.Client.ComponentTests.csproj", "{799DA5AA-65F0-44A9-A30C-0328C211EA6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostelStudents.ConsoleProject", "HostelStudents.ConsoleProject\HostelStudents.ConsoleProject.csproj", "{0150FA4D-A295-4E55-8835-AA888563900A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -96,6 +98,18 @@ Global
 		{799DA5AA-65F0-44A9-A30C-0328C211EA6E}.Release|x64.Build.0 = Release|Any CPU
 		{799DA5AA-65F0-44A9-A30C-0328C211EA6E}.Release|x86.ActiveCfg = Release|Any CPU
 		{799DA5AA-65F0-44A9-A30C-0328C211EA6E}.Release|x86.Build.0 = Release|Any CPU
+		{0150FA4D-A295-4E55-8835-AA888563900A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0150FA4D-A295-4E55-8835-AA888563900A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0150FA4D-A295-4E55-8835-AA888563900A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0150FA4D-A295-4E55-8835-AA888563900A}.Debug|x64.Build.0 = Debug|Any CPU
+		{0150FA4D-A295-4E55-8835-AA888563900A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0150FA4D-A295-4E55-8835-AA888563900A}.Debug|x86.Build.0 = Debug|Any CPU
+		{0150FA4D-A295-4E55-8835-AA888563900A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0150FA4D-A295-4E55-8835-AA888563900A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0150FA4D-A295-4E55-8835-AA888563900A}.Release|x64.ActiveCfg = Release|Any CPU
+		{0150FA4D-A295-4E55-8835-AA888563900A}.Release|x64.Build.0 = Release|Any CPU
+		{0150FA4D-A295-4E55-8835-AA888563900A}.Release|x86.ActiveCfg = Release|Any CPU
+		{0150FA4D-A295-4E55-8835-AA888563900A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
