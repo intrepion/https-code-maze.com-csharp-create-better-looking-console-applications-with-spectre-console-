@@ -88,6 +88,7 @@ public static class StudentImporter
 
                     dbStudent.Age = record.Age;
                     dbStudent.FirstName = record.FirstName;
+                    dbStudent.Hostel = hostel;
                     // ExistingEntityCodePlaceholder
                 }
             }
