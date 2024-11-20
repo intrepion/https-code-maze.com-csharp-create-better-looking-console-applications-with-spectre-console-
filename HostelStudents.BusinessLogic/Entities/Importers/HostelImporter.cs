@@ -76,6 +76,7 @@ public static class HostelImporter
                 {
                     dbHostel.ApplicationUserUpdatedBy = applicationUserUpdatedBy;
 
+                    dbHostel.Name = record.Name;
                     // ExistingEntityCodePlaceholder
                 }
             }
