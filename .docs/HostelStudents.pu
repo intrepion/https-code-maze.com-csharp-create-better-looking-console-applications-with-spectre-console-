@@ -13,6 +13,7 @@ entity Hostel {
 entity Student {
     Id : Guid
     --
+    ApplicationUser : ApplicationUser
     ' StudentKeyCodePlaceholder
     --
     Age : int
