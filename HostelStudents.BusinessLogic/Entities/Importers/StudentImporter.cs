@@ -63,6 +63,7 @@ public static class StudentImporter
 
                 var dbStudent = await context.Students.SingleOrDefaultAsync(
                     x => true
+                    && x.NormalizedFirstName == student.NormalizedFirstName
                     // CompositeKeyCodePlaceholder
                 );
 
