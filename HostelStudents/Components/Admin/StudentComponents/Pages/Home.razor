@@ -14,7 +14,7 @@
 <GridWrapper @ref="Wrapper"
              FilterChanged="ReloadAsync"
              DeleteRequested="id => Wrapper.DeleteRequestId = id">
-    <div class="container-fluid TableNamePlaceholder-grid">
+    <div class="container-fluid Students-grid">
         <div class="row">
             <div class="col-8"><TextFilter /></div>
         </div>
@@ -144,14 +144,14 @@
         using var context = DbFactory.CreateDbContext();
         Filters.Loading = true;
 
-        if (Wrapper is not null && context.TableNamePlaceholder is not null)
+        if (Wrapper is not null && context.Students is not null)
         {
-            var student = await context.TableNamePlaceholder
+            var student = await context.Students
                 .FirstAsync(x => x.Id == Wrapper.DeleteRequestId);
 
             if (student is not null)
             {
-                context.TableNamePlaceholder?.Remove(student);
+                context.Students?.Remove(student);
                 await context.SaveChangesAsync();
             }
         }
@@ -178,7 +178,7 @@
         Students = new List<Student>();
 
         using var context = DbFactory.CreateDbContext();
-        var query = context.TableNamePlaceholder?.AsQueryable();
+        var query = context.Students?.AsQueryable();
 
         if (query is not null)
         {
