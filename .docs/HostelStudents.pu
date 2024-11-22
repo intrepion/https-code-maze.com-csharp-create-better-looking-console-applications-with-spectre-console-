@@ -3,6 +3,7 @@
 entity Hostel {
     Id : Guid
     --
+    Students : ICollection<Student>
     ' HostelKeyCodePlaceholder
     --
     Name : string
