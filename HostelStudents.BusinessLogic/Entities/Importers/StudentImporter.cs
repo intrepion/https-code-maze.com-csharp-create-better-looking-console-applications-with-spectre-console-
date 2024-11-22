@@ -49,6 +49,8 @@ public static class StudentImporter
 
         foreach (var record in records)
         {
+            var hostel = hostelList.FirstOrDefault(x =>
+                true
             // ManyToOneCodePlaceholder
 
             if (true
