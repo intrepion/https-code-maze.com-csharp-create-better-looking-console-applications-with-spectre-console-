@@ -64,6 +64,7 @@ public static class StudentImporter
                 var dbStudent = await context.Students.SingleOrDefaultAsync(
                     x => true
                     && x.NormalizedFirstName.Equals(student.NormalizedFirstName)
+                    && x.NormalizedLastName.Equals(student.NormalizedLastName)
                     // CompositeKeyCodePlaceholder
                 );
 
