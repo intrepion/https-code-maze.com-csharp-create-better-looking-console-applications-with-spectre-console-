@@ -20,9 +20,9 @@ public static class HostelImporter
             return;
         }
 
-        if (context.TableNamePlaceholder is null)
+        if (context.Hostels is null)
         {
-            Console.WriteLine("Database table not found: context.TableNamePlaceholder");
+            Console.WriteLine("Database table not found: context.Hostels");
             return;
         }
 
@@ -61,14 +61,14 @@ public static class HostelImporter
                     // NewEntityCodePlaceholder
                 };
 
-                var dbHostel = await context.TableNamePlaceholder.SingleOrDefaultAsync(
+                var dbHostel = await context.Hostels.SingleOrDefaultAsync(
                     x => true
                     // CompositeKeyCodePlaceholder
                 );
 
                 if (dbHostel is null)
                 {
-                    await context.TableNamePlaceholder.AddAsync(hostel);
+                    await context.Hostels.AddAsync(hostel);
                 }
                 else
                 {
