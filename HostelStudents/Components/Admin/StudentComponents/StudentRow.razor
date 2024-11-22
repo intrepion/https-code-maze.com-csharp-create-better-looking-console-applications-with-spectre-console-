@@ -1,0 +1,99 @@
+@inject IEntityNamePlaceholderFilters Filters
+
+@if (CurrentEntityNamePlaceholder is not null)
+{
+    <div class="row EntityNamePlaceholder-detail">
+        <div class="col-2 text-right">
+            <a title="Edit" href="admin/UrlNamePlaceholder/edit/@CurrentEntityNamePlaceholder.Id" style="text-decoration:none">
+                &nbsp;📝&nbsp;
+            </a>
+            @if (CanDelete)
+            {
+                <span @onclick="DeleteRequestAsync"
+                      title="Delete" class="clickable red">❌</span>
+            }
+            else
+            {
+                <span>&nbsp;</span>
+            }
+            &nbsp;
+        </div>
+
+        <div class="col-3">
+            <a href="@ViewLink" alt="View Details"
+               title="View Details">
+                @CurrentEntityNamePlaceholder.Id
+            </a>
+        </div>
+
+        @if (!DeleteConfirmation)
+        {
+            @* RowColumnCodePlaceholder *@
+        }
+        else
+        {
+            <div class="col-9">
+                <DeletePrompt Confirmation="ConfirmAsync" />
+            </div>
+        }
+    </div>
+}
+
+@code {
+    private EntityNamePlaceholder _currentEntityNamePlaceholder = new EntityNamePlaceholder();
+
+    [Parameter]
+    public EntityNamePlaceholder CurrentEntityNamePlaceholder
+    {
+        get => _currentEntityNamePlaceholder;
+        set
+        {
+            if (value is not null && !value.Equals(_currentEntityNamePlaceholder))
+            {
+                _currentEntityNamePlaceholder = value;
+                DeleteConfirmation = false;
+            }
+        }
+    }
+
+    [Parameter]
+    public EventCallback DeleteEntityNamePlaceholder { get; set; }
+
+    [CascadingParameter]
+    public GridWrapper? Wrapper { get; set; }
+
+    private bool CanDelete =>
+        !DeleteConfirmation && (Wrapper?.DeleteRequestId.Equals(Guid.Empty) == true || Wrapper?.DeleteRequestId.Equals(CurrentEntityNamePlaceholder?.Id) == true);
+
+    private string ViewLink => $"admin/UrlNamePlaceholder/view/{CurrentEntityNamePlaceholder?.Id}";
+
+    private bool DeleteConfirmation { get; set; }
+
+    private async Task ConfirmAsync(bool confirmed)
+    {
+        if (confirmed)
+        {
+            await DeleteAsync();
+        }
+        else
+        {
+            DeleteConfirmation = false;
+
+            if (Wrapper is not null)
+            {
+                await Wrapper.DeleteRequested.InvokeAsync(Guid.Empty);
+            }
+        }
+    }
+
+    private async Task DeleteRequestAsync()
+    {
+        if (Wrapper?.DeleteRequestId.Equals(Guid.Empty) == true)
+        {
+            DeleteConfirmation = true;
+            await Wrapper.DeleteRequested.InvokeAsync(CurrentEntityNamePlaceholder.Id);
+        }
+    }
+
+    private Task DeleteAsync() => DeleteEntityNamePlaceholder.InvokeAsync(this);
+}
