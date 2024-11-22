@@ -9,5 +9,6 @@ public class ApplicationUserRecord
     public string UserName { get; set; } = string.Empty;
 
     public string Student_NormalizedFirstName { get; set; } = string.Empty;
+    public string Student_NormalizedLastName { get; set; } = string.Empty;
     // RecordPropertyCodePlaceholder
 }
