@@ -53,6 +53,8 @@ public static class ApplicationUserImporter
                 true
                 && x.NormalizedFirstName == record.Student_NormalizedFirstName
                 && x.NormalizedLastName == record.Student_NormalizedLastName
+            );
+
             // ManyToOneCodePlaceholder
 
             if (
