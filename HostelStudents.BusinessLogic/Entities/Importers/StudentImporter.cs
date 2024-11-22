@@ -20,9 +20,9 @@ public static class StudentImporter
             return;
         }
 
-        if (context.TableNamePlaceholder is null)
+        if (context.Students is null)
         {
-            Console.WriteLine("Database table not found: context.TableNamePlaceholder");
+            Console.WriteLine("Database table not found: context.Students");
             return;
         }
 
@@ -61,14 +61,14 @@ public static class StudentImporter
                     // NewEntityCodePlaceholder
                 };
 
-                var dbStudent = await context.TableNamePlaceholder.SingleOrDefaultAsync(
+                var dbStudent = await context.Students.SingleOrDefaultAsync(
                     x => true
                     // CompositeKeyCodePlaceholder
                 );
 
                 if (dbStudent is null)
                 {
-                    await context.TableNamePlaceholder.AddAsync(student);
+                    await context.Students.AddAsync(student);
                 }
                 else
                 {
