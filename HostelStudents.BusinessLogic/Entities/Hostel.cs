@@ -7,5 +7,6 @@ public class Hostel
     public ApplicationUser? ApplicationUserUpdatedBy { get; set; }
     public Guid Id { get; set; }
 
+    [Required]
     // ActualPropertyPlaceholder
 }
