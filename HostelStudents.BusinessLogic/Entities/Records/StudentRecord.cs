@@ -1,4 +1,4 @@
-﻿namespace ApplicationNamePlaceholder.BusinessLogic.Entities.Records;
+﻿namespace HostelStudents.BusinessLogic.Entities.Records;
 
 public class StudentRecord
 {
