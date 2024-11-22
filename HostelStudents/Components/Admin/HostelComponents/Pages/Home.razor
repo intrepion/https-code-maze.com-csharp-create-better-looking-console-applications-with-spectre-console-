@@ -1,10 +1,10 @@
 @page "/admin/UrlNamePlaceholder"
 @page "/admin/UrlNamePlaceholder/{Page:int}"
 @rendermode InteractiveServer
-@inject IEntityNamePlaceholderFilters Filters
+@inject IHostelFilters Filters
 @inject IDbContextFactory<ApplicationDbContext> DbFactory
 @inject NavigationManager Navigation
-@inject EntityNamePlaceholderGridQueryAdapter QueryAdapter
+@inject HostelGridQueryAdapter QueryAdapter
 
 <PageTitle>HumanNamePlaceholder Home</PageTitle>
 
@@ -40,14 +40,14 @@
         <div class="row LowercaseNamePlaceholder-header">
             <div class="col-2">&nbsp;</div>
             <div class="col-3"
-                @onclick="@(async ()=>await ToggleAsync(EntityNamePlaceholderFilterColumns.Id))">
-                <SortIndicator Column="@(EntityNamePlaceholderFilterColumns.Id)" />&nbsp;Id
+                @onclick="@(async ()=>await ToggleAsync(HostelFilterColumns.Id))">
+                <SortIndicator Column="@(HostelFilterColumns.Id)" />&nbsp;Id
             </div>
 
             @* SortIndicatorCodePlaceholder *@
 
         </div>
-        @if (Filters.Loading || EntityNamePlaceholders is null)
+        @if (Filters.Loading || Hostels is null)
         {
             <div class="row">
                 <div class="col-12 alert alert-info">
@@ -55,7 +55,7 @@
                 </div>
             </div>
         }
-        @if (EntityNamePlaceholders is not null && EntityNamePlaceholders.Count == 0)
+        @if (Hostels is not null && Hostels.Count == 0)
         {
             <div class="row">
                 <div class="col-12 alert alert-warning">
@@ -63,12 +63,12 @@
                 </div>
             </div>
         }
-        @if (EntityNamePlaceholders is not null)
+        @if (Hostels is not null)
         {
-            @foreach (var LowercaseNamePlaceholder in EntityNamePlaceholders)
+            @foreach (var LowercaseNamePlaceholder in Hostels)
             {
-                <EntityNamePlaceholderRow @key=LowercaseNamePlaceholder CurrentEntityNamePlaceholder="LowercaseNamePlaceholder"
-                            DeleteEntityNamePlaceholder="DeleteEntityNamePlaceholderAsync" />
+                <HostelRow @key=LowercaseNamePlaceholder CurrentHostel="LowercaseNamePlaceholder"
+                            DeleteHostel="DeleteHostelAsync" />
             }
         }
     </div>
@@ -87,7 +87,7 @@
 
     private GridWrapper Wrapper { get; set; } = new GridWrapper();
 
-    private ICollection<EntityNamePlaceholder>? EntityNamePlaceholders { get; set; }
+    private ICollection<Hostel>? Hostels { get; set; }
 
     private string IsDisabled(bool condition) =>
         !Filters.Loading && condition ? "" : "disabled";
@@ -126,7 +126,7 @@
         }
     }
 
-    private Task ToggleAsync(EntityNamePlaceholderFilterColumns col)
+    private Task ToggleAsync(HostelFilterColumns col)
     {
         if (Filters.SortColumn == col)
         {
@@ -139,7 +139,7 @@
         return ReloadAsync();
     }
 
-    private async Task DeleteEntityNamePlaceholderAsync()
+    private async Task DeleteHostelAsync()
     {
         using var context = DbFactory.CreateDbContext();
         Filters.Loading = true;
@@ -175,14 +175,14 @@
             Wrapper.DeleteRequestId = Guid.Empty;
         }
 
-        EntityNamePlaceholders = new List<EntityNamePlaceholder>();
+        Hostels = new List<Hostel>();
 
         using var context = DbFactory.CreateDbContext();
         var query = context.TableNamePlaceholder?.AsQueryable();
 
         if (query is not null)
         {
-            EntityNamePlaceholders = await QueryAdapter.FetchAsync(query);
+            Hostels = await QueryAdapter.FetchAsync(query);
         }
 
         Filters.Loading = false;
