@@ -1,16 +1,16 @@
-namespace HostelStudents.BusinessLogic.Grid.Admin.EntityNamePlaceholderGrid;
+namespace HostelStudents.BusinessLogic.Grid.Admin.HostelGrid;
 
-public class EntityNamePlaceholderGridControls(IPageHelper pageHelper) : IEntityNamePlaceholderFilters
+public class HostelGridControls(IPageHelper pageHelper) : IHostelFilters
 {
     public IPageHelper PageHelper { get; set; } = pageHelper;
 
     public bool Loading { get; set; }
 
-    public EntityNamePlaceholderFilterColumns SortColumn { get; set; } = EntityNamePlaceholderFilterColumns.Id;
+    public HostelFilterColumns SortColumn { get; set; } = HostelFilterColumns.Id;
 
     public bool SortAscending { get; set; } = true;
 
-    public EntityNamePlaceholderFilterColumns FilterColumn { get; set; } = EntityNamePlaceholderFilterColumns.Id;
+    public HostelFilterColumns FilterColumn { get; set; } = HostelFilterColumns.Id;
 
     public string? FilterText { get; set; }
 }
