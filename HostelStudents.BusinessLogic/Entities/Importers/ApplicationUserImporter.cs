@@ -49,6 +49,8 @@ public static class ApplicationUserImporter
 
         foreach (var record in records)
         {
+            var student = studentList.FirstOrDefault(x =>
+                true
             // ManyToOneCodePlaceholder
 
             if (
