@@ -6,5 +6,6 @@ public enum StudentFilterColumns
 
     Age,
     FirstName,
+    LastName,
     // FilterColumnCodePlaceholder
 }
