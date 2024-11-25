@@ -79,6 +79,7 @@ public static class StudentImporter
                     dbStudent.ApplicationUserUpdatedBy = applicationUserUpdatedBy;
 
                     dbStudent.Age = record.Age;
+                    dbStudent.FirstName = record.FirstName;
                     // ExistingEntityCodePlaceholder
                 }
             }
