@@ -52,6 +52,7 @@ public static class ApplicationUserImporter
             var student = studentList.FirstOrDefault(x =>
                 true
                 && x.NormalizedFirstName == record.Student_NormalizedFirstName
+                && x.NormalizedLastName == record.Student_NormalizedLastName
             // ManyToOneCodePlaceholder
 
             if (
