@@ -5,6 +5,7 @@ using ApplicationNamePlaceholder.BusinessLogic.Grid.Admin.ApplicationRoleGrid;
 using ApplicationNamePlaceholder.BusinessLogic.Grid.Admin.ApplicationUserGrid;
 
 using HostelStudents.BusinessLogic.Grid.Admin.HostelGrid;
+using HostelStudents.BusinessLogic.Grid.Admin.StudentGrid;
 // GridNamespaceCodePlaceholder
 
 using ApplicationNamePlaceholder.Components;
