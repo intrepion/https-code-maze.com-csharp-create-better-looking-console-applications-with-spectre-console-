@@ -1,11 +1,11 @@
 ﻿using System.Globalization;
 using CsvHelper;
 using CsvHelper.Configuration;
-using ApplicationNamePlaceholder.BusinessLogic.Data;
-using ApplicationNamePlaceholder.BusinessLogic.Entities.Records;
+using HostelStudents.BusinessLogic.Data;
+using HostelStudents.BusinessLogic.Entities.Records;
 using Microsoft.EntityFrameworkCore;
 
-namespace ApplicationNamePlaceholder.BusinessLogic.Entities.Importers;
+namespace HostelStudents.BusinessLogic.Entities.Importers;
 
 public static class ApplicationRoleImporter
 {
