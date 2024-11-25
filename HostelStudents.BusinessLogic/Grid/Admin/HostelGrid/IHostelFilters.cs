@@ -1,8 +1,8 @@
-﻿namespace HostelStudents.BusinessLogic.Grid.Admin.EntityNamePlaceholderGrid;
+﻿namespace HostelStudents.BusinessLogic.Grid.Admin.HostelGrid;
 
-public interface IEntityNamePlaceholderFilters
+public interface IHostelFilters
 {
-    EntityNamePlaceholderFilterColumns FilterColumn { get; set; }
+    HostelFilterColumns FilterColumn { get; set; }
 
     bool Loading { get; set; }
 
@@ -12,5 +12,5 @@ public interface IEntityNamePlaceholderFilters
 
     bool SortAscending { get; set; }
 
-    EntityNamePlaceholderFilterColumns SortColumn { get; set; }
+    HostelFilterColumns SortColumn { get; set; }
 }
