@@ -5,6 +5,7 @@ entity Hostel {
     --
     ' HostelKeyCodePlaceholder
     --
+    Name : string
     ' HostelPropertyCodePlaceholder
 }
 
