@@ -25,6 +25,7 @@ entity Student {
 ' EntityCodePlaceholder
 
 Student |o--o| ApplicationUser
+Student }o--o| Hostel
 ' RelationshipCodePlaceholder
 
 @enduml
