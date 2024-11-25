@@ -67,6 +67,7 @@ public static class StudentImporter
                     Age = record.Age,
                     FirstName = record.FirstName,
                     NormalizedFirstName = record.FirstName.ToUpper(CultureInfo.InvariantCulture),
+                    Hostel = hostel,
                     // NewEntityCodePlaceholder
                 };
 
