@@ -1,4 +1,4 @@
-﻿namespace ApplicationNamePlaceholder.BusinessLogic.Grid;
+﻿namespace HostelStudents.BusinessLogic.Grid;
 
 public class PageHelper : IPageHelper
 {
