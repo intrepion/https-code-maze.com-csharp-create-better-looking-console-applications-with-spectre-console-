@@ -1,4 +1,4 @@
-@page "/admin/UrlNamePlaceholder/view/{EntityNamePlaceholderId:guid}"
+@page "/admin/UrlNamePlaceholder/view/{StudentId:guid}"
 @rendermode InteractiveServer
 @inject IDbContextFactory<ApplicationDbContext> DbFactory
 @inject IPageHelper PageHelper
@@ -12,7 +12,7 @@
 }
 else
 {
-    @if (EntityNamePlaceholder is null || Loading)
+    @if (Student is null || Loading)
     {
         <div class="alert alert-info">Loading...</div>
     }
@@ -28,7 +28,7 @@ else
         <hr />
         <h2>Id</h2>
         <br />
-        <h3>@EntityNamePlaceholder.Id</h3>
+        <h3>@Student.Id</h3>
         <br />
 
         @* PropertyCodePlaceholder *@
@@ -39,7 +39,7 @@ else
         <span>&nbsp;</span>
         @if (!Deleted)
         {
-            <a class="btn btn-primary" href="admin/UrlNamePlaceholder/edit/@EntityNamePlaceholder.Id" title="Edit">Edit</a>
+            <a class="btn btn-primary" href="admin/UrlNamePlaceholder/edit/@Student.Id" title="Edit">Edit</a>
 
             <span>&nbsp;</span>
             @if (!ShowConfirmation)
@@ -64,14 +64,14 @@ else
     private bool Loading;
 
     [Parameter]
-    public Guid EntityNamePlaceholderId { get; set; }
+    public Guid StudentId { get; set; }
 
-    private Guid _lastEntityNamePlaceholderId;
+    private Guid _lastStudentId;
 
     [Parameter]
     public bool EditSuccess { get; set; }
 
-    private EntityNamePlaceholder? EntityNamePlaceholder { get; set; }
+    private Student? Student { get; set; }
 
     private bool NotFound = false;
 
@@ -81,12 +81,12 @@ else
 
     protected override async Task OnParametersSetAsync()
     {
-        if (_lastEntityNamePlaceholderId != EntityNamePlaceholderId)
+        if (_lastStudentId != StudentId)
         {
             EditSuccess = EditSuccessState.Success;
             EditSuccessState.Success = false;
-            _lastEntityNamePlaceholderId = EntityNamePlaceholderId;
-            await LoadEntityNamePlaceholderAsync();
+            _lastStudentId = StudentId;
+            await LoadStudentAsync();
         }
     }
 
@@ -103,7 +103,7 @@ else
         }
     }
 
-    private async Task LoadEntityNamePlaceholderAsync()
+    private async Task LoadStudentAsync()
     {
         if (Loading)
         {
@@ -111,7 +111,7 @@ else
         }
 
         NotFound = false;
-        EntityNamePlaceholder = null;
+        Student = null;
 
         Loading = true;
 
@@ -119,12 +119,12 @@ else
 
         if (context.TableNamePlaceholder is not null)
         {
-            EntityNamePlaceholder = await context.TableNamePlaceholder
+            Student = await context.TableNamePlaceholder
                 .AsNoTracking()
                 .SingleOrDefaultAsync(
-                    x => x.Id == EntityNamePlaceholderId);
+                    x => x.Id == StudentId);
 
-            if (EntityNamePlaceholder is null)
+            if (Student is null)
             {
                 NotFound = true;
             }
@@ -146,7 +146,7 @@ else
         if (context?.Roles is not null)
         {
             var LowercaseNamePlaceholder = await context.TableNamePlaceholder
-                .SingleOrDefaultAsync(x => x.Id == EntityNamePlaceholderId);
+                .SingleOrDefaultAsync(x => x.Id == StudentId);
 
             if (LowercaseNamePlaceholder is not null)
             {
@@ -158,13 +158,13 @@ else
             else
             {
                 Loading = false;
-                await LoadEntityNamePlaceholderAsync();
+                await LoadStudentAsync();
             }
         }
         else
         {
             Loading = false;
-            await LoadEntityNamePlaceholderAsync();
+            await LoadStudentAsync();
         }
     }
 }
