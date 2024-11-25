@@ -17,6 +17,7 @@ entity Student {
     ' StudentKeyCodePlaceholder
     --
     Age : int
+    FirstName : string
     ' StudentPropertyCodePlaceholder
 }
 
