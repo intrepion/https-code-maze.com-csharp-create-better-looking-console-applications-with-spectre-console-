@@ -1,7 +1,7 @@
-﻿using ApplicationNamePlaceholder.BusinessLogic.Entities;
+﻿using HostelStudents.BusinessLogic.Entities;
 using Bogus;
 
-namespace ApplicationNamePlaceholder.BusinessLogic.Data;
+namespace HostelStudents.BusinessLogic.Data;
 
 public static class FakeData
 {
