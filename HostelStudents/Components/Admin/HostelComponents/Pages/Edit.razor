@@ -6,11 +6,11 @@
 @inject IPageHelper PageHelper
 @inject EditSuccess EditSuccessState
 
-<PageTitle>HumanNamePlaceholder Edit</PageTitle>
+<PageTitle>Hostel Edit</PageTitle>
 
 @if (Hostel is null && !Busy)
 {
-    <p>Could not find HumanNamePlaceholder with id @HostelId.</p>
+    <p>Could not find Hostel with id @HostelId.</p>
 }
 else
 {
@@ -27,7 +27,7 @@ else
     <br />
     <div class="alert alert-danger">
         <p>
-            The HumanNamePlaceholder details have changed since it was last loaded. The updated fields are highlighted in the form.
+            The Hostel details have changed since it was last loaded. The updated fields are highlighted in the form.
             Please choose an option:
         </p>
         <p><b>Cancel</b> to lose your changes and keep the database version.</p>
@@ -38,7 +38,7 @@ else
 @if (Error)
 {
     <br />
-    <div class="alert alert-danger">Failed to update the HumanNamePlaceholder (@ErrorMessage).</div>
+    <div class="alert alert-danger">Failed to update the Hostel (@ErrorMessage).</div>
 }
 
 @code {
