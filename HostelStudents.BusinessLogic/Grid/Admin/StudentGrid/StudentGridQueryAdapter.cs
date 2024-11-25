@@ -3,36 +3,36 @@ using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using HostelStudents.BusinessLogic.Entities;
 
-namespace HostelStudents.BusinessLogic.Grid.Admin.EntityNamePlaceholderGrid;
+namespace HostelStudents.BusinessLogic.Grid.Admin.StudentGrid;
 
-public class EntityNamePlaceholderGridQueryAdapter
+public class StudentGridQueryAdapter
 {
-    private readonly IEntityNamePlaceholderFilters controls;
+    private readonly IStudentFilters controls;
 
-    private readonly Dictionary<EntityNamePlaceholderFilterColumns, Expression<Func<EntityNamePlaceholder, string>>> expressions =
+    private readonly Dictionary<StudentFilterColumns, Expression<Func<Student, string>>> expressions =
         new()
         {
-            { EntityNamePlaceholderFilterColumns.Id, x => !x.Id.Equals(Guid.Empty) ? x.Id.ToString() : string.Empty },
+            { StudentFilterColumns.Id, x => !x.Id.Equals(Guid.Empty) ? x.Id.ToString() : string.Empty },
 
             // SortExpressionCodePlaceholder
         };
 
-    private readonly Dictionary<EntityNamePlaceholderFilterColumns, Func<IQueryable<EntityNamePlaceholder>, IQueryable<EntityNamePlaceholder>>> filterQueries = [];
+    private readonly Dictionary<StudentFilterColumns, Func<IQueryable<Student>, IQueryable<Student>>> filterQueries = [];
 
-    public EntityNamePlaceholderGridQueryAdapter(IEntityNamePlaceholderFilters controls)
+    public StudentGridQueryAdapter(IStudentFilters controls)
     {
         this.controls = controls;
 
         filterQueries =
             new()
             {
-                { EntityNamePlaceholderFilterColumns.Id, x => x.Where(y => y != null && !y.Id.Equals(Guid.Empty) && this.controls.FilterText != null && y.Id.ToString().Contains(this.controls.FilterText) ) },
+                { StudentFilterColumns.Id, x => x.Where(y => y != null && !y.Id.Equals(Guid.Empty) && this.controls.FilterText != null && y.Id.ToString().Contains(this.controls.FilterText) ) },
 
                 // QueryExpressionCodePlaceholder
             };
     }
 
-    public async Task<ICollection<EntityNamePlaceholder>> FetchAsync(IQueryable<EntityNamePlaceholder> query)
+    public async Task<ICollection<Student>> FetchAsync(IQueryable<Student> query)
     {
         query = FilterAndQuery(query);
         await CountAsync(query);
@@ -41,16 +41,16 @@ public class EntityNamePlaceholderGridQueryAdapter
         return collection;
     }
 
-    public async Task CountAsync(IQueryable<EntityNamePlaceholder> query) =>
+    public async Task CountAsync(IQueryable<Student> query) =>
         controls.PageHelper.TotalItemCount = await query.CountAsync();
 
-    public IQueryable<EntityNamePlaceholder> FetchPageQuery(IQueryable<EntityNamePlaceholder> query) =>
+    public IQueryable<Student> FetchPageQuery(IQueryable<Student> query) =>
         query
             .Skip(controls.PageHelper.Skip)
             .Take(controls.PageHelper.PageSize)
             .AsNoTracking();
 
-    private IQueryable<EntityNamePlaceholder> FilterAndQuery(IQueryable<EntityNamePlaceholder> root)
+    private IQueryable<Student> FilterAndQuery(IQueryable<Student> root)
     {
         var sb = new System.Text.StringBuilder();
 
