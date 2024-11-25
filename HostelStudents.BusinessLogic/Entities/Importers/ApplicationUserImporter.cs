@@ -96,6 +96,7 @@ public static class ApplicationUserImporter
                     dbApplicationUser.NormalizedUserName = record.UserName.ToUpper(CultureInfo.InvariantCulture);
                     dbApplicationUser.PhoneNumber = record.PhoneNumber;
 
+                    dbApplicationUser.Student = student;
                     // ExistingEntityCodePlaceholder
                 }
             }
