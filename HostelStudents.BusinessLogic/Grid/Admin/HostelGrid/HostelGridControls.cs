@@ -1,4 +1,4 @@
-namespace ApplicationNamePlaceholder.BusinessLogic.Grid.Admin.EntityNamePlaceholderGrid;
+namespace HostelStudents.BusinessLogic.Grid.Admin.EntityNamePlaceholderGrid;
 
 public class EntityNamePlaceholderGridControls(IPageHelper pageHelper) : IEntityNamePlaceholderFilters
 {
