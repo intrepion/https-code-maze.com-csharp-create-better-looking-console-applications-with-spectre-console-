@@ -19,5 +19,7 @@ public class ApplicationUser : IdentityUser<Guid>
 
     public ICollection<Hostel> UpdatedHostels { get; set; } = [];
     public ICollection<Student> UpdatedStudents { get; set; } = [];
+    public Student? Student { get; set; }
+    public Guid? StudentId { get; set; }
     // ActualPropertyPlaceholder
 }
