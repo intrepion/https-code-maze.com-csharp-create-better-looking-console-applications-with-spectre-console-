@@ -14,6 +14,7 @@ public class StudentGridQueryAdapter
         {
             { StudentFilterColumns.Id, x => !x.Id.Equals(Guid.Empty) ? x.Id.ToString() : string.Empty },
 
+            { StudentFilterColumns.Age, x => x != null ? x.Age.ToString() : string.Empty },
             // SortExpressionCodePlaceholder
         };
 
