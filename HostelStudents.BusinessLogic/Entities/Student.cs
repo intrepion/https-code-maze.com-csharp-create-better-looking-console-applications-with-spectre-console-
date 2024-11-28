@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ApplicationNamePlaceholder.BusinessLogic.Entities;
+namespace HostelStudents.BusinessLogic.Entities;
 
 public class Student
 {
