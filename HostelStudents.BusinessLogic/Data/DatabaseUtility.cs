@@ -85,6 +85,7 @@ public static class DatabaseUtility
         await ApplicationUserImporter.ImportAsync(applicationDbContext, adminUserPass, applicationUserCsvFilePath);
 
         await HostelImporter.ImportAsync(applicationDbContext, adminUserPass, hostelCsvFilePath);
+        await StudentImporter.ImportAsync(applicationDbContext, adminUserPass, studentCsvFilePath);
         // ImporterSecondCodePlaceholder
     }
 }
