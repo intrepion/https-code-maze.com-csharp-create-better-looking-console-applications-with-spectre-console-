@@ -52,6 +52,8 @@ public static class StudentImporter
             var hostel = hostelList.FirstOrDefault(x =>
                 true
                 && x.NormalizedName.Equals(record.Hostel_NormalizedName)
+            );
+
             // ManyToOneCodePlaceholder
 
             if (true
