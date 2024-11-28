@@ -2,5 +2,6 @@
 
 public class StudentRecord
 {
+    public int Age { get; set; }
     // RecordPropertyCodePlaceholder
 }
