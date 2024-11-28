@@ -1,5 +1,13 @@
 @startuml
 
+entity Hostel {
+    Id : Guid
+    --
+    ' HostelKeyCodePlaceholder
+    --
+    ' HostelPropertyCodePlaceholder
+}
+
 ' EntityCodePlaceholder
 
 ' RelationshipCodePlaceholder
