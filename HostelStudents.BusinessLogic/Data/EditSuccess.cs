@@ -1,4 +1,4 @@
-﻿namespace ApplicationNamePlaceholder.BusinessLogic.Data;
+﻿namespace HostelStudents.BusinessLogic.Data;
 
 public class EditSuccess
 {
