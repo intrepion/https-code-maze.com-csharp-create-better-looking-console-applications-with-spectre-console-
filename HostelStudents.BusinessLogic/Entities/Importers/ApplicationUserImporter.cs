@@ -72,6 +72,7 @@ public static class ApplicationUserImporter
                     PhoneNumber = record.PhoneNumber,
                     UserName = record.UserName,
 
+                    Student = student,
                     // NewEntityCodePlaceholder
                 };
 
