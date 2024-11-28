@@ -59,6 +59,7 @@ public static class StudentImporter
                     ApplicationUserUpdatedBy = applicationUserUpdatedBy,
 
                     Age = record.Age,
+                    FirstName = record.FirstName,
                     // NewEntityCodePlaceholder
                 };
 
