@@ -1,4 +1,4 @@
-namespace HostelStudents.BusinessLogic.Grid.Admin.ApplicationRoleGrid;
+﻿namespace HostelStudents.BusinessLogic.Grid.Admin.ApplicationRoleGrid;
 
 public class ApplicationRoleGridControls(IPageHelper pageHelper) : IApplicationRoleFilters
 {
