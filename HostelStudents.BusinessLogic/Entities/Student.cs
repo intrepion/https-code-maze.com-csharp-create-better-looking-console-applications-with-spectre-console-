@@ -14,5 +14,6 @@ public class Student
     public ApplicationUser? ApplicationUser { get; set; }
     [Required]
     public string FirstName { get; set; } = string.Empty;
+    [Required]
     // ActualPropertyPlaceholder
 }
