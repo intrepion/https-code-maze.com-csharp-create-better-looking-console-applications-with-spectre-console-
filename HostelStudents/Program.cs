@@ -1,15 +1,15 @@
-﻿using ApplicationNamePlaceholder.BusinessLogic.Data;
-using ApplicationNamePlaceholder.BusinessLogic.Entities;
-using ApplicationNamePlaceholder.BusinessLogic.Grid;
-using ApplicationNamePlaceholder.BusinessLogic.Grid.Admin.ApplicationRoleGrid;
-using ApplicationNamePlaceholder.BusinessLogic.Grid.Admin.ApplicationUserGrid;
+﻿using HostelStudents.BusinessLogic.Data;
+using HostelStudents.BusinessLogic.Entities;
+using HostelStudents.BusinessLogic.Grid;
+using HostelStudents.BusinessLogic.Grid.Admin.ApplicationRoleGrid;
+using HostelStudents.BusinessLogic.Grid.Admin.ApplicationUserGrid;
 
 using HostelStudents.BusinessLogic.Grid.Admin.HostelGrid;
 using HostelStudents.BusinessLogic.Grid.Admin.StudentGrid;
 // GridNamespaceCodePlaceholder
 
-using ApplicationNamePlaceholder.Components;
-using ApplicationNamePlaceholder.Components.Account;
+using HostelStudents.Components;
+using HostelStudents.Components.Account;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -110,7 +110,7 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
-    .AddAdditionalAssemblies(typeof(ApplicationNamePlaceholder.Client._Imports).Assembly);
+    .AddAdditionalAssemblies(typeof(HostelStudents.Client._Imports).Assembly);
 
 app.MapAdditionalIdentityEndpoints();
 
