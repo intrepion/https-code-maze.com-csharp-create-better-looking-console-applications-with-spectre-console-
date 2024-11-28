@@ -8,7 +8,7 @@ public class HostelEtc : IEntityTypeConfiguration<Hostel>
     public void Configure(EntityTypeBuilder<Hostel> builder)
     {
         builder.HasOne(x => x.ApplicationUserUpdatedBy)
-            .WithMany(x => x.UpdatedTableNamePlaceholder)
+            .WithMany(x => x.UpdatedHostels)
             .OnDelete(DeleteBehavior.Restrict);
 
         // EntityConfigurationCodePlaceholder
