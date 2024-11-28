@@ -74,6 +74,10 @@ public static class DatabaseUtility
         var hostelCsvFilePath = Path.Combine(baseDirectoryPath, hostelFileName);
         await HostelImporter.ImportAsync(applicationDbContext, adminUserPass, hostelCsvFilePath);
 
+        var studentFileName = @"..\..\..\..\.data\Student.csv";
+        var studentCsvFilePath = Path.Combine(baseDirectoryPath, studentFileName);
+        await StudentImporter.ImportAsync(applicationDbContext, adminUserPass, studentCsvFilePath);
+
         // ImporterFirstCodePlaceholder
 
         await ApplicationRoleImporter.ImportAsync(applicationDbContext, adminUserPass, applicationRoleCsvFilePath);
