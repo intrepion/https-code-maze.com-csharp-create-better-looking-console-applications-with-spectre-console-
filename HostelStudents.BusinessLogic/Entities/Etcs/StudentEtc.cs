@@ -11,6 +11,10 @@ public class StudentEtc : IEntityTypeConfiguration<Student>
             .WithMany(x => x.UpdatedStudents)
             .OnDelete(DeleteBehavior.Restrict);
 
+        builder.HasOne(x => x.ApplicationUser)
+            .WithOne(x => x.Student)
+            .HasForeignKey<ApplicationUser>(x => x.StudentId)
+            .OnDelete(DeleteBehavior.Restrict);
         // EntityConfigurationCodePlaceholder
     }
 }
