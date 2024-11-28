@@ -11,5 +11,6 @@ public class Student
 
     [Required]
     public int Age { get; set; }
+    public ApplicationUser? ApplicationUser { get; set; }
     // ActualPropertyPlaceholder
 }
