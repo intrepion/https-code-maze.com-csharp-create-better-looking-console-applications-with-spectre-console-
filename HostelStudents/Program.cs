@@ -74,6 +74,9 @@ builder.Services.AddScoped<ApplicationUserGridQueryAdapter>();
 builder.Services.AddScoped<IHostelFilters, HostelGridControls>();
 builder.Services.AddScoped<HostelGridQueryAdapter>();
 
+builder.Services.AddScoped<IStudentFilters, StudentGridControls>();
+builder.Services.AddScoped<StudentGridQueryAdapter>();
+
 // RegisterServerServiceCodePlaceholder
 
 var app = builder.Build();
