@@ -10,5 +10,6 @@ public class Hostel
     public DateTime UpdateDateTime { get; set; }
 
     [Required]
+    public string Name { get; set; } = string.Empty;
     // ActualPropertyPlaceholder
 }
