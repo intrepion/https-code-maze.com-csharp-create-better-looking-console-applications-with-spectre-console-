@@ -12,5 +12,6 @@ public class Hostel
     [Required]
     public string Name { get; set; } = string.Empty;
     [Required]
+    public string NormalizedName { get; set; } = string.Empty;
     // ActualPropertyPlaceholder
 }
