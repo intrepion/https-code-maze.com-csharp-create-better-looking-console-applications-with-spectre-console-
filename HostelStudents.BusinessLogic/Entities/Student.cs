@@ -19,5 +19,6 @@ public class Student
     public Hostel? Hostel { get; set; }
     [Required]
     public string LastName { get; set; } = string.Empty;
+    [Required]
     // ActualPropertyPlaceholder
 }
