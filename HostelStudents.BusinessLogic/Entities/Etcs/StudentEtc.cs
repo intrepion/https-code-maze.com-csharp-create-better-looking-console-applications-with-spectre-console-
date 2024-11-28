@@ -8,7 +8,7 @@ public class StudentEtc : IEntityTypeConfiguration<Student>
     public void Configure(EntityTypeBuilder<Student> builder)
     {
         builder.HasOne(x => x.ApplicationUserUpdatedBy)
-            .WithMany(x => x.UpdatedTableNamePlaceholder)
+            .WithMany(x => x.UpdatedStudents)
             .OnDelete(DeleteBehavior.Restrict);
 
         // EntityConfigurationCodePlaceholder
