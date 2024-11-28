@@ -10,5 +10,6 @@ public class Student
     public DateTime UpdateDateTime { get; set; }
 
     [Required]
+    public int Age { get; set; }
     // ActualPropertyPlaceholder
 }
