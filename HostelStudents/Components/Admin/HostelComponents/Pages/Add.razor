@@ -1,4 +1,4 @@
-@page "/admin/UrlNamePlaceholder/add"
+@page "/admin/hostel/add"
 @rendermode InteractiveServer
 @inject IDbContextFactory<ApplicationDbContext> DbFactory
 @inject NavigationManager Navigation
@@ -72,7 +72,7 @@
             Success = true;
             Error = false;
 
-            Navigation.NavigateTo($"/admin/UrlNamePlaceholder/view/{Hostel?.Id}");
+            Navigation.NavigateTo($"/admin/hostel/view/{Hostel?.Id}");
         }
         catch (Exception ex)
         {
@@ -83,5 +83,5 @@
         }
     }
 
-    private void Cancel() => Navigation.NavigateTo($"/admin/UrlNamePlaceholder/{PageHelper.Page}");
+    private void Cancel() => Navigation.NavigateTo($"/admin/hostel/{PageHelper.Page}");
 }
