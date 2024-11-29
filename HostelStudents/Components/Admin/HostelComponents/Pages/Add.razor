@@ -1,0 +1,87 @@
+@page "/admin/hostel/add"
+@rendermode InteractiveServer
+@inject IDbContextFactory<ApplicationDbContext> DbFactory
+@inject NavigationManager Navigation
+@inject IPageHelper PageHelper
+
+<PageTitle>Hostel Add</PageTitle>
+
+@if (Hostel is not null)
+{
+    <HostelForm Busy="Busy" 
+                 Hostel="Hostel" 
+                 IsAdd="true"
+                 CancelRequest="Cancel"
+                 ValidationResult="@(async (success) => await ValidationResultAsync(success))" />
+}
+
+@if (Success)
+{
+    <br />
+    <div class="alert alert-success">The Hostel was successfully added.</div>
+}
+
+@if (Error)
+{
+    <br />
+    <div class="alert alert-danger">Failed to add the Hostel (@ErrorMessage).</div>
+}
+
+@code {
+    private Hostel? Hostel { get; set; }
+
+    private bool Busy;
+
+    private bool Success;
+
+    private bool Error;
+
+    private string ErrorMessage = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        Hostel = new();
+    }
+
+    private async Task ValidationResultAsync(bool success)
+    {
+        if (Busy)
+        {
+            return;
+        }
+
+        if (!success)
+        {
+            Success = false;
+            Error = false;
+            return;
+        }
+
+        Busy = true;
+
+        using var context = DbFactory.CreateDbContext();
+
+        if (Hostel is not null)
+        {
+            context.Hostels?.Add(Hostel);
+        }
+
+        try
+        {
+            await context.SaveChangesAsync();
+            Success = true;
+            Error = false;
+
+            Navigation.NavigateTo($"/admin/hostel/view/{Hostel?.Id}");
+        }
+        catch (Exception ex)
+        {
+            Success = false;
+            Error = true;
+            ErrorMessage = ex.Message;
+            Busy = false;
+        }
+    }
+
+    private void Cancel() => Navigation.NavigateTo($"/admin/hostel/{PageHelper.Page}");
+}
