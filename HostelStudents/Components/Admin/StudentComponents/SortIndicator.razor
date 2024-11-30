@@ -1,0 +1,17 @@
+﻿@inject IStudentFilters Filters
+
+@if (Column == Filters.SortColumn)
+{
+    <span>@SortSymbol</span>
+}
+else
+{
+    <span>&nbsp;</span>
+}
+
+@code {
+    [Parameter]
+    public StudentFilterColumns Column { get; set; }
+
+    private string SortSymbol => Filters.SortAscending ? "🔼" : "🔽";
+}

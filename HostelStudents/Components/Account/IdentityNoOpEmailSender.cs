@@ -1,4 +1,4 @@
-﻿using HostelStudents.Data;
+﻿using HostelStudents.BusinessLogic.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 

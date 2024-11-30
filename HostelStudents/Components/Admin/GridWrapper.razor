@@ -1,0 +1,16 @@
+<CascadingValue Value="this" IsFixed="true">
+    @ChildContent
+</CascadingValue>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public EventCallback FilterChanged { get; set; }
+
+    [Parameter]
+    public EventCallback<Guid> DeleteRequested { get; set; }
+
+    public Guid DeleteRequestId { get; set; }
+}
