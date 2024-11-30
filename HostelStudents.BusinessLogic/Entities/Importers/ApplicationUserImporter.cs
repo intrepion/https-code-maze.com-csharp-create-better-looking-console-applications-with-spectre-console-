@@ -59,7 +59,7 @@ public static class ApplicationUserImporter
 
             if (
                 true
-                // NullCheckCodePlaceholder
+            // NullCheckCodePlaceholder
             )
             {
                 var applicationUser = new ApplicationUser
