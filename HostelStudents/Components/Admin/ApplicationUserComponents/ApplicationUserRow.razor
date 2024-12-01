@@ -1,0 +1,100 @@
+@inject IApplicationUserFilters Filters
+
+@if (CurrentApplicationUser is not null)
+{
+    <div class="row applicationRole-detail">
+        <div class="col-2 text-right">
+            <a title="Edit" href="admin/application-user/edit/@CurrentApplicationUser.Id" style="text-decoration:none">
+                &nbsp;📝&nbsp;
+            </a>
+            @if (CanDelete)
+            {
+                <span @onclick="DeleteRequestAsync"
+                      title="Delete" class="clickable red">❌</span>
+            }
+            else
+            {
+                <span>&nbsp;</span>
+            }
+            &nbsp;
+        </div>
+        <div class="col-3">
+            <a href="admin/application-user/@ViewLink" alt="View Details"
+               title="View Details">
+                @CurrentApplicationUser.UserName
+            </a>
+        </div>
+        @if (!DeleteConfirmation)
+        {
+            <div class="col-3" data-testid="applicationUserId">@CurrentApplicationUser.Id</div>
+            <div class="col-3">@CurrentApplicationUser.Email</div>
+            <div class="col-3">@CurrentApplicationUser.PhoneNumber</div>
+            <div class="col-3">@CurrentApplicationUser.UserName</div>
+        }
+        else
+        {
+            <div class="col-9">
+                <DeletePrompt Confirmation="ConfirmAsync" />
+            </div>
+        }
+    </div>
+}
+
+@code {
+    private ApplicationUser _currentApplicationUser = new ApplicationUser();
+
+    [Parameter]
+    public ApplicationUser CurrentApplicationUser
+    {
+        get => _currentApplicationUser;
+        set
+        {
+            if (value is not null && !value.Equals(_currentApplicationUser))
+            {
+                _currentApplicationUser = value;
+                DeleteConfirmation = false;
+            }
+        }
+    }
+
+    [Parameter]
+    public EventCallback DeleteApplicationUser { get; set; }
+
+    [CascadingParameter]
+    public GridWrapper? Wrapper { get; set; }
+
+    private bool CanDelete =>
+        !DeleteConfirmation && (Wrapper?.DeleteRequestId.Equals(Guid.Empty) == true || Wrapper?.DeleteRequestId.Equals(CurrentApplicationUser?.Id) == true);
+
+    private string ViewLink => $"View/{CurrentApplicationUser?.Id}";
+
+    private bool DeleteConfirmation { get; set; }
+
+    private async Task ConfirmAsync(bool confirmed)
+    {
+        if (confirmed)
+        {
+            await DeleteAsync();
+        }
+        else
+        {
+            DeleteConfirmation = false;
+
+            if (Wrapper is not null)
+            {
+                await Wrapper.DeleteRequested.InvokeAsync(Guid.Empty);
+            }
+        }
+    }
+
+    private async Task DeleteRequestAsync()
+    {
+        if (Wrapper?.DeleteRequestId.Equals(Guid.Empty) == true)
+        {
+            DeleteConfirmation = true;
+            await Wrapper.DeleteRequested.InvokeAsync(CurrentApplicationUser.Id);
+        }
+    }
+
+    private Task DeleteAsync() => DeleteApplicationUser.InvokeAsync(this);
+}

@@ -1,0 +1,32 @@
+@startuml
+
+entity Hostel {
+    Id : Guid
+    --
+    Students : ICollection<Student>
+    ' HostelKeyCodePlaceholder
+    --
+    Name : string
+    ' HostelPropertyCodePlaceholder
+}
+
+entity Student {
+    Id : Guid
+    --
+    ApplicationUser : ApplicationUser
+    Hostel : Hostel
+    ' StudentKeyCodePlaceholder
+    --
+    Age : int
+    FirstName : string
+    LastName : string
+    ' StudentPropertyCodePlaceholder
+}
+
+' EntityCodePlaceholder
+
+Student |o--o| ApplicationUser
+Student }o--o| Hostel
+' RelationshipCodePlaceholder
+
+@enduml
