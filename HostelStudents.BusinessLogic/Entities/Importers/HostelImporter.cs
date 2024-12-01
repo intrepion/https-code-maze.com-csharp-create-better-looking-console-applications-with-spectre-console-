@@ -51,7 +51,7 @@ public static class HostelImporter
             // ManyToOneCodePlaceholder
 
             if (true
-                // NullCheckCodePlaceholder
+            // NullCheckCodePlaceholder
             )
             {
                 var hostel = new Hostel
