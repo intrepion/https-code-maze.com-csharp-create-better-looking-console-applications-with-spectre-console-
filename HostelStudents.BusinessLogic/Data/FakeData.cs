@@ -1,5 +1,5 @@
-﻿using HostelStudents.BusinessLogic.Entities;
-using Bogus;
+﻿using Bogus;
+using HostelStudents.BusinessLogic.Entities;
 
 namespace HostelStudents.BusinessLogic.Data;
 
