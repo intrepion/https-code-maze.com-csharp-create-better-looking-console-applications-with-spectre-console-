@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Security.Claims;
+using HostelStudents.BusinessLogic.Entities;
 using HostelStudents.Client;
-using HostelStudents.Data;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Server;
