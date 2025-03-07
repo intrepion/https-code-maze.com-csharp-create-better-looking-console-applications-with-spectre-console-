@@ -1,0 +1,173 @@
+<h1>@Mode Student</h1>
+
+<hr />
+@if (Student is not null)
+{
+    <EditForm Model="Student" OnInvalidSubmit="(async () => await HandleSubmitAsync(false))" OnValidSubmit="(async () => await HandleSubmitAsync(true))">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="mb-3">
+            <label class="form-label">Age:
+                <InputNumber @bind-Value="Student.Age" @oninput="HandleAgeChange" class="form-control"/>
+            </label>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">First Name:
+                <InputText @bind-Value="Student.FirstName" @oninput="HandleFirstNameChange" class="form-control"/>
+            </label>
+        </div>
+        <h2>Hostel</h2>
+        <p>
+            <label>
+                Hostel:
+                <InputSelect @bind-Value="SelectedHostelId" @oninput="HandleHostelChange" class="form-select">
+                    <option value="">-- Select Hostel --</option>
+                    @foreach (var hostel in HostelList)
+                    {
+                        <option value="@hostel.Id">@hostel?.Name</option>
+                    }
+                </InputSelect>
+            </label>
+        </p>
+        <div class="mb-3">
+            <label class="form-label">Last Name:
+                <InputText @bind-Value="Student.LastName" @oninput="HandleLastNameChange" class="form-control"/>
+            </label>
+        </div>
+        @* PropertyFormCodePlaceholder *@
+
+        <button type="button" disabled="@Busy" class="btn btn-warning" @onclick="CancelAsync">
+            Cancel
+        </button>&nbsp;
+        <button disabled="@Busy" type="submit" class="btn btn-primary">
+            Submit
+        </button>
+    </EditForm>
+}
+
+@code {
+    [Parameter]
+    public EventCallback<bool> ValidationResult { get; set; }
+
+    [Parameter]
+    public EventCallback CancelRequest { get; set; }
+
+    [Parameter]
+    public bool IsAdd { get; set; }
+
+    [Parameter]
+    public Student? Student { get; set; }
+
+    [Parameter]
+    public Student? DbStudent { get; set; }
+
+    [Parameter]
+    public bool Busy { get; set; }
+
+    private string Mode => IsAdd ? "Add" : "Edit";
+
+    [Parameter]
+    public List<Hostel> HostelList { get; set; } = new List<Hostel>();
+    private Guid SelectedHostelId;
+    @* DeclareListCodePlaceholder *@
+
+    protected override void OnInitialized()
+    {
+        if (Student?.Hostel != null && !IsAdd)
+        {
+            SelectedHostelId = Student.Hostel.Id;
+        }
+        @* OnInitialCodePlaceholder *@
+        @* if (EmulatorCore?.Emulator != null && !IsAdd)
+        {
+            SelectedEmulatorId = EmulatorCore.Emulator.Id;
+        } *@
+    }
+
+    private async Task CancelAsync() => await CancelRequest.InvokeAsync(null);
+
+    private async Task HandleSubmitAsync(bool isValid) => await ValidationResult.InvokeAsync(isValid);
+
+    private void HandleAgeChange(ChangeEventArgs changeEventArgs)
+    {
+        // SpecializedCodeAgePlaceholder
+    }
+
+    private void HandleFirstNameChange(ChangeEventArgs changeEventArgs)
+    {
+        if (Student == null)
+        {
+            return;
+        }
+
+        if (changeEventArgs == null)
+        {
+            return;
+        }
+
+        if (changeEventArgs.Value == null)
+        {
+            return;
+        }
+
+        Student.NormalizedFirstName = ((string)changeEventArgs.Value).ToUpperInvariant();
+
+        // SpecializedCodeFirstNamePlaceholder
+    }
+
+    private void HandleHostelChange(ChangeEventArgs changeEventArgs)
+    {
+        if (Student == null)
+        {
+            return;
+        }
+
+        if (changeEventArgs == null)
+        {
+            return;
+        }
+
+        if (changeEventArgs.Value == null)
+        {
+            return;
+        }
+
+        if (changeEventArgs.Value is string value && Guid.TryParse(value, out Guid selectedHostelId))
+        {
+            SelectedHostelId = selectedHostelId;
+            var selectedHostel = HostelList.FirstOrDefault(x => x.Id == SelectedHostelId);
+
+            if (selectedHostel != null)
+            {
+                Student.Hostel = selectedHostel;
+            }
+        }
+
+        // SpecializedCodeHostelPlaceholder
+    }
+
+    private void HandleLastNameChange(ChangeEventArgs changeEventArgs)
+    {
+        if (Student == null)
+        {
+            return;
+        }
+
+        if (changeEventArgs == null)
+        {
+            return;
+        }
+
+        if (changeEventArgs.Value == null)
+        {
+            return;
+        }
+
+        Student.NormalizedLastName = ((string)changeEventArgs.Value).ToUpperInvariant();
+
+        // SpecializedCodeLastNamePlaceholder
+    }
+
+    // HandleChangeCodePlaceholder
+}
